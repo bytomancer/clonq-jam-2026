@@ -1,37 +1,186 @@
 [gd_scene format=3 uid="uid://djbju7vgoibxg"]
 
 [ext_resource type="Texture2D" uid="uid://bo83xwhl0piwa" path="res://ass/knife.png" id="1_7rek1"]
-[ext_resource type="Script" uid="uid://daaq1gupwyw5q" path="res://src/knife.gd" id="1_a14j1"]
+[ext_resource type="Script" uid="uid://5aer6pvcghh5" path="res://src/dmg_num_display.gd" id="1_315pe"]
+[ext_resource type="Script" uid="uid://daaq1gupwyw5q" path="res://src/player.gd" id="1_a14j1"]
+[ext_resource type="FontFile" uid="uid://bi1vde25klsnc" path="res://ext/font_5x8.png" id="1_vnkvy"]
+[ext_resource type="Texture2D" uid="uid://d2b21gsxlgijn" path="res://ass/guy.png" id="2_4hsr3"]
+[ext_resource type="Script" uid="uid://bxp7sqnft8tfb" path="res://src/guy.gd" id="3_gyckk"]
+[ext_resource type="Script" uid="uid://rdjjjrlf0nyh" path="res://src/num_popup.gd" id="3_n2tm1"]
+[ext_resource type="Texture2D" uid="uid://da6imcjyjm71c" path="res://ass/bamboo.png" id="5_b6phj"]
+[ext_resource type="Script" uid="uid://hpehu6qjahdm" path="res://src/bamboo_wall.gd" id="5_nq6di"]
+[ext_resource type="Script" uid="uid://mv8rhrvfoh31" path="res://src/bird.gd" id="10_k3l4p"]
+[ext_resource type="Texture2D" uid="uid://nhewllnihmev" path="res://ass/bird.png" id="10_rqnb2"]
+[ext_resource type="Script" uid="uid://cds5d7nljlay3" path="res://src/do_not_rotate.gd" id="12_4r6w6"]
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_a14j1"]
-load_path = "res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex"
+[sub_resource type="LabelSettings" id="LabelSettings_4r6w6"]
+font = ExtResource("1_vnkvy")
+font_size = 8
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_a14j1"]
-bounce = 0.5
+friction = 0.0
+bounce = 1.0
 absorbent = true
 
-[sub_resource type="ConvexPolygonShape2D" id="ConvexPolygonShape2D_a14j1"]
-points = PackedVector2Array(-2, -4, 2, -4, 4, 4, 3, 22, -3, 27, -4, 4)
+[sub_resource type="CircleShape2D" id="CircleShape2D_4hsr3"]
+radius = 4.0
 
-[node name="Node2D" type="Node2D" unique_id=970221214]
+[sub_resource type="AtlasTexture" id="AtlasTexture_gyckk"]
+atlas = ExtResource("2_4hsr3")
+region = Rect2(24, 0, 8, 8)
 
-[node name="Knife" type="Node2D" parent="." unique_id=2107893400]
+[sub_resource type="AtlasTexture" id="AtlasTexture_b6phj"]
+atlas = ExtResource("2_4hsr3")
+region = Rect2(32, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nq6di"]
+atlas = ExtResource("2_4hsr3")
+region = Rect2(8, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vnkvy"]
+atlas = ExtResource("2_4hsr3")
+region = Rect2(16, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_315pe"]
+atlas = ExtResource("2_4hsr3")
+region = Rect2(0, 0, 8, 8)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_n2tm1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gyckk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b6phj")
+}],
+"loop": true,
+"name": &"fast",
+"speed": 15.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nq6di")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vnkvy")
+}],
+"loop": true,
+"name": &"slow",
+"speed": 15.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_315pe")
+}],
+"loop": true,
+"name": &"still",
+"speed": 5.0
+}]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_4hsr3"]
+normal = Vector2(0, 1)
+distance = 4.0
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_b6phj"]
+normal = Vector2(-1, 0)
+distance = 4.0
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_gyckk"]
+distance = 4.0
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_nq6di"]
+normal = Vector2(1, 0)
+distance = 4.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_x8hhd"]
+font = ExtResource("1_vnkvy")
+font_size = 8
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b6phj"]
+size = Vector2(6, 176)
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_k3l4p"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k3l4p"]
+atlas = ExtResource("10_rqnb2")
+region = Rect2(16, 0, 16, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4r6w6"]
+atlas = ExtResource("10_rqnb2")
+region = Rect2(32, 0, 16, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x8hhd"]
+atlas = ExtResource("10_rqnb2")
+region = Rect2(0, 0, 16, 8)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_x8hhd"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k3l4p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4r6w6")
+}],
+"loop": true,
+"name": &"alive",
+"speed": 15.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x8hhd")
+}],
+"loop": true,
+"name": &"dead",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rqnb2"]
+radius = 4.0
+height = 16.0
+
+[sub_resource type="Gradient" id="Gradient_k3l4p"]
+offsets = PackedFloat32Array(0.5049261, 1)
+colors = PackedColorArray(1, 0, 0, 1, 1, 0, 0, 0)
+
+[sub_resource type="LabelSettings" id="LabelSettings_altm0"]
+font = ExtResource("1_vnkvy")
+font_size = 8
+
+[node name="Main" type="Node2D" unique_id=970221214]
+metadata/_edit_horizontal_guides_ = [80.0]
+metadata/_edit_vertical_guides_ = [120.0]
+
+[node name="DmgNumDisplay" type="Node2D" parent="." unique_id=445000541]
+unique_name_in_owner = true
+z_index = 500
+script = ExtResource("1_315pe")
+
+[node name="NumPopup" type="Label" parent="DmgNumDisplay" unique_id=560909712]
+visible = false
+offset_left = 117.0
+offset_top = 93.0
+offset_right = 157.0
+offset_bottom = 116.0
+text = "1337"
+label_settings = SubResource("LabelSettings_4r6w6")
+script = ExtResource("3_n2tm1")
+
+[node name="Player" type="Node2D" parent="." unique_id=2107893400 node_paths=PackedStringArray("target")]
+position = Vector2(120, 80)
 script = ExtResource("1_a14j1")
+target = NodePath("Guy")
 
-[node name="MouseToBody" type="PinJoint2D" parent="Knife" unique_id=1426700511]
-node_a = NodePath("../Mouse")
-node_b = NodePath("../KnifeBody")
+[node name="GuyToKnife" type="PinJoint2D" parent="Player" unique_id=1426700511]
+node_a = NodePath("../Guy")
+node_b = NodePath("../Knife")
 bias = 0.9
 
-[node name="Mouse" type="CharacterBody2D" parent="Knife" unique_id=1560522781]
-motion_mode = 1
-
-[node name="Sprite2D" type="Sprite2D" parent="Knife/Mouse" unique_id=135828900]
-scale = Vector2(0.1, 0.1)
-texture = SubResource("CompressedTexture2D_a14j1")
-
-[node name="KnifeBody" type="RigidBody2D" parent="Knife" unique_id=904022651]
-mass = 2.0
+[node name="Knife" type="RigidBody2D" parent="Player" unique_id=904022651]
+collision_layer = 2
+collision_mask = 14
+mass = 3.0
 physics_material_override = SubResource("PhysicsMaterial_a14j1")
 gravity_scale = 50.0
 center_of_mass_mode = 1
@@ -39,9 +188,197 @@ center_of_mass = Vector2(0, 8)
 inertia = 50.0
 angular_damp = 20.0
 
-[node name="Sprite2D" type="Sprite2D" parent="Knife/KnifeBody" unique_id=846000229]
-position = Vector2(0, 11)
+[node name="Sprite2D" type="Sprite2D" parent="Player/Knife" unique_id=846000229]
+position = Vector2(0, 12)
 texture = ExtResource("1_7rek1")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Knife/KnifeBody" unique_id=530184408]
-shape = SubResource("ConvexPolygonShape2D_a14j1")
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Player/Knife" unique_id=1884664699]
+position = Vector2(0, 1)
+polygon = PackedVector2Array(-2, -4, 2, -4, 4, 4, 4, 26, -1, 21, -1, 4)
+
+[node name="Slicer" type="Area2D" parent="Player/Knife" unique_id=270759176]
+collision_layer = 0
+collision_mask = 256
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Player/Knife/Slicer" unique_id=1829480795]
+polygon = PackedVector2Array(-4, 5, -1, 5, -1, 22, 3, 26, 2, 28, -4, 23)
+
+[node name="DmgNumPt" type="Node2D" parent="Player/Knife" unique_id=656941214]
+unique_name_in_owner = true
+position = Vector2(-3, 23)
+
+[node name="Guy" type="CharacterBody2D" parent="Player" unique_id=1560522781]
+collision_layer = 513
+collision_mask = 517
+motion_mode = 1
+script = ExtResource("3_gyckk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player/Guy" unique_id=1019043596]
+shape = SubResource("CircleShape2D_4hsr3")
+
+[node name="Sprite" type="AnimatedSprite2D" parent="Player/Guy" unique_id=256338146]
+sprite_frames = SubResource("SpriteFrames_n2tm1")
+animation = &"slow"
+autoplay = "still"
+frame_progress = 0.4450117
+
+[node name="Border" type="Node2D" parent="." unique_id=193915287]
+
+[node name="N" type="StaticBody2D" parent="Border" unique_id=1340277994]
+position = Vector2(120, 0)
+collision_layer = 512
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Border/N" unique_id=1545291349]
+shape = SubResource("WorldBoundaryShape2D_4hsr3")
+
+[node name="E" type="StaticBody2D" parent="Border" unique_id=1159647618]
+position = Vector2(240, 80)
+collision_layer = 512
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Border/E" unique_id=993338622]
+shape = SubResource("WorldBoundaryShape2D_b6phj")
+
+[node name="S" type="StaticBody2D" parent="Border" unique_id=357246721]
+position = Vector2(120, 160)
+collision_layer = 512
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Border/S" unique_id=1469678499]
+shape = SubResource("WorldBoundaryShape2D_gyckk")
+
+[node name="W" type="StaticBody2D" parent="Border" unique_id=1776308552]
+position = Vector2(240, 80)
+collision_layer = 512
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Border/W" unique_id=1355336881]
+position = Vector2(-240, 0)
+shape = SubResource("WorldBoundaryShape2D_nq6di")
+
+[node name="BambooWall" type="StaticBody2D" parent="." unique_id=1977146568]
+position = Vector2(294, 0)
+collision_layer = 260
+collision_mask = 256
+script = ExtResource("5_nq6di")
+
+[node name="Tutorial" type="Label" parent="BambooWall" unique_id=913527411]
+offset_left = -44.0
+offset_top = 5.0
+offset_right = -4.0
+offset_bottom = 28.0
+text = "SLICE!->
+
+SLICE!->
+
+SLICE!->
+
+SLICE!->
+
+SLICE!->
+
+SLICE!->
+
+SLICE!->
+
+"
+label_settings = SubResource("LabelSettings_x8hhd")
+horizontal_alignment = 2
+
+[node name="Sprite1" type="Sprite2D" parent="BambooWall" unique_id=152845074]
+texture = ExtResource("5_b6phj")
+
+[node name="Sprite2" type="Sprite2D" parent="BambooWall" unique_id=33308259]
+position = Vector2(0, 16)
+texture = ExtResource("5_b6phj")
+
+[node name="Sprite3" type="Sprite2D" parent="BambooWall" unique_id=381586427]
+position = Vector2(0, 32)
+texture = ExtResource("5_b6phj")
+
+[node name="Sprite4" type="Sprite2D" parent="BambooWall" unique_id=518537758]
+position = Vector2(0, 48)
+texture = ExtResource("5_b6phj")
+
+[node name="Sprite5" type="Sprite2D" parent="BambooWall" unique_id=632679861]
+position = Vector2(0, 64)
+texture = ExtResource("5_b6phj")
+
+[node name="Sprite6" type="Sprite2D" parent="BambooWall" unique_id=25549289]
+position = Vector2(0, 80)
+texture = ExtResource("5_b6phj")
+
+[node name="Sprite7" type="Sprite2D" parent="BambooWall" unique_id=346196694]
+position = Vector2(0, 96)
+texture = ExtResource("5_b6phj")
+
+[node name="Sprite8" type="Sprite2D" parent="BambooWall" unique_id=1693978209]
+position = Vector2(0, 112)
+texture = ExtResource("5_b6phj")
+
+[node name="Sprite9" type="Sprite2D" parent="BambooWall" unique_id=858256407]
+position = Vector2(0, 128)
+texture = ExtResource("5_b6phj")
+
+[node name="Sprite10" type="Sprite2D" parent="BambooWall" unique_id=40091398]
+position = Vector2(0, 144)
+texture = ExtResource("5_b6phj")
+
+[node name="Sprite11" type="Sprite2D" parent="BambooWall" unique_id=874870667]
+position = Vector2(0, 160)
+texture = ExtResource("5_b6phj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BambooWall" unique_id=1289307932]
+position = Vector2(0, 80)
+shape = SubResource("RectangleShape2D_b6phj")
+
+[node name="Bird" type="RigidBody2D" parent="." unique_id=1291982621]
+position = Vector2(278, 63)
+collision_layer = 264
+collision_mask = 3
+mass = 0.5
+physics_material_override = SubResource("PhysicsMaterial_k3l4p")
+gravity_scale = 0.5
+inertia = 1.0
+script = ExtResource("10_k3l4p")
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Bird" unique_id=1791995298]
+remote_path = NodePath("../TutNode")
+update_rotation = false
+
+[node name="Sprite" type="AnimatedSprite2D" parent="Bird" unique_id=261727543]
+sprite_frames = SubResource("SpriteFrames_x8hhd")
+animation = &"dead"
+autoplay = "alive"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bird" unique_id=1364391786]
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_rqnb2")
+
+[node name="Poof" type="CPUParticles2D" parent="Bird" unique_id=1821257240]
+emitting = false
+amount = 30
+lifetime = 0.5
+one_shot = true
+spread = 180.0
+gravity = Vector2(0, 9)
+initial_velocity_min = 80.0
+initial_velocity_max = 150.0
+color_ramp = SubResource("Gradient_k3l4p")
+
+[node name="TutNode" type="Node2D" parent="Bird" unique_id=543640194]
+script = ExtResource("12_4r6w6")
+
+[node name="Tutorial" type="Label" parent="Bird/TutNode" unique_id=1431369660]
+offset_left = -56.0
+offset_top = -4.0
+offset_right = -11.0
+offset_bottom = 158.0
+pivot_offset = Vector2(45, 4)
+pivot_offset_ratio = Vector2(6, 0)
+text = "protect->"
+label_settings = SubResource("LabelSettings_altm0")
+horizontal_alignment = 2
+
+[connection signal="body_entered" from="Player/Knife/Slicer" to="Player" method="_on_slicer_body_entered"]

@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://d24goafu684ac"]
+
+[ext_resource type="FontFile" uid="uid://bi1vde25klsnc" path="res://ext/font_5x8.png" id="1_s6kwj"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_fm4cj"]
+font = ExtResource("1_s6kwj")
+
+[node name="Win" type="Node2D" unique_id=1403107356]
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1892973903]
+offset_right = 240.0
+offset_bottom = 160.0
+color = Color(0.18431373, 0.14117648, 0.2509804, 1)
+
+[node name="Label" type="Label" parent="." unique_id=285863995]
+offset_left = 73.0
+offset_top = 10.0
+offset_right = 113.0
+offset_bottom = 33.0
+rotation = 1.5707964
+text = "=D"
+label_settings = SubResource("LabelSettings_fm4cj")
