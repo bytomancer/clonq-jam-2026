@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://djbju7vgoibxg"]
+
+[ext_resource type="Texture2D" uid="uid://bo83xwhl0piwa" path="res://ass/knife.png" id="1_7rek1"]
+[ext_resource type="Script" uid="uid://daaq1gupwyw5q" path="res://src/knife.gd" id="1_a14j1"]
+
+[node name="Node2D" type="Node2D" unique_id=970221214]
+
+[node name="Knife" type="RigidBody2D" parent="." unique_id=2043827278]
+script = ExtResource("1_a14j1")
+
+[node name="Sprite2D" type="Sprite2D" parent="Knife" unique_id=846000229]
+position = Vector2(0, 11)
+texture = ExtResource("1_7rek1")
