@@ -15,6 +15,7 @@
           vscodium
           libresprite
           godot_4_6
+          zellij
         ];
       };
     };

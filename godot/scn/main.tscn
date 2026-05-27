@@ -3,19 +3,20 @@
 [ext_resource type="Texture2D" uid="uid://bo83xwhl0piwa" path="res://ass/knife.png" id="1_7rek1"]
 [ext_resource type="Script" uid="uid://5aer6pvcghh5" path="res://src/dmg_num_display.gd" id="1_315pe"]
 [ext_resource type="Script" uid="uid://daaq1gupwyw5q" path="res://src/player.gd" id="1_a14j1"]
-[ext_resource type="FontFile" uid="uid://bi1vde25klsnc" path="res://ext/font_5x8.png" id="1_vnkvy"]
 [ext_resource type="Texture2D" uid="uid://d2b21gsxlgijn" path="res://ass/guy.png" id="2_4hsr3"]
 [ext_resource type="Script" uid="uid://bxp7sqnft8tfb" path="res://src/guy.gd" id="3_gyckk"]
 [ext_resource type="Script" uid="uid://rdjjjrlf0nyh" path="res://src/num_popup.gd" id="3_n2tm1"]
 [ext_resource type="Texture2D" uid="uid://da6imcjyjm71c" path="res://ass/bamboo.png" id="5_b6phj"]
 [ext_resource type="Script" uid="uid://hpehu6qjahdm" path="res://src/bamboo_wall.gd" id="5_nq6di"]
+[ext_resource type="FontFile" uid="uid://b31j5cwv85pxv" path="res://ext/spleen/spleen-6x12.woff2" id="8_x8hhd"]
 [ext_resource type="Script" uid="uid://mv8rhrvfoh31" path="res://src/bird.gd" id="10_k3l4p"]
 [ext_resource type="Texture2D" uid="uid://nhewllnihmev" path="res://ass/bird.png" id="10_rqnb2"]
 [ext_resource type="Script" uid="uid://cds5d7nljlay3" path="res://src/do_not_rotate.gd" id="12_4r6w6"]
+[ext_resource type="FontFile" uid="uid://cu5o2a46e1b1h" path="res://ext/spleen/spleen-6x12.otf" id="12_x8hhd"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_4r6w6"]
-font = ExtResource("1_vnkvy")
-font_size = 8
+font = ExtResource("12_x8hhd")
+font_size = 12
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_a14j1"]
 friction = 0.0
@@ -94,8 +95,8 @@ normal = Vector2(1, 0)
 distance = 4.0
 
 [sub_resource type="LabelSettings" id="LabelSettings_x8hhd"]
-font = ExtResource("1_vnkvy")
-font_size = 8
+font = ExtResource("8_x8hhd")
+font_size = 12
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b6phj"]
 size = Vector2(6, 176)
@@ -145,8 +146,8 @@ offsets = PackedFloat32Array(0.5049261, 1)
 colors = PackedColorArray(1, 0, 0, 1, 1, 0, 0, 0)
 
 [sub_resource type="LabelSettings" id="LabelSettings_altm0"]
-font = ExtResource("1_vnkvy")
-font_size = 8
+font = ExtResource("12_x8hhd")
+font_size = 12
 
 [node name="Main" type="Node2D" unique_id=970221214]
 metadata/_edit_horizontal_guides_ = [80.0]
@@ -264,10 +265,10 @@ collision_mask = 256
 script = ExtResource("5_nq6di")
 
 [node name="Tutorial" type="Label" parent="BambooWall" unique_id=913527411]
-offset_left = -44.0
-offset_top = 5.0
+offset_left = -52.0
+offset_top = 12.0
 offset_right = -4.0
-offset_bottom = 28.0
+offset_bottom = 234.0
 text = "SLICE!->
 
 SLICE!->
@@ -276,13 +277,7 @@ SLICE!->
 
 SLICE!->
 
-SLICE!->
-
-SLICE!->
-
-SLICE!->
-
-"
+SLICE!->"
 label_settings = SubResource("LabelSettings_x8hhd")
 horizontal_alignment = 2
 
@@ -371,10 +366,10 @@ color_ramp = SubResource("Gradient_k3l4p")
 script = ExtResource("12_4r6w6")
 
 [node name="Tutorial" type="Label" parent="Bird/TutNode" unique_id=1431369660]
-offset_left = -56.0
-offset_top = -4.0
-offset_right = -11.0
-offset_bottom = 158.0
+offset_left = -62.0
+offset_top = -5.0
+offset_right = -8.0
+offset_bottom = 157.0
 pivot_offset = Vector2(45, 4)
 pivot_offset_ratio = Vector2(6, 0)
 text = "protect->"
