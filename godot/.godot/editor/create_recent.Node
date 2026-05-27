@@ -1,3 +1,7 @@
-RigidBody2D
+CharacterBody2D
+PinJoint2D
 Sprite2D
+RigidBody2D
+DampedSpringJoint2D
+CollisionShape2D
 Node2D

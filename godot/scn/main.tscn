@@ -3,11 +3,45 @@
 [ext_resource type="Texture2D" uid="uid://bo83xwhl0piwa" path="res://ass/knife.png" id="1_7rek1"]
 [ext_resource type="Script" uid="uid://daaq1gupwyw5q" path="res://src/knife.gd" id="1_a14j1"]
 
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_a14j1"]
+load_path = "res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex"
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_a14j1"]
+bounce = 0.5
+absorbent = true
+
+[sub_resource type="ConvexPolygonShape2D" id="ConvexPolygonShape2D_a14j1"]
+points = PackedVector2Array(-2, -4, 2, -4, 4, 4, 3, 22, -3, 27, -4, 4)
+
 [node name="Node2D" type="Node2D" unique_id=970221214]
 
-[node name="Knife" type="RigidBody2D" parent="." unique_id=2043827278]
+[node name="Knife" type="Node2D" parent="." unique_id=2107893400]
 script = ExtResource("1_a14j1")
 
-[node name="Sprite2D" type="Sprite2D" parent="Knife" unique_id=846000229]
+[node name="MouseToBody" type="PinJoint2D" parent="Knife" unique_id=1426700511]
+node_a = NodePath("../Mouse")
+node_b = NodePath("../KnifeBody")
+bias = 0.9
+
+[node name="Mouse" type="CharacterBody2D" parent="Knife" unique_id=1560522781]
+motion_mode = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="Knife/Mouse" unique_id=135828900]
+scale = Vector2(0.1, 0.1)
+texture = SubResource("CompressedTexture2D_a14j1")
+
+[node name="KnifeBody" type="RigidBody2D" parent="Knife" unique_id=904022651]
+mass = 2.0
+physics_material_override = SubResource("PhysicsMaterial_a14j1")
+gravity_scale = 50.0
+center_of_mass_mode = 1
+center_of_mass = Vector2(0, 8)
+inertia = 50.0
+angular_damp = 20.0
+
+[node name="Sprite2D" type="Sprite2D" parent="Knife/KnifeBody" unique_id=846000229]
 position = Vector2(0, 11)
 texture = ExtResource("1_7rek1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Knife/KnifeBody" unique_id=530184408]
+shape = SubResource("ConvexPolygonShape2D_a14j1")

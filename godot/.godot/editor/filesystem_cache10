@@ -1,7 +1,9 @@
 63f7b34db8d8cdea90c76aacccf841ec
-::res://::1779839595
-icon.svg::CompressedTexture2D::6015413870077712922::1779839165::1779839168::1::::<><><>0<>0<>69717e826be359e82321968a3b8c7b03<>res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex::
-::res://ass/::1779839668
-knife.png::CompressedTexture2D::3438931276427932340::1779839668::1779839672::1::::<><><>0<>0<>24ee6ce951e6d8381ef44021f5e87f17<>res://.godot/imported/knife.png-c307a729e75cb985fdc1343363187b38.ctex::
-::res://scn/::1779839291
-main.tscn::PackedScene::7793609903868385464::1779839291::0::1::::<><><>0<>0<><>::
+::res://::1779857491
+icon.svg::CompressedTexture2D::6015413870077712922::1779853500::1779853500::1::::<><><>0<>0<>69717e826be359e82321968a3b8c7b03<>res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex::
+::res://ass/::1779856601
+knife.png::CompressedTexture2D::3438931276427932340::1779856599::1779856601::1::::<><><>0<>0<>24ee6ce951e6d8381ef44021f5e87f17<>res://.godot/imported/knife.png-c307a729e75cb985fdc1343363187b38.ctex::
+::res://scn/::1779857444
+main.tscn::PackedScene::7793609903868385464::1779857444::0::1::::<><><>0<>0<><>::uid://bo83xwhl0piwa::::res://ass/knife.png<>uid://daaq1gupwyw5q::::res://src/knife.gd
+::res://src/::1779856210
+knife.gd::GDScript::7160280300353183588::1779856210::0::1::::<>Node2D<><>0<>0<><>::
