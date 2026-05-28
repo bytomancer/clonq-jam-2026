@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://cqirmukoriggx"]
 
+[ext_resource type="Script" uid="uid://b7qhrdcs55tnk" path="res://src/autorestart.gd" id="1_fm4cj"]
 [ext_resource type="FontFile" uid="uid://cu5o2a46e1b1h" path="res://ext/spleen/spleen-6x12.otf" id="1_unsuc"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_fm4cj"]
@@ -7,6 +8,7 @@ font = ExtResource("1_unsuc")
 font_size = 12
 
 [node name="Lose" type="Node2D" unique_id=1403107356]
+script = ExtResource("1_fm4cj")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1892973903]
 offset_right = 240.0

@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://d24goafu684ac"]
 
+[ext_resource type="Script" uid="uid://b7qhrdcs55tnk" path="res://src/autorestart.gd" id="1_dfdip"]
 [ext_resource type="FontFile" uid="uid://b31j5cwv85pxv" path="res://ext/spleen/spleen-6x12.woff2" id="1_s6kwj"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_fm4cj"]
@@ -7,6 +8,7 @@ font = ExtResource("1_s6kwj")
 font_size = 12
 
 [node name="Win" type="Node2D" unique_id=1403107356]
+script = ExtResource("1_dfdip")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1892973903]
 offset_right = 240.0

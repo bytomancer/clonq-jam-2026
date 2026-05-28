@@ -1,5 +1,7 @@
-res://src/powerup.gd
 res://scn/main.tscn
-res://src/player.gd
 res://src/main.gd
-res://fab/powerup.tscn
+res://scn/pre.tscn
+res://src/pre.gd
+res://scn/lose.tscn
+res://src/autorestart.gd
+res://scn/win.tscn

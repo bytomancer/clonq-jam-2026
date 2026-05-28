@@ -1,0 +1,80 @@
+<html>
+
+<head>
+    <title>Clonq GameJam 2026 Test</title>
+    <meta charset="UTF-8">
+</head>
+
+<body>
+    <form>
+        <label>Difficulty</label>
+        <input type="range" min="0" max="255" value="0" class="slider" id="diff" onchange="updateDiff()">
+        <label id="diffPrev">0</label>
+
+        <button type="button" onclick="beginActualGame()">GO!</button>
+    </form>
+
+    <section class="canvas-container">
+        <canvas id="canvas" width="240" height="160"></canvas>
+    </section>
+</body>
+
+</html>
+
+<script src="$GODOT_URL"></script>
+
+<script>
+    window.lcolonqJamStart = -1.0
+    var engine = new Engine($GODOT_CONFIG);
+    engine.startGame();
+    function beginActualGame() {
+        let diff = document.getElementById("diff").value;
+        window.lcolonqJamStart = diff
+    }
+    function updateDiff() {
+        let diff = document.getElementById("diff").value;
+        let field = document.getElementById("diffPrev");
+        field.innerText = diff
+    }
+</script>
+
+<style>
+    html,
+    body {
+        margin: 0;
+        height: 100%;
+        overflow: hidden;
+    }
+
+    body {
+        display: flex;
+        flex-direction: column;
+        height: 100vh;
+    }
+
+    .slider {
+        width: 50%;
+    }
+
+    .canvas-container {
+        flex: 1;
+        min-height: 0;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        overflow: hidden;
+    }
+
+    canvas {
+        display: block;
+
+        width: 100%;
+        height: 100%;
+
+        object-fit: contain;
+
+        image-rendering: pixelated;
+    }
+</style>
