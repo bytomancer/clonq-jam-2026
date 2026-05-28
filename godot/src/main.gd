@@ -4,8 +4,10 @@ const MAX_DIFF = 200
 const MIN_DIFF = 0
 const GAME_TIME_SOFT_LIMIT = 45.0
 
-@export
 var difficulty = 0.0
+
+@export
+var starting_diff = 0
 
 # 0 diff: 1 bamboo every 8-12s base 8 rand to +4
 # 200 diff: 1 bamboo every 2-4s base 2 rand to +2
@@ -28,7 +30,7 @@ var arrow_fab = preload("res://fab/arrow.tscn")
 var final_bam = false
 
 func _ready() -> void:
-	self.set_difficulty(300)
+	self.set_difficulty(starting_diff)
 	self.reset_bam_timer(false)
 	# self.reset_obj_timer(false)
 	next_obj_timer = 2.0
@@ -82,7 +84,9 @@ func spawn_bam(stronger = false):
 	bamboo.disable_tutorial()
 	bamboo.global_position = Vector2(299.0, 0.0)
 	if stronger:
-		bamboo.hp *= 3.0
+		bamboo.hp *= 2.0
+	var speed_mod = 1.0 + difficulty
+	bamboo.speed *= speed_mod
 	%BambooHolder.add_child(bamboo)
 
 func reset_obj_timer(perf_spawn = true) -> void:

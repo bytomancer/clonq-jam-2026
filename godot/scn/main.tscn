@@ -68,7 +68,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"slow",
-"speed": 15.0
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -160,7 +160,7 @@ animations = [{
 
 [node name="Main" type="Node2D" unique_id=970221214]
 script = ExtResource("1_xs02v")
-difficulty = null
+starting_diff = 300
 metadata/_edit_horizontal_guides_ = [80.0]
 metadata/_edit_vertical_guides_ = [120.0]
 
@@ -214,7 +214,7 @@ collision_layer = 0
 collision_mask = 256
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Player/Knife/Slicer" unique_id=1829480795]
-polygon = PackedVector2Array(-4, 5, -1, 5, -1, 22, 3, 26, 2, 28, -4, 23)
+polygon = PackedVector2Array(-4, 5, -1, 5, -1, 22, 3, 26, -1, 26, -4, 23)
 
 [node name="DmgNumPt" type="Node2D" parent="Player/Knife" unique_id=656941214]
 unique_name_in_owner = true
@@ -231,9 +231,9 @@ shape = SubResource("CircleShape2D_4hsr3")
 
 [node name="Sprite" type="AnimatedSprite2D" parent="Player/Guy" unique_id=256338146]
 sprite_frames = SubResource("SpriteFrames_n2tm1")
-animation = &"slow"
+animation = &"still"
 autoplay = "still"
-frame_progress = 0.4450117
+frame_progress = 0.80522037
 
 [node name="Border" type="Node2D" parent="." unique_id=193915287]
 
