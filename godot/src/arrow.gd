@@ -75,7 +75,8 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.name == "Knife":
 		kill_self()
 	elif body.name == "Guy":
-		body.damage(damage_value)
+		%Player.reduce_hearts()
+		# body.damage(damage_value)
 	elif body.name == "Bird":
 		body.damage(damage_value)
 

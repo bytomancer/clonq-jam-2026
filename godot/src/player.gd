@@ -19,8 +19,20 @@ func _process(delta: float) -> void:
 	target.move_and_slide()
 	previous_knife_ang_vel = $Knife.angular_velocity
 
+func _input(_event: InputEvent) -> void:
+	if Input.is_action_just_released("ui_accept"):
+		reduce_hearts()
+
 func _on_slicer_body_entered(body: Node2D) -> void:
 	var knife_speed = abs(previous_knife_ang_vel)
 	var dmg = knife_speed * damage_multiplier
 	print(dmg)
 	body.damage(dmg)
+
+func reduce_hearts() -> void:
+	var h = %HUD/HeartGrid.get_child(1)
+	if h == null:
+		get_tree().change_scene_to_file("res://scn/lose.tscn")
+	else:
+		h.hide()
+		h.queue_free()

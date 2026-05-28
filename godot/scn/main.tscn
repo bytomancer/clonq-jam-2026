@@ -16,6 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://dhrcw708lt8q5" path="res://ass/arrow.png" id="14_altm0"]
 [ext_resource type="Script" uid="uid://yfbybpnqo1c6" path="res://src/arrow.gd" id="14_wc0fe"]
 [ext_resource type="Texture2D" uid="uid://ed27ou2ans37" path="res://ass/heart.png" id="16_qy7k8"]
+[ext_resource type="Texture2D" uid="uid://c3wm3se5ovxi0" path="res://ass/1heart.png" id="16_vwxr4"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_4r6w6"]
 font = ExtResource("12_x8hhd")
@@ -212,6 +213,70 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qy7k8"]
 size = Vector2(11, 5)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_xs02v"]
+atlas = ExtResource("16_qy7k8")
+region = Rect2(0, 0, 8, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nhm61"]
+atlas = ExtResource("16_qy7k8")
+region = Rect2(8, 0, 8, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6d0je"]
+atlas = ExtResource("16_qy7k8")
+region = Rect2(16, 0, 8, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_inono"]
+atlas = ExtResource("16_qy7k8")
+region = Rect2(24, 0, 8, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hn8gl"]
+atlas = ExtResource("16_qy7k8")
+region = Rect2(32, 0, 8, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m1xow"]
+atlas = ExtResource("16_qy7k8")
+region = Rect2(40, 0, 8, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sywa5"]
+atlas = ExtResource("16_qy7k8")
+region = Rect2(48, 0, 8, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rgggd"]
+atlas = ExtResource("16_qy7k8")
+region = Rect2(56, 0, 8, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6ecc7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xs02v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nhm61")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6d0je")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_inono")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hn8gl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m1xow")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sywa5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rgggd")
+}],
+"loop": false,
+"name": &"default",
+"speed": 10.0
+}]
+
 [node name="Main" type="Node2D" unique_id=970221214]
 metadata/_edit_horizontal_guides_ = [80.0]
 metadata/_edit_vertical_guides_ = [120.0]
@@ -232,6 +297,7 @@ label_settings = SubResource("LabelSettings_4r6w6")
 script = ExtResource("3_n2tm1")
 
 [node name="Player" type="Node2D" parent="." unique_id=2107893400 node_paths=PackedStringArray("target")]
+unique_name_in_owner = true
 position = Vector2(120, 80)
 script = ExtResource("1_a14j1")
 target = NodePath("Guy")
@@ -498,37 +564,46 @@ collision_mask = 1035
 position = Vector2(-8, -1)
 polygon = PackedVector2Array(0, 0, 4, -3, 4, 4, 0, 1)
 
-[node name="Control" type="Control" parent="." unique_id=1037340713]
+[node name="HUD" type="Control" parent="." unique_id=1037340713]
+unique_name_in_owner = true
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="GridContainer" type="GridContainer" parent="Control" unique_id=1667549220]
+[node name="HeartGrid" type="GridContainer" parent="HUD" unique_id=1667549220]
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 columns = 5
 
-[node name="Heart1" type="TextureRect" parent="Control/GridContainer" unique_id=1250109858]
+[node name="Heart1" type="TextureRect" parent="HUD/HeartGrid" unique_id=1250109858]
 layout_mode = 2
-texture = ExtResource("16_qy7k8")
+texture = ExtResource("16_vwxr4")
 
-[node name="Heart2" type="TextureRect" parent="Control/GridContainer" unique_id=1171059420]
+[node name="Heart2" type="TextureRect" parent="HUD/HeartGrid" unique_id=1949707180]
 layout_mode = 2
-texture = ExtResource("16_qy7k8")
+texture = ExtResource("16_vwxr4")
 
-[node name="Heart3" type="TextureRect" parent="Control/GridContainer" unique_id=426139715]
+[node name="Heart3" type="TextureRect" parent="HUD/HeartGrid" unique_id=1807815282]
 layout_mode = 2
-texture = ExtResource("16_qy7k8")
+texture = ExtResource("16_vwxr4")
 
-[node name="Heart4" type="TextureRect" parent="Control/GridContainer" unique_id=6858817]
+[node name="Heart4" type="TextureRect" parent="HUD/HeartGrid" unique_id=322716797]
 layout_mode = 2
-texture = ExtResource("16_qy7k8")
+texture = ExtResource("16_vwxr4")
 
-[node name="Heart5" type="TextureRect" parent="Control/GridContainer" unique_id=1985826166]
+[node name="Heart5" type="TextureRect" parent="HUD/HeartGrid" unique_id=1348082027]
 layout_mode = 2
-texture = ExtResource("16_qy7k8")
+texture = ExtResource("16_vwxr4")
+
+[node name="DeadHeartAnim" type="AnimatedSprite2D" parent="HUD" unique_id=1671506272]
+visible = false
+position = Vector2(52, 8)
+sprite_frames = SubResource("SpriteFrames_6ecc7")
+autoplay = "default"
+frame = 7
+frame_progress = 1.0
 
 [connection signal="body_entered" from="Player/Knife/Slicer" to="Player" method="_on_slicer_body_entered"]
 [connection signal="body_entered" from="Arrow/Tip" to="Arrow" method="_on_area_2d_body_entered"]
