@@ -1,0 +1,50 @@
+[gd_scene format=3 uid="uid://b1ys5mywg1ejp"]
+
+[ext_resource type="Script" uid="uid://bpcrclbjktjli" path="res://src/powerup.gd" id="1_a1c17"]
+[ext_resource type="Texture2D" uid="uid://d31r8n6vmwxwo" path="res://ass/powerup.png" id="2_y4uq4"]
+[ext_resource type="FontFile" uid="uid://cu5o2a46e1b1h" path="res://ext/spleen/spleen-6x12.otf" id="3_hlxdn"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wc0fe"]
+atlas = ExtResource("2_y4uq4")
+region = Rect2(0, 0, 8, 8)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qy7k8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wc0fe")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_altm0"]
+radius = 3.0
+height = 10.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_altm0"]
+font = ExtResource("3_hlxdn")
+font_size = 12
+
+[node name="Powerup" type="Area2D" unique_id=140198743]
+collision_layer = 0
+script = ExtResource("1_a1c17")
+speed = 50.0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2135930499]
+sprite_frames = SubResource("SpriteFrames_qy7k8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=417182737]
+shape = SubResource("CapsuleShape2D_altm0")
+
+[node name="Tutorial" type="Label" parent="." unique_id=403964446]
+offset_left = -45.0
+offset_top = -5.0
+offset_right = -3.0
+offset_bottom = 18.0
+text = "touch->"
+label_settings = SubResource("LabelSettings_altm0")
+horizontal_alignment = 2
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

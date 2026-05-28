@@ -26,6 +26,7 @@ var total_time_played = 0.0
 var bam_fab = preload("res://fab/bamboo_wall.tscn")
 var bird_fab = preload("res://fab/bird.tscn")
 var arrow_fab = preload("res://fab/arrow.tscn")
+var pup_fab = preload("res://fab/powerup.tscn")
 
 var final_bam = false
 
@@ -108,7 +109,8 @@ func spawn_obj():
 		obj = arrow_fab.instantiate()
 	obj.disable_tutorial()
 	
-	var rand_height = randf_range(8.0, 160 - 8.0)
+	var margin = 8.0
+	var rand_height = randf_range(margin, 160 - margin)
 	obj.global_position = Vector2(299.0, rand_height)
 	%ObjectHolder.add_child(obj)
 
@@ -116,7 +118,17 @@ func reset_pup_timer(perf_spawn = true) -> void:
 	if total_time_played > GAME_TIME_SOFT_LIMIT:
 		return
 	if perf_spawn:
-		print("PUP TIME")
+		spawn_pup()
 	var rand_bonus = lerpf(7.0, 3.0, difficulty)
 	var rand_base = lerpf(8.0, 12.0, difficulty)
 	next_pup_timer = randf() * rand_bonus + rand_base
+
+func spawn_pup():
+	print("PUP TIME")
+	var pup = pup_fab.instantiate()
+	pup.disable_tutorial()
+	
+	var margin = 16.0
+	var rand_height = randf_range(margin, 160 - margin)
+	pup.global_position = Vector2(299.0, rand_height)
+	%ObjectHolder.add_child(pup)

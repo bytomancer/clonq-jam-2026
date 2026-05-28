@@ -11,6 +11,9 @@ var damage_multiplier = 1.0
 
 var previous_knife_ang_vel = 0.0
 
+func disable_tutorial() -> void:
+	$Tutorial.hide()
+
 func _process(delta: float) -> void:
 	var diff: Vector2 = get_global_mouse_position() - target.global_position
 	if diff.length() > player_speed * delta:
@@ -28,6 +31,9 @@ func _on_slicer_body_entered(body: Node2D) -> void:
 	var dmg = knife_speed * damage_multiplier
 	print(dmg)
 	body.damage(dmg)
+
+func powerup() -> void:
+	damage_multiplier += 1.0
 
 func reduce_hearts() -> void:
 	var h = %HUD/HeartGrid.get_child(1)
