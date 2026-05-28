@@ -1,0 +1,101 @@
+[gd_scene format=3 uid="uid://dfx804jmbalr1"]
+
+[ext_resource type="Script" uid="uid://mv8rhrvfoh31" path="res://src/bird.gd" id="1_3tika"]
+[ext_resource type="Script" uid="uid://cds5d7nljlay3" path="res://src/do_not_rotate.gd" id="2_jf8hm"]
+[ext_resource type="FontFile" uid="uid://cu5o2a46e1b1h" path="res://ext/spleen/spleen-6x12.otf" id="3_1nruv"]
+[ext_resource type="Texture2D" uid="uid://nhewllnihmev" path="res://ass/bird.png" id="4_7yt3d"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_k3l4p"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_altm0"]
+font = ExtResource("3_1nruv")
+font_size = 12
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k3l4p"]
+atlas = ExtResource("4_7yt3d")
+region = Rect2(16, 0, 16, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4r6w6"]
+atlas = ExtResource("4_7yt3d")
+region = Rect2(32, 0, 16, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x8hhd"]
+atlas = ExtResource("4_7yt3d")
+region = Rect2(0, 0, 16, 8)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_x8hhd"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k3l4p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4r6w6")
+}],
+"loop": true,
+"name": &"alive",
+"speed": 15.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x8hhd")
+}],
+"loop": true,
+"name": &"dead",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rqnb2"]
+radius = 4.0
+height = 16.0
+
+[sub_resource type="Gradient" id="Gradient_k3l4p"]
+offsets = PackedFloat32Array(0.5049261, 1)
+colors = PackedColorArray(1, 0, 0, 1, 1, 0, 0, 0)
+
+[node name="Bird" type="RigidBody2D" unique_id=66656583]
+collision_layer = 1288
+collision_mask = 3
+mass = 0.5
+physics_material_override = SubResource("PhysicsMaterial_k3l4p")
+gravity_scale = 0.5
+inertia = 1.0
+script = ExtResource("1_3tika")
+
+[node name="TutNode" type="Node2D" parent="." unique_id=2076174723]
+script = ExtResource("2_jf8hm")
+
+[node name="Tutorial" type="Label" parent="TutNode" unique_id=1475377033]
+offset_left = -62.0
+offset_top = -5.0
+offset_right = -8.0
+offset_bottom = 157.0
+pivot_offset = Vector2(45, 4)
+pivot_offset_ratio = Vector2(6, 0)
+text = "protect->"
+label_settings = SubResource("LabelSettings_altm0")
+horizontal_alignment = 2
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="." unique_id=111840469]
+remote_path = NodePath("../TutNode")
+update_rotation = false
+
+[node name="Sprite" type="AnimatedSprite2D" parent="." unique_id=793949604]
+sprite_frames = SubResource("SpriteFrames_x8hhd")
+animation = &"dead"
+autoplay = "alive"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=573834975]
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_rqnb2")
+
+[node name="Poof" type="CPUParticles2D" parent="." unique_id=47926320]
+emitting = false
+amount = 30
+lifetime = 0.5
+one_shot = true
+spread = 180.0
+gravity = Vector2(0, 9)
+initial_velocity_min = 80.0
+initial_velocity_max = 150.0
+color_ramp = SubResource("Gradient_k3l4p")

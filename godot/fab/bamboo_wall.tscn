@@ -1,0 +1,81 @@
+[gd_scene format=3 uid="uid://c55l0d7js711y"]
+
+[ext_resource type="Script" uid="uid://hpehu6qjahdm" path="res://src/bamboo_wall.gd" id="1_0iyja"]
+[ext_resource type="FontFile" uid="uid://b31j5cwv85pxv" path="res://ext/spleen/spleen-6x12.woff2" id="2_nj1a1"]
+[ext_resource type="Texture2D" uid="uid://da6imcjyjm71c" path="res://ass/bamboo.png" id="3_tb4re"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_x8hhd"]
+font = ExtResource("2_nj1a1")
+font_size = 12
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b6phj"]
+size = Vector2(6, 176)
+
+[node name="BambooWall" type="StaticBody2D" unique_id=2025182041]
+collision_layer = 260
+collision_mask = 256
+script = ExtResource("1_0iyja")
+
+[node name="Tutorial" type="Label" parent="." unique_id=376961292]
+offset_left = -52.0
+offset_top = 12.0
+offset_right = -4.0
+offset_bottom = 234.0
+text = "SLICE!->
+
+SLICE!->
+
+SLICE!->
+
+SLICE!->
+
+SLICE!->"
+label_settings = SubResource("LabelSettings_x8hhd")
+horizontal_alignment = 2
+
+[node name="Sprite1" type="Sprite2D" parent="." unique_id=2046307924]
+texture = ExtResource("3_tb4re")
+
+[node name="Sprite2" type="Sprite2D" parent="." unique_id=1413461175]
+position = Vector2(0, 16)
+texture = ExtResource("3_tb4re")
+
+[node name="Sprite3" type="Sprite2D" parent="." unique_id=1585286946]
+position = Vector2(0, 32)
+texture = ExtResource("3_tb4re")
+
+[node name="Sprite4" type="Sprite2D" parent="." unique_id=251622058]
+position = Vector2(0, 48)
+texture = ExtResource("3_tb4re")
+
+[node name="Sprite5" type="Sprite2D" parent="." unique_id=1713997085]
+position = Vector2(0, 64)
+texture = ExtResource("3_tb4re")
+
+[node name="Sprite6" type="Sprite2D" parent="." unique_id=2004233282]
+position = Vector2(0, 80)
+texture = ExtResource("3_tb4re")
+
+[node name="Sprite7" type="Sprite2D" parent="." unique_id=373293427]
+position = Vector2(0, 96)
+texture = ExtResource("3_tb4re")
+
+[node name="Sprite8" type="Sprite2D" parent="." unique_id=1860905033]
+position = Vector2(0, 112)
+texture = ExtResource("3_tb4re")
+
+[node name="Sprite9" type="Sprite2D" parent="." unique_id=1194770256]
+position = Vector2(0, 128)
+texture = ExtResource("3_tb4re")
+
+[node name="Sprite10" type="Sprite2D" parent="." unique_id=1892689293]
+position = Vector2(0, 144)
+texture = ExtResource("3_tb4re")
+
+[node name="Sprite11" type="Sprite2D" parent="." unique_id=1071754735]
+position = Vector2(0, 160)
+texture = ExtResource("3_tb4re")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=510810304]
+position = Vector2(0, 80)
+shape = SubResource("RectangleShape2D_b6phj")

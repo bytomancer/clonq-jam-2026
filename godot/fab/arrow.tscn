@@ -1,0 +1,125 @@
+[gd_scene format=3 uid="uid://dj3k8g3snuggu"]
+
+[ext_resource type="Script" uid="uid://yfbybpnqo1c6" path="res://src/arrow.gd" id="1_0f27e"]
+[ext_resource type="FontFile" uid="uid://cu5o2a46e1b1h" path="res://ext/spleen/spleen-6x12.otf" id="2_ornea"]
+[ext_resource type="Texture2D" uid="uid://dhrcw708lt8q5" path="res://ass/arrow.png" id="3_fmpqv"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_wc0fe"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_wc0fe"]
+font = ExtResource("2_ornea")
+font_size = 12
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wc0fe"]
+size = Vector2(11, 5)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vwxr4"]
+atlas = ExtResource("3_fmpqv")
+region = Rect2(0, 0, 16, 8)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_nhm61"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vwxr4")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qy7k8"]
+atlas = ExtResource("3_fmpqv")
+region = Rect2(16, 0, 16, 8)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xs02v"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qy7k8")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_wc0fe"]
+radius = 4.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wc0fe"]
+atlas = ExtResource("3_fmpqv")
+region = Rect2(32, 0, 16, 8)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vwxr4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wc0fe")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qy7k8"]
+size = Vector2(11, 5)
+
+[node name="Arrow" type="RigidBody2D" unique_id=226876867]
+collision_layer = 16
+collision_mask = 11
+physics_material_override = SubResource("PhysicsMaterial_wc0fe")
+script = ExtResource("1_0f27e")
+
+[node name="Tutorial" type="Label" parent="." unique_id=818923203]
+offset_left = -62.0
+offset_top = -5.0
+offset_right = -8.0
+offset_bottom = 157.0
+pivot_offset = Vector2(45, 4)
+pivot_offset_ratio = Vector2(6, 0)
+text = "DODGE!->"
+label_settings = SubResource("LabelSettings_wc0fe")
+horizontal_alignment = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1853729423]
+position = Vector2(2.5, -0.5)
+shape = SubResource("RectangleShape2D_wc0fe")
+
+[node name="Sprite" type="AnimatedSprite2D" parent="." unique_id=943185034]
+sprite_frames = SubResource("SpriteFrames_nhm61")
+
+[node name="DeadArrowTip" type="RigidBody2D" parent="." unique_id=2121209692]
+process_mode = 4
+visible = false
+collision_layer = 0
+collision_mask = 255
+
+[node name="Sprite" type="AnimatedSprite2D" parent="DeadArrowTip" unique_id=452815463]
+sprite_frames = SubResource("SpriteFrames_xs02v")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DeadArrowTip" unique_id=1233202653]
+position = Vector2(-4, 0)
+shape = SubResource("CircleShape2D_wc0fe")
+
+[node name="DeadArrowShaft" type="RigidBody2D" parent="." unique_id=1653246808]
+process_mode = 4
+visible = false
+collision_layer = 0
+collision_mask = 255
+
+[node name="Sprite" type="AnimatedSprite2D" parent="DeadArrowShaft" unique_id=1474144179]
+sprite_frames = SubResource("SpriteFrames_vwxr4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DeadArrowShaft" unique_id=792034684]
+position = Vector2(2.5, -0.5)
+shape = SubResource("RectangleShape2D_qy7k8")
+
+[node name="Tip" type="Area2D" parent="." unique_id=1480899359]
+collision_layer = 0
+collision_mask = 1035
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Tip" unique_id=1636780865]
+position = Vector2(-8, -1)
+polygon = PackedVector2Array(0, 0, 4, -3, 4, 4, 0, 1)
+
+[connection signal="body_entered" from="Tip" to="." method="_on_area_2d_body_entered"]

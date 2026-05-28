@@ -6,17 +6,27 @@ var speed = 80.0
 @export
 var hp = 0.0001
 
+var dmg_display
+
+func _enter_tree() -> void:
+	self.dmg_display = get_node("/root/Main/DmgNumDisplay")
+
+func disable_tutorial() -> void:
+	$TutNode.hide()
+
 func damage(dmg: float) -> void:
 	if self.hp <= 0.0:
 		return
-	%DmgNumDisplay.add_number(dmg, Color(1,0,0))
-	self.hp -= dmg
-	if self.hp <= 0.0:
-		$Sprite.animation = "dead"
-		$Poof.restart()
-		self.gravity_scale *= 5.0
-		$TutNode/Tutorial.text = "=("
-		$TutNode/Tutorial.label_settings.font_color = Color(1,0,0)
+	dmg_display.add_number(dmg, Color(1, 0, 0))
+	kill_self()
+
+func kill_self() -> void:
+	get_node("/root/Main/Player").reduce_hearts()
+	$Sprite.animation = "dead"
+	$Poof.restart()
+	self.gravity_scale *= 5.0
+	$TutNode/Tutorial.text = "=("
+	$TutNode/Tutorial.label_settings.font_color = Color(1, 0, 0)
 
 func _process(_delta: float) -> void:
 	if self.global_position.x < -100 or self.global_position.x > get_viewport_rect().size.x + 100 or self.global_position.y < -100 or self.global_position.y > get_viewport_rect().size.y + 100:

@@ -21,11 +21,18 @@ var next_pup_timer = 0.0
 
 var total_time_played = 0.0
 
+var bam_fab = preload("res://fab/bamboo_wall.tscn")
+var bird_fab = preload("res://fab/bird.tscn")
+var arrow_fab = preload("res://fab/arrow.tscn")
+
+var final_bam = false
+
 func _ready() -> void:
 	self.set_difficulty(300)
-	self.reset_bam_timer()
-	self.reset_obj_timer()
-	self.reset_pup_timer()
+	self.reset_bam_timer(false)
+	# self.reset_obj_timer(false)
+	next_obj_timer = 2.0
+	self.reset_pup_timer(false)
 	total_time_played = 0.0
 
 func set_difficulty(diff) -> void:
@@ -51,30 +58,61 @@ func _process(delta: float) -> void:
 	if next_pup_timer <= 0.0:
 		reset_pup_timer()
 	
-	if total_time_played > GAME_TIME_SOFT_LIMIT and next_bam_timer <= 0 and next_obj_timer <= 0 and next_pup_timer <= 0:
-		if %BambooHolder.get_child_count() == 0:
-			get_tree().change_scene_to_file("res://scn/win.tscn")
+	if total_time_played > GAME_TIME_SOFT_LIMIT:
+		if final_bam:
+			if %BambooHolder.get_child_count() == 0:
+				get_tree().change_scene_to_file("res://scn/win.tscn")
+		else:
+			spawn_bam(true)
+			final_bam = true
 
-func reset_bam_timer() -> void:
+
+func reset_bam_timer(perf_spawn = true) -> void:
 	if total_time_played > GAME_TIME_SOFT_LIMIT:
 		return
-	print("BAM TIME")
+	if perf_spawn:
+		spawn_bam()
 	var rand_bonus = lerpf(4.0, 2.0, difficulty)
 	var rand_base = lerpf(8.0, 12.0, difficulty)
 	next_bam_timer = randf() * rand_bonus + rand_base
 
-func reset_obj_timer() -> void:
+func spawn_bam(stronger = false):
+	print("BAM TIME")
+	var bamboo = bam_fab.instantiate()
+	bamboo.disable_tutorial()
+	bamboo.global_position = Vector2(299.0, 0.0)
+	if stronger:
+		bamboo.hp *= 3.0
+	%BambooHolder.add_child(bamboo)
+
+func reset_obj_timer(perf_spawn = true) -> void:
 	if total_time_played > GAME_TIME_SOFT_LIMIT:
 		return
-	print("OBJ TIME")
-	var rand_bonus = lerpf(3.0, 1.0, difficulty)
-	var rand_base = lerpf(5.0, 8.0, difficulty)
+	if perf_spawn:
+		spawn_obj()
+	var rand_bonus = lerpf(0.2, 0.1, difficulty)
+	var rand_base = lerpf(0.8, 0.4, difficulty)
 	next_obj_timer = randf() * rand_bonus + rand_base
 
-func reset_pup_timer() -> void:
+func spawn_obj():
+	print("OBJ TIME")
+	var bird = randi() % 2 == 0
+	var obj
+	if bird:
+		obj = bird_fab.instantiate()
+	else:
+		obj = arrow_fab.instantiate()
+	obj.disable_tutorial()
+	
+	var rand_height = randf_range(8.0, 160 - 8.0)
+	obj.global_position = Vector2(299.0, rand_height)
+	%ObjectHolder.add_child(obj)
+
+func reset_pup_timer(perf_spawn = true) -> void:
 	if total_time_played > GAME_TIME_SOFT_LIMIT:
 		return
-	print("PUP TIME")
+	if perf_spawn:
+		print("PUP TIME")
 	var rand_bonus = lerpf(7.0, 3.0, difficulty)
 	var rand_base = lerpf(8.0, 12.0, difficulty)
 	next_pup_timer = randf() * rand_bonus + rand_base

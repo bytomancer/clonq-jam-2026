@@ -1,7 +1,12 @@
 extends RigidBody2D
 
 @export
-var speed = 4000.0
+var tutorial_speed = 4000.0
+
+@export
+var normal_speed = 12000.0
+
+var speed = tutorial_speed
 
 @export
 var hp = 10.0
@@ -13,6 +18,10 @@ var damage_value = 10.0
 # var time_stalled = 0.0
 
 var time_alive = 0.0
+
+func disable_tutorial() -> void:
+	$Tutorial.hide()
+	speed = normal_speed
 
 func damage(_dmg: float) -> void:
 	pass
@@ -75,10 +84,11 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.name == "Knife":
 		kill_self()
 	elif body.name == "Guy":
-		%Player.reduce_hearts()
+		body.get_parent().reduce_hearts()
 		# body.damage(damage_value)
 	elif body.name == "Bird":
-		body.damage(damage_value)
+		pass
+		# body.damage(damage_value)
 
 func kill_self():
 	self.hp = 0.0

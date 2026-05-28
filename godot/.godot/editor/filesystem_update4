@@ -1,3 +1,6 @@
+res://src/bamboo_wall.gd
+res://scn/main.tscn
 res://src/main.gd
 res://src/arrow.gd
-res://scn/main.tscn
+res://src/bird.gd
+res://src/dmg_num_display.gd
