@@ -3,6 +3,9 @@ extends CharacterBody2D
 const SLOW_VEL = 10.0
 const FAST_VEL = 100.0
 
+func damage(_dmg: float) -> void:
+	get_tree().change_scene_to_file("res://scn/lose.tscn")
+
 func _process(_delta: float):
 	if self.get_real_velocity().length() < SLOW_VEL:
 		if $Sprite.animation != "still":

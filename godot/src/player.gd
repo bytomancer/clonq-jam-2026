@@ -21,6 +21,6 @@ func _process(delta: float) -> void:
 
 func _on_slicer_body_entered(body: Node2D) -> void:
 	var knife_speed = abs(previous_knife_ang_vel)
-	var damage = knife_speed * damage_multiplier
-	print(damage)
-	body.damage(damage)
+	var dmg = knife_speed * damage_multiplier
+	print(dmg)
+	body.damage(dmg)

@@ -13,6 +13,9 @@
 [ext_resource type="Texture2D" uid="uid://nhewllnihmev" path="res://ass/bird.png" id="10_rqnb2"]
 [ext_resource type="Script" uid="uid://cds5d7nljlay3" path="res://src/do_not_rotate.gd" id="12_4r6w6"]
 [ext_resource type="FontFile" uid="uid://cu5o2a46e1b1h" path="res://ext/spleen/spleen-6x12.otf" id="12_x8hhd"]
+[ext_resource type="Texture2D" uid="uid://dhrcw708lt8q5" path="res://ass/arrow.png" id="14_altm0"]
+[ext_resource type="Script" uid="uid://yfbybpnqo1c6" path="res://src/arrow.gd" id="14_wc0fe"]
+[ext_resource type="Texture2D" uid="uid://ed27ou2ans37" path="res://ass/heart.png" id="16_qy7k8"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_4r6w6"]
 font = ExtResource("12_x8hhd")
@@ -103,6 +106,10 @@ size = Vector2(6, 176)
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_k3l4p"]
 
+[sub_resource type="LabelSettings" id="LabelSettings_altm0"]
+font = ExtResource("12_x8hhd")
+font_size = 12
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_k3l4p"]
 atlas = ExtResource("10_rqnb2")
 region = Rect2(16, 0, 16, 8)
@@ -145,9 +152,65 @@ height = 16.0
 offsets = PackedFloat32Array(0.5049261, 1)
 colors = PackedColorArray(1, 0, 0, 1, 1, 0, 0, 0)
 
-[sub_resource type="LabelSettings" id="LabelSettings_altm0"]
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_wc0fe"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_wc0fe"]
 font = ExtResource("12_x8hhd")
 font_size = 12
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wc0fe"]
+size = Vector2(11, 5)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vwxr4"]
+atlas = ExtResource("14_altm0")
+region = Rect2(0, 0, 16, 8)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_nhm61"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vwxr4")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qy7k8"]
+atlas = ExtResource("14_altm0")
+region = Rect2(16, 0, 16, 8)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xs02v"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qy7k8")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_wc0fe"]
+radius = 4.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wc0fe"]
+atlas = ExtResource("14_altm0")
+region = Rect2(32, 0, 16, 8)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vwxr4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wc0fe")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qy7k8"]
+size = Vector2(11, 5)
 
 [node name="Main" type="Node2D" unique_id=970221214]
 metadata/_edit_horizontal_guides_ = [80.0]
@@ -209,7 +272,7 @@ unique_name_in_owner = true
 position = Vector2(-3, 23)
 
 [node name="Guy" type="CharacterBody2D" parent="Player" unique_id=1560522781]
-collision_layer = 513
+collision_layer = 1537
 collision_mask = 517
 motion_mode = 1
 script = ExtResource("3_gyckk")
@@ -330,13 +393,27 @@ shape = SubResource("RectangleShape2D_b6phj")
 
 [node name="Bird" type="RigidBody2D" parent="." unique_id=1291982621]
 position = Vector2(278, 63)
-collision_layer = 264
+collision_layer = 1288
 collision_mask = 3
 mass = 0.5
 physics_material_override = SubResource("PhysicsMaterial_k3l4p")
 gravity_scale = 0.5
 inertia = 1.0
 script = ExtResource("10_k3l4p")
+
+[node name="TutNode" type="Node2D" parent="Bird" unique_id=543640194]
+script = ExtResource("12_4r6w6")
+
+[node name="Tutorial" type="Label" parent="Bird/TutNode" unique_id=1431369660]
+offset_left = -62.0
+offset_top = -5.0
+offset_right = -8.0
+offset_bottom = 157.0
+pivot_offset = Vector2(45, 4)
+pivot_offset_ratio = Vector2(6, 0)
+text = "protect->"
+label_settings = SubResource("LabelSettings_altm0")
+horizontal_alignment = 2
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Bird" unique_id=1791995298]
 remote_path = NodePath("../TutNode")
@@ -362,18 +439,96 @@ initial_velocity_min = 80.0
 initial_velocity_max = 150.0
 color_ramp = SubResource("Gradient_k3l4p")
 
-[node name="TutNode" type="Node2D" parent="Bird" unique_id=543640194]
-script = ExtResource("12_4r6w6")
+[node name="Arrow" type="RigidBody2D" parent="." unique_id=1353026491]
+position = Vector2(219, 32)
+collision_layer = 16
+collision_mask = 11
+physics_material_override = SubResource("PhysicsMaterial_wc0fe")
+script = ExtResource("14_wc0fe")
 
-[node name="Tutorial" type="Label" parent="Bird/TutNode" unique_id=1431369660]
+[node name="Tutorial" type="Label" parent="Arrow" unique_id=319399574]
 offset_left = -62.0
 offset_top = -5.0
 offset_right = -8.0
 offset_bottom = 157.0
 pivot_offset = Vector2(45, 4)
 pivot_offset_ratio = Vector2(6, 0)
-text = "protect->"
-label_settings = SubResource("LabelSettings_altm0")
+text = "DODGE!->"
+label_settings = SubResource("LabelSettings_wc0fe")
 horizontal_alignment = 2
 
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Arrow" unique_id=1130297038]
+position = Vector2(2.5, -0.5)
+shape = SubResource("RectangleShape2D_wc0fe")
+
+[node name="Sprite" type="AnimatedSprite2D" parent="Arrow" unique_id=881109410]
+sprite_frames = SubResource("SpriteFrames_nhm61")
+
+[node name="DeadArrowTip" type="RigidBody2D" parent="Arrow" unique_id=1093684722]
+process_mode = 4
+visible = false
+collision_layer = 0
+collision_mask = 255
+
+[node name="Sprite" type="AnimatedSprite2D" parent="Arrow/DeadArrowTip" unique_id=1409523728]
+sprite_frames = SubResource("SpriteFrames_xs02v")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Arrow/DeadArrowTip" unique_id=2142126811]
+position = Vector2(-4, 0)
+shape = SubResource("CircleShape2D_wc0fe")
+
+[node name="DeadArrowShaft" type="RigidBody2D" parent="Arrow" unique_id=1398196303]
+process_mode = 4
+visible = false
+collision_layer = 0
+collision_mask = 255
+
+[node name="Sprite" type="AnimatedSprite2D" parent="Arrow/DeadArrowShaft" unique_id=400220002]
+sprite_frames = SubResource("SpriteFrames_vwxr4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Arrow/DeadArrowShaft" unique_id=222727679]
+position = Vector2(2.5, -0.5)
+shape = SubResource("RectangleShape2D_qy7k8")
+
+[node name="Tip" type="Area2D" parent="Arrow" unique_id=2006654936]
+collision_layer = 0
+collision_mask = 1035
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Arrow/Tip" unique_id=286211840]
+position = Vector2(-8, -1)
+polygon = PackedVector2Array(0, 0, 4, -3, 4, 4, 0, 1)
+
+[node name="Control" type="Control" parent="." unique_id=1037340713]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="GridContainer" type="GridContainer" parent="Control" unique_id=1667549220]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+columns = 5
+
+[node name="Heart1" type="TextureRect" parent="Control/GridContainer" unique_id=1250109858]
+layout_mode = 2
+texture = ExtResource("16_qy7k8")
+
+[node name="Heart2" type="TextureRect" parent="Control/GridContainer" unique_id=1171059420]
+layout_mode = 2
+texture = ExtResource("16_qy7k8")
+
+[node name="Heart3" type="TextureRect" parent="Control/GridContainer" unique_id=426139715]
+layout_mode = 2
+texture = ExtResource("16_qy7k8")
+
+[node name="Heart4" type="TextureRect" parent="Control/GridContainer" unique_id=6858817]
+layout_mode = 2
+texture = ExtResource("16_qy7k8")
+
+[node name="Heart5" type="TextureRect" parent="Control/GridContainer" unique_id=1985826166]
+layout_mode = 2
+texture = ExtResource("16_qy7k8")
+
 [connection signal="body_entered" from="Player/Knife/Slicer" to="Player" method="_on_slicer_body_entered"]
+[connection signal="body_entered" from="Arrow/Tip" to="Arrow" method="_on_area_2d_body_entered"]
