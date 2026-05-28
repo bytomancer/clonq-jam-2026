@@ -71,7 +71,7 @@ func _process(delta: float) -> void:
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if self.hp <= 0.0:
 		return
-	print("Arrow hit %s" % body.name)
+	# print("Arrow hit %s" % body.name)
 	if body.name == "Knife":
 		kill_self()
 	elif body.name == "Guy":

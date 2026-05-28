@@ -1,2 +1,3 @@
-res://scn/main.tscn
+res://src/main.gd
 res://src/arrow.gd
+res://scn/main.tscn
