@@ -1,8 +1,7 @@
 <html>
 
 <head>
-    <title>Clonq GameJam 2026 Test</title>
-    <meta charset="UTF-8">
+    <title>Clonq Jam Test</title>
 </head>
 
 <body>
@@ -39,21 +38,42 @@
 </script>
 
 <style>
+    /* iosevka-latin-400-normal */
+    @font-face {
+        font-family: 'Iosevka';
+        font-style: normal;
+        font-display: swap;
+        font-weight: 400;
+        src: url(https://cdn.jsdelivr.net/fontsource/fonts/iosevka@latest/latin-400-normal.woff2) format('woff2'),
+            url(https://cdn.jsdelivr.net/fontsource/fonts/iosevka@latest/latin-400-normal.woff) format('woff');
+    }
+</style>
+
+<style>
     html,
     body {
         margin: 0;
         height: 100%;
         overflow: hidden;
-    }
-
-    body {
         display: flex;
         flex-direction: column;
         height: 100vh;
+        font-family: Iosevka, Consolas, Courier, monospace;
+        font-size: 24px;
+    }
+
+    button {
+        font-family: Iosevka, Consolas, Courier, monospace;
+        font-size: 24px;
+    }
+
+    form {
+        display: flex;
     }
 
     .slider {
-        width: 50%;
+        width: auto;
+        flex: 1;
     }
 
     .canvas-container {

@@ -1,11 +1,11 @@
-Area2D
 Label
+GridContainer
+Area2D
 CollisionShape2D
 AnimatedSprite2D
 CharacterBody2D
 Node2D
 TextureRect
-GridContainer
 Control
 RigidBody2D
 CollisionPolygon2D

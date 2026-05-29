@@ -34,11 +34,9 @@ func _on_slicer_body_entered(body: Node2D) -> void:
 
 func powerup() -> void:
 	damage_multiplier += 1.0
+	%HUD.set_damage_multiplier(damage_multiplier)
 
 func reduce_hearts() -> void:
-	var h = %HUD/HeartGrid.get_child(1)
-	if h == null:
+	%HUD.reduce_hearts()
+	if %HUD.get_heart_count() == 0:
 		get_tree().change_scene_to_file("res://scn/lose.tscn")
-	else:
-		h.hide()
-		h.queue_free()

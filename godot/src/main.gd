@@ -6,8 +6,8 @@ const GAME_TIME_SOFT_LIMIT = 45.0
 
 var difficulty = 0.0
 
-@export
-var starting_diff = 0
+#@export
+#var starting_diff = 0
 
 # 0 diff: 1 bamboo every 8-12s base 8 rand to +4
 # 200 diff: 1 bamboo every 2-4s base 2 rand to +2
@@ -31,7 +31,7 @@ var pup_fab = preload("res://fab/powerup.tscn")
 var final_bam = false
 
 func _ready() -> void:
-	self.set_difficulty(starting_diff)
+	#self.set_difficulty(starting_diff)
 	self.reset_bam_timer(false)
 	# self.reset_obj_timer(false)
 	next_obj_timer = 2.0
