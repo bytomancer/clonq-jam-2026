@@ -1,6 +1,3 @@
-res://src/
-res://res/
-res://scn/
 /home/bytomancer/projects/godot/clonq-jam-2026/output/
 res://htm/
 res://fab/
@@ -8,3 +5,5 @@ res://fab/
 res://ass/
 res://
 res://ext/
+res://src/
+res://scn/

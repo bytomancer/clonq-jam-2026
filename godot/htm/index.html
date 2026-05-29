@@ -13,6 +13,10 @@
         <button type="button" onclick="beginActualGame()">GO!</button>
     </form>
 
+    <h1 id="statusMsg">
+        Status: AWAITING
+    </h1>
+
     <section class="canvas-container">
         <canvas id="canvas" width="240" height="160"></canvas>
     </section>
@@ -24,6 +28,19 @@
 
 <script>
     window.lcolonqJamStart = -1.0
+    window.addEventListener("message", (event) => {
+        console.log(event);
+        var op = event.data.op;
+        var eventWinState = event.data.win;
+        var winStateString = "";
+        if (eventWinState === true) {
+            winStateString = " WIN";
+        } else if (eventWinState === false) {
+            winStateString = " LOSE";
+        }
+        var statusString = op + winStateString;
+        document.getElementById("statusMsg").innerText = statusString;
+    });
     var engine = new Engine($GODOT_CONFIG);
     engine.startGame();
     function beginActualGame() {

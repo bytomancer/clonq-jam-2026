@@ -1,9 +1,0 @@
-res://scn/main.tscn
-res://src/main.gd
-res://scn/pre.tscn
-res://src/pre.gd
-res://scn/lose.tscn
-res://src/autorestart.gd
-res://scn/win.tscn
-res://src/player.gd
-res://src/hud.gd
