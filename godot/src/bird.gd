@@ -17,6 +17,7 @@ func disable_tutorial() -> void:
 func damage(dmg: float) -> void:
 	if self.hp <= 0.0:
 		return
+	self.hp = -1.0
 	dmg_display.add_number(dmg, Color(1, 0, 0))
 	kill_self()
 
@@ -29,7 +30,7 @@ func kill_self() -> void:
 	$TutNode/Tutorial.label_settings.font_color = Color(1, 0, 0)
 
 func _process(_delta: float) -> void:
-	if self.global_position.x < -100 or self.global_position.x > get_viewport_rect().size.x + 100 or self.global_position.y < -100 or self.global_position.y > get_viewport_rect().size.y + 100:
+	if self.global_position.x < -100 or self.global_position.x > get_viewport_rect().size.x + 500 or self.global_position.y < -100 or self.global_position.y > get_viewport_rect().size.y + 100:
 		queue_free()
 		return
 	if self.hp <= 0.0:

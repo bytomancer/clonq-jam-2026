@@ -34,7 +34,7 @@ func _ready() -> void:
 	#self.set_difficulty(starting_diff)
 	self.reset_bam_timer(false)
 	# self.reset_obj_timer(false)
-	next_obj_timer = 2.0
+	next_obj_timer = 7.0
 	self.reset_pup_timer(false)
 	total_time_played = 0.0
 
@@ -83,9 +83,10 @@ func spawn_bam(stronger = false):
 	print("BAM TIME")
 	var bamboo = bam_fab.instantiate()
 	bamboo.disable_tutorial()
-	bamboo.global_position = Vector2(299.0, 0.0)
+	bamboo.global_position = Vector2(299.0, 160.0)
 	if stronger:
-		bamboo.hp *= 2.0
+		bamboo.hp *= 5.0
+		bamboo.scale *= 2.0
 	# DO NOT CHANGE THE SPEED IT CAUSES CLIPPING
 	#var speed_mod = 1.0 + difficulty
 	#bamboo.speed *= speed_mod

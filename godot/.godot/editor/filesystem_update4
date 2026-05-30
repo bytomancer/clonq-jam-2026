@@ -1,0 +1,9 @@
+res://fab/bamboo_wall.tscn
+res://res/default_label_setting.tres
+res://scn/main.tscn
+res://src/main.gd
+res://src/bamboo_wall.gd
+res://src/bird.gd
+res://src/guy.gd
+res://src/player.gd
+res://src/arrow.gd

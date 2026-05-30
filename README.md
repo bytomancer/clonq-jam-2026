@@ -43,3 +43,9 @@ godot/src/    - where all gd scripts live
 ## Font
 
 Spleen 2.2.0 - https://sourceforge.net/projects/spleen.mirror/
+
+# Output
+
+```bash
+zip -r output.zip output/
+```

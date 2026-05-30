@@ -37,6 +37,9 @@ func powerup() -> void:
 	%HUD.set_damage_multiplier(damage_multiplier)
 
 func reduce_hearts() -> void:
+	if $Guy.invuln_timer >= 0:
+		return
+	$Guy.start_invuln()
 	%HUD.reduce_hearts()
 	if %HUD.get_heart_count() == 0:
 		get_tree().change_scene_to_file("res://scn/lose.tscn")

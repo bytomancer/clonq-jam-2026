@@ -29,6 +29,18 @@ absorbent = true
 [sub_resource type="CircleShape2D" id="CircleShape2D_4hsr3"]
 radius = 4.0
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_qy7k8"]
+atlas = ExtResource("2_4hsr3")
+region = Rect2(40, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vwxr4"]
+atlas = ExtResource("2_4hsr3")
+region = Rect2(48, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6ecc7"]
+atlas = ExtResource("2_4hsr3")
+region = Rect2(56, 0, 8, 8)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_gyckk"]
 atlas = ExtResource("2_4hsr3")
 region = Rect2(24, 0, 8, 8)
@@ -36,6 +48,10 @@ region = Rect2(24, 0, 8, 8)
 [sub_resource type="AtlasTexture" id="AtlasTexture_b6phj"]
 atlas = ExtResource("2_4hsr3")
 region = Rect2(32, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hbcb0"]
+atlas = ExtResource("2_4hsr3")
+region = Rect2(64, 0, 8, 8)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_nq6di"]
 atlas = ExtResource("2_4hsr3")
@@ -53,14 +69,36 @@ region = Rect2(0, 0, 8, 8)
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_qy7k8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vwxr4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6ecc7")
+}],
+"loop": true,
+"name": &"fast",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_gyckk")
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_b6phj")
 }],
 "loop": true,
-"name": &"fast",
-"speed": 15.0
+"name": &"mid",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hbcb0")
+}],
+"loop": true,
+"name": &"ow",
+"speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -71,7 +109,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"slow",
-"speed": 10.0
+"speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -233,9 +271,9 @@ shape = SubResource("CircleShape2D_4hsr3")
 
 [node name="Sprite" type="AnimatedSprite2D" parent="Player/Guy" unique_id=256338146]
 sprite_frames = SubResource("SpriteFrames_n2tm1")
-animation = &"still"
-autoplay = "still"
-frame_progress = 0.56603765
+animation = &"slow"
+autoplay = "fast"
+frame_progress = 0.4467211
 
 [node name="Border" type="Node2D" parent="." unique_id=193915287]
 
@@ -273,13 +311,16 @@ position = Vector2(-240, 0)
 shape = SubResource("WorldBoundaryShape2D_nq6di")
 
 [node name="BambooWall" parent="." unique_id=2025182041 instance=ExtResource("9_x8hhd")]
-position = Vector2(299, 0)
+position = Vector2(299, 160)
 
 [node name="Bird" parent="." unique_id=66656583 instance=ExtResource("10_altm0")]
-position = Vector2(278, 63)
+position = Vector2(238, 87)
+
+[node name="Powerup" parent="." unique_id=140198743 instance=ExtResource("14_altm0")]
+position = Vector2(384, 80)
 
 [node name="Arrow" parent="." unique_id=226876867 instance=ExtResource("11_wc0fe")]
-position = Vector2(219, 32)
+position = Vector2(392, -74)
 
 [node name="HUD" type="Control" parent="." unique_id=1037340713]
 unique_name_in_owner = true
@@ -338,8 +379,5 @@ unique_name_in_owner = true
 
 [node name="BambooHolder" type="Node2D" parent="." unique_id=1367582411]
 unique_name_in_owner = true
-
-[node name="Powerup" parent="." unique_id=140198743 instance=ExtResource("14_altm0")]
-position = Vector2(289, 31)
 
 [connection signal="body_entered" from="Player/Knife/Slicer" to="Player" method="_on_slicer_body_entered"]
