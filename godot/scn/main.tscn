@@ -13,8 +13,12 @@
 [ext_resource type="PackedScene" uid="uid://b1ys5mywg1ejp" path="res://fab/powerup.tscn" id="14_altm0"]
 [ext_resource type="SpriteFrames" uid="uid://bjd8lfuvp151o" path="res://res/dead_heart_anim.tres" id="14_qy7k8"]
 [ext_resource type="LabelSettings" uid="uid://c757dayt8j6j7" path="res://res/default_label_setting.tres" id="15_qy7k8"]
+[ext_resource type="Texture2D" uid="uid://ccb71ndpoyfaj" path="res://ass/hill.png" id="16_qy7k8"]
 [ext_resource type="Texture2D" uid="uid://c3wm3se5ovxi0" path="res://ass/1heart.png" id="16_vwxr4"]
+[ext_resource type="Script" uid="uid://bdefsiqbv6px7" path="res://src/bg.gd" id="16_xs02v"]
 [ext_resource type="Script" uid="uid://cyv6tkosffc0q" path="res://src/area_to_keep_objects_loaded.gd" id="17_vwxr4"]
+[ext_resource type="Texture2D" uid="uid://b58t5uy85n8a7" path="res://ass/bg_bamboo.png" id="18_xs02v"]
+[ext_resource type="Texture2D" uid="uid://bq7pcsdspwwr3" path="res://ass/snow.png" id="19_nhm61"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_4r6w6"]
 font = ExtResource("12_x8hhd")
@@ -161,5 +165,55 @@ script = ExtResource("17_vwxr4")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AreaToKeepObjectsLoaded" unique_id=390340521]
 position = Vector2(230, 0)
 shape = SubResource("RectangleShape2D_qy7k8")
+
+[node name="Bg" type="Node2D" parent="." unique_id=1182029533]
+script = ExtResource("16_xs02v")
+
+[node name="PxBg" type="ParallaxBackground" parent="Bg" unique_id=1914012892]
+
+[node name="Hills" type="ParallaxLayer" parent="Bg/PxBg" unique_id=1981384917]
+motion_mirroring = Vector2(256, 0)
+
+[node name="Hill1" type="Sprite2D" parent="Bg/PxBg/Hills" unique_id=1605131171]
+position = Vector2(64, 128)
+texture = ExtResource("16_qy7k8")
+
+[node name="Hill2" type="Sprite2D" parent="Bg/PxBg/Hills" unique_id=1779287881]
+position = Vector2(192, 128)
+texture = ExtResource("16_qy7k8")
+
+[node name="Bam" type="ParallaxLayer" parent="Bg/PxBg" unique_id=1077544316]
+visible = false
+motion_mirroring = Vector2(256, 0)
+
+[node name="BgBam1" type="Sprite2D" parent="Bg/PxBg/Bam" unique_id=984634359]
+position = Vector2(52, 133)
+texture = ExtResource("18_xs02v")
+
+[node name="BgBam2" type="Sprite2D" parent="Bg/PxBg/Bam" unique_id=798655443]
+position = Vector2(133, 129)
+texture = ExtResource("18_xs02v")
+
+[node name="BgBam3" type="Sprite2D" parent="Bg/PxBg/Bam" unique_id=1920675845]
+position = Vector2(217, 131)
+texture = ExtResource("18_xs02v")
+
+[node name="Snow" type="CPUParticles2D" parent="Bg" unique_id=1860444021]
+position = Vector2(120, -100)
+amount = 45
+texture = ExtResource("19_nhm61")
+lifetime = 5.0
+preprocess = 5.0
+randomness = 0.2
+emission_shape = 3
+emission_rect_extents = Vector2(256, 8)
+direction = Vector2(-1, 0)
+gravity = Vector2(-20, 98)
+initial_velocity_min = 40.0
+initial_velocity_max = 60.0
+angular_velocity_min = 25.0
+angular_velocity_max = 100.0
+angle_min = -233.3
+angle_max = -100.0
 
 [connection signal="body_exited" from="AreaToKeepObjectsLoaded" to="AreaToKeepObjectsLoaded" method="_on_body_exited"]

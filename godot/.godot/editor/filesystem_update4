@@ -5,3 +5,4 @@ res://res/dead_heart_anim.tres
 res://res/default_label_setting.tres
 res://src/bamboo_wall.gd
 res://src/main.gd
+res://src/bg.gd
