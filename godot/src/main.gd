@@ -30,10 +30,14 @@ var pup_fab = preload("res://fab/powerup.tscn")
 
 var final_bam = false
 
+@onready
+var player_ref = get_node("/root/Main/Player")
+
+@onready
+var dmg_num_display_ref = get_node("/root/Main/DmgNumDisplay")
+
 func _ready() -> void:
-	#self.set_difficulty(starting_diff)
-	self.reset_bam_timer(false)
-	# self.reset_obj_timer(false)
+	next_bam_timer = 10.0
 	next_obj_timer = 7.0
 	self.reset_pup_timer(false)
 	total_time_played = 0.0
@@ -75,8 +79,8 @@ func reset_bam_timer(perf_spawn = true) -> void:
 		return
 	if perf_spawn:
 		spawn_bam()
-	var rand_bonus = lerpf(4.0, 2.0, difficulty)
-	var rand_base = lerpf(8.0, 12.0, difficulty)
+	var rand_bonus = lerpf(2.0, 1.0, difficulty)
+	var rand_base = lerpf(6.0, 3.0, difficulty)
 	next_bam_timer = randf() * rand_bonus + rand_base
 
 func spawn_bam(stronger = false):
@@ -85,7 +89,7 @@ func spawn_bam(stronger = false):
 	bamboo.disable_tutorial()
 	bamboo.global_position = Vector2(299.0, 160.0)
 	if stronger:
-		bamboo.hp *= 5.0
+		bamboo.hp *= 10.0
 		bamboo.scale *= 2.0
 	# DO NOT CHANGE THE SPEED IT CAUSES CLIPPING
 	#var speed_mod = 1.0 + difficulty
@@ -98,12 +102,13 @@ func reset_obj_timer(perf_spawn = true) -> void:
 	if perf_spawn:
 		spawn_obj()
 	var rand_bonus = lerpf(0.2, 0.1, difficulty)
-	var rand_base = lerpf(0.8, 0.3, difficulty)
+	var rand_base = lerpf(0.8, 0.4, difficulty)
 	next_obj_timer = randf() * rand_bonus + rand_base
 
 func spawn_obj():
 	print("OBJ TIME")
-	var bird = randi() % 2 == 0
+	# 2x arrows vs birds
+	var bird = randi() % 3 == 0
 	var obj
 	if bird:
 		obj = bird_fab.instantiate()
@@ -121,7 +126,7 @@ func reset_pup_timer(perf_spawn = true) -> void:
 		return
 	if perf_spawn:
 		spawn_pup()
-	var rand_bonus = lerpf(7.0, 3.0, difficulty)
+	var rand_bonus = lerpf(5.0, 6.0, difficulty)
 	var rand_base = lerpf(8.0, 12.0, difficulty)
 	next_pup_timer = randf() * rand_bonus + rand_base
 

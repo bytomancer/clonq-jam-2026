@@ -1,125 +1,24 @@
 [gd_scene format=3 uid="uid://djbju7vgoibxg"]
 
-[ext_resource type="Texture2D" uid="uid://bo83xwhl0piwa" path="res://ass/knife.png" id="1_7rek1"]
 [ext_resource type="Script" uid="uid://5aer6pvcghh5" path="res://src/dmg_num_display.gd" id="1_315pe"]
-[ext_resource type="Script" uid="uid://daaq1gupwyw5q" path="res://src/player.gd" id="1_a14j1"]
 [ext_resource type="Script" uid="uid://c1i8ysoftnvsq" path="res://src/main.gd" id="1_xs02v"]
-[ext_resource type="Texture2D" uid="uid://d2b21gsxlgijn" path="res://ass/guy.png" id="2_4hsr3"]
-[ext_resource type="Script" uid="uid://bxp7sqnft8tfb" path="res://src/guy.gd" id="3_gyckk"]
 [ext_resource type="Script" uid="uid://rdjjjrlf0nyh" path="res://src/num_popup.gd" id="3_n2tm1"]
+[ext_resource type="PackedScene" uid="uid://drnstb2vpr733" path="res://fab/player.tscn" id="5_altm0"]
 [ext_resource type="PackedScene" uid="uid://c55l0d7js711y" path="res://fab/bamboo_wall.tscn" id="9_x8hhd"]
 [ext_resource type="PackedScene" uid="uid://dfx804jmbalr1" path="res://fab/bird.tscn" id="10_altm0"]
 [ext_resource type="PackedScene" uid="uid://dj3k8g3snuggu" path="res://fab/arrow.tscn" id="11_wc0fe"]
 [ext_resource type="Script" uid="uid://bfdpqrr4nfc1t" path="res://src/hud.gd" id="12_wc0fe"]
 [ext_resource type="FontFile" uid="uid://cu5o2a46e1b1h" path="res://ext/spleen/spleen-6x12.otf" id="12_x8hhd"]
+[ext_resource type="Script" uid="uid://0t5litfbwgio" path="res://src/heart.gd" id="13_wc0fe"]
 [ext_resource type="PackedScene" uid="uid://b1ys5mywg1ejp" path="res://fab/powerup.tscn" id="14_altm0"]
+[ext_resource type="SpriteFrames" uid="uid://bjd8lfuvp151o" path="res://res/dead_heart_anim.tres" id="14_qy7k8"]
 [ext_resource type="LabelSettings" uid="uid://c757dayt8j6j7" path="res://res/default_label_setting.tres" id="15_qy7k8"]
-[ext_resource type="Texture2D" uid="uid://ed27ou2ans37" path="res://ass/heart.png" id="16_qy7k8"]
 [ext_resource type="Texture2D" uid="uid://c3wm3se5ovxi0" path="res://ass/1heart.png" id="16_vwxr4"]
 [ext_resource type="Script" uid="uid://cyv6tkosffc0q" path="res://src/area_to_keep_objects_loaded.gd" id="17_vwxr4"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_4r6w6"]
 font = ExtResource("12_x8hhd")
 font_size = 12
-
-[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_a14j1"]
-friction = 0.0
-bounce = 1.0
-absorbent = true
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_4hsr3"]
-radius = 4.0
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_qy7k8"]
-atlas = ExtResource("2_4hsr3")
-region = Rect2(40, 0, 8, 8)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_vwxr4"]
-atlas = ExtResource("2_4hsr3")
-region = Rect2(48, 0, 8, 8)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_6ecc7"]
-atlas = ExtResource("2_4hsr3")
-region = Rect2(56, 0, 8, 8)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_gyckk"]
-atlas = ExtResource("2_4hsr3")
-region = Rect2(24, 0, 8, 8)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_b6phj"]
-atlas = ExtResource("2_4hsr3")
-region = Rect2(32, 0, 8, 8)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_hbcb0"]
-atlas = ExtResource("2_4hsr3")
-region = Rect2(64, 0, 8, 8)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_nq6di"]
-atlas = ExtResource("2_4hsr3")
-region = Rect2(8, 0, 8, 8)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_vnkvy"]
-atlas = ExtResource("2_4hsr3")
-region = Rect2(16, 0, 8, 8)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_315pe"]
-atlas = ExtResource("2_4hsr3")
-region = Rect2(0, 0, 8, 8)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_n2tm1"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_qy7k8")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_vwxr4")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_6ecc7")
-}],
-"loop": true,
-"name": &"fast",
-"speed": 10.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_gyckk")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_b6phj")
-}],
-"loop": true,
-"name": &"mid",
-"speed": 8.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_hbcb0")
-}],
-"loop": true,
-"name": &"ow",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_nq6di")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_vnkvy")
-}],
-"loop": true,
-"name": &"slow",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_315pe")
-}],
-"loop": true,
-"name": &"still",
-"speed": 5.0
-}]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_4hsr3"]
 normal = Vector2(0, 1)
@@ -136,70 +35,6 @@ distance = 4.0
 normal = Vector2(1, 0)
 distance = 4.0
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_xs02v"]
-atlas = ExtResource("16_qy7k8")
-region = Rect2(0, 0, 8, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_nhm61"]
-atlas = ExtResource("16_qy7k8")
-region = Rect2(8, 0, 8, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_6d0je"]
-atlas = ExtResource("16_qy7k8")
-region = Rect2(16, 0, 8, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_inono"]
-atlas = ExtResource("16_qy7k8")
-region = Rect2(24, 0, 8, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_hn8gl"]
-atlas = ExtResource("16_qy7k8")
-region = Rect2(32, 0, 8, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_m1xow"]
-atlas = ExtResource("16_qy7k8")
-region = Rect2(40, 0, 8, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_sywa5"]
-atlas = ExtResource("16_qy7k8")
-region = Rect2(48, 0, 8, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_rgggd"]
-atlas = ExtResource("16_qy7k8")
-region = Rect2(56, 0, 8, 16)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_6ecc7"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_xs02v")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_nhm61")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_6d0je")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_inono")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_hn8gl")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_m1xow")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_sywa5")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_rgggd")
-}],
-"loop": false,
-"name": &"default",
-"speed": 10.0
-}]
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qy7k8"]
 size = Vector2(900, 360)
 
@@ -209,7 +44,6 @@ metadata/_edit_horizontal_guides_ = [80.0, 260.0, -100.0]
 metadata/_edit_vertical_guides_ = [120.0, -100.0, 800.0]
 
 [node name="DmgNumDisplay" type="Node2D" parent="." unique_id=445000541]
-unique_name_in_owner = true
 z_index = 500
 script = ExtResource("1_315pe")
 
@@ -223,78 +57,14 @@ text = "1337"
 label_settings = SubResource("LabelSettings_4r6w6")
 script = ExtResource("3_n2tm1")
 
-[node name="Player" type="Node2D" parent="." unique_id=2107893400 node_paths=PackedStringArray("target")]
-unique_name_in_owner = true
+[node name="Player" parent="." unique_id=1174102268 instance=ExtResource("5_altm0")]
 position = Vector2(120, 80)
-script = ExtResource("1_a14j1")
-target = NodePath("Guy")
-
-[node name="GuyToKnife" type="PinJoint2D" parent="Player" unique_id=1426700511]
-node_a = NodePath("../Guy")
-node_b = NodePath("../Knife")
-bias = 0.9
-
-[node name="Knife" type="RigidBody2D" parent="Player" unique_id=904022651]
-collision_layer = 2
-collision_mask = 14
-mass = 3.0
-physics_material_override = SubResource("PhysicsMaterial_a14j1")
-gravity_scale = 50.0
-center_of_mass_mode = 1
-center_of_mass = Vector2(0, 8)
-inertia = 50.0
-angular_damp = 20.0
-
-[node name="Sprite2D" type="Sprite2D" parent="Player/Knife" unique_id=846000229]
-position = Vector2(0, 12)
-texture = ExtResource("1_7rek1")
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Player/Knife" unique_id=1884664699]
-position = Vector2(0, 1)
-polygon = PackedVector2Array(-2, -4, 2, -4, 4, 4, 4, 26, -1, 21, -1, 4)
-
-[node name="Slicer" type="Area2D" parent="Player/Knife" unique_id=270759176]
-collision_layer = 0
-collision_mask = 256
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Player/Knife/Slicer" unique_id=1829480795]
-polygon = PackedVector2Array(-4, 5, -1, 5, -1, 22, 3, 26, -1, 26, -4, 23)
-
-[node name="DmgNumPt" type="Node2D" parent="Player/Knife" unique_id=656941214]
-unique_name_in_owner = true
-position = Vector2(-3, 23)
-
-[node name="Guy" type="CharacterBody2D" parent="Player" unique_id=1560522781]
-collision_layer = 1537
-collision_mask = 517
-motion_mode = 1
-script = ExtResource("3_gyckk")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Player/Guy" unique_id=1019043596]
-shape = SubResource("CircleShape2D_4hsr3")
-
-[node name="Sprite" type="AnimatedSprite2D" parent="Player/Guy" unique_id=256338146]
-sprite_frames = SubResource("SpriteFrames_n2tm1")
-animation = &"slow"
-autoplay = "fast"
-frame_progress = 0.64330417
-
-[node name="HitParticles" type="CPUParticles2D" parent="Player/Guy" unique_id=1001890176]
-emitting = false
-amount = 30
-one_shot = true
-explosiveness = 0.7
-direction = Vector2(-1, 0)
-gravity = Vector2(0, 98)
-initial_velocity_min = 30.0
-initial_velocity_max = 50.0
-color = Color(0.99607843, 0, 0, 1)
 
 [node name="Border" type="Node2D" parent="." unique_id=193915287]
 
 [node name="N" type="StaticBody2D" parent="Border" unique_id=1340277994]
 position = Vector2(120, 0)
-collision_layer = 512
+collision_layer = 4
 collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Border/N" unique_id=1545291349]
@@ -302,7 +72,7 @@ shape = SubResource("WorldBoundaryShape2D_4hsr3")
 
 [node name="E" type="StaticBody2D" parent="Border" unique_id=1159647618]
 position = Vector2(240, 80)
-collision_layer = 512
+collision_layer = 4
 collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Border/E" unique_id=993338622]
@@ -310,7 +80,7 @@ shape = SubResource("WorldBoundaryShape2D_b6phj")
 
 [node name="S" type="StaticBody2D" parent="Border" unique_id=357246721]
 position = Vector2(120, 160)
-collision_layer = 512
+collision_layer = 4
 collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Border/S" unique_id=1469678499]
@@ -318,7 +88,7 @@ shape = SubResource("WorldBoundaryShape2D_gyckk")
 
 [node name="W" type="StaticBody2D" parent="Border" unique_id=1776308552]
 position = Vector2(240, 80)
-collision_layer = 512
+collision_layer = 4
 collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Border/W" unique_id=1355336881]
@@ -326,16 +96,16 @@ position = Vector2(-240, 0)
 shape = SubResource("WorldBoundaryShape2D_nq6di")
 
 [node name="BambooWall" parent="." unique_id=2025182041 instance=ExtResource("9_x8hhd")]
-position = Vector2(299, 160)
+position = Vector2(492, 160)
 
 [node name="Bird" parent="." unique_id=66656583 instance=ExtResource("10_altm0")]
-position = Vector2(238, 87)
+position = Vector2(390, 35)
 
 [node name="Powerup" parent="." unique_id=140198743 instance=ExtResource("14_altm0")]
-position = Vector2(384, 80)
+position = Vector2(443, 80)
 
 [node name="Arrow" parent="." unique_id=226876867 instance=ExtResource("11_wc0fe")]
-position = Vector2(366, -74)
+position = Vector2(298, 5)
 
 [node name="HUD" type="Control" parent="." unique_id=1037340713]
 unique_name_in_owner = true
@@ -346,14 +116,6 @@ offset_top = 1.0
 offset_right = 41.0
 offset_bottom = 41.0
 script = ExtResource("12_wc0fe")
-
-[node name="DeadHeartAnim" type="AnimatedSprite2D" parent="HUD" unique_id=1671506272]
-visible = false
-position = Vector2(52, 8)
-sprite_frames = SubResource("SpriteFrames_6ecc7")
-autoplay = "default"
-frame = 7
-frame_progress = 1.0
 
 [node name="Grid" type="GridContainer" parent="HUD" unique_id=1022681600]
 layout_mode = 0
@@ -369,25 +131,20 @@ label_settings = ExtResource("15_qy7k8")
 layout_mode = 2
 columns = 5
 
-[node name="Heart1" type="TextureRect" parent="HUD/Grid/HeartGrid" unique_id=1250109858]
+[node name="Heart" type="Container" parent="HUD/Grid/HeartGrid" unique_id=1198782657]
+custom_minimum_size = Vector2(8, 8)
+layout_mode = 2
+script = ExtResource("13_wc0fe")
+
+[node name="Alive" type="TextureRect" parent="HUD/Grid/HeartGrid/Heart" unique_id=1348082027]
 layout_mode = 2
 texture = ExtResource("16_vwxr4")
 
-[node name="Heart2" type="TextureRect" parent="HUD/Grid/HeartGrid" unique_id=1949707180]
-layout_mode = 2
-texture = ExtResource("16_vwxr4")
-
-[node name="Heart3" type="TextureRect" parent="HUD/Grid/HeartGrid" unique_id=1807815282]
-layout_mode = 2
-texture = ExtResource("16_vwxr4")
-
-[node name="Heart4" type="TextureRect" parent="HUD/Grid/HeartGrid" unique_id=322716797]
-layout_mode = 2
-texture = ExtResource("16_vwxr4")
-
-[node name="Heart5" type="TextureRect" parent="HUD/Grid/HeartGrid" unique_id=1348082027]
-layout_mode = 2
-texture = ExtResource("16_vwxr4")
+[node name="Dead" type="AnimatedSprite2D" parent="HUD/Grid/HeartGrid/Heart" unique_id=1671506272]
+visible = false
+position = Vector2(4, 8)
+sprite_frames = ExtResource("14_qy7k8")
+autoplay = "default"
 
 [node name="ObjectHolder" type="Node2D" parent="." unique_id=141189653]
 unique_name_in_owner = true
@@ -405,5 +162,4 @@ script = ExtResource("17_vwxr4")
 position = Vector2(230, 0)
 shape = SubResource("RectangleShape2D_qy7k8")
 
-[connection signal="body_entered" from="Player/Knife/Slicer" to="Player" method="_on_slicer_body_entered"]
 [connection signal="body_exited" from="AreaToKeepObjectsLoaded" to="AreaToKeepObjectsLoaded" method="_on_body_exited"]

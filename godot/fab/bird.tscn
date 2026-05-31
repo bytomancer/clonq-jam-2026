@@ -54,8 +54,8 @@ offsets = PackedFloat32Array(0.5049261, 1)
 colors = PackedColorArray(1, 0, 0, 1, 1, 0, 0, 0)
 
 [node name="Bird" type="RigidBody2D" unique_id=66656583 groups=["damaged_by_sword_edge", "offscreen_free"]]
-collision_layer = 1288
-collision_mask = 3
+collision_layer = 8
+collision_mask = 11
 mass = 0.5
 physics_material_override = SubResource("PhysicsMaterial_k3l4p")
 gravity_scale = 0.5

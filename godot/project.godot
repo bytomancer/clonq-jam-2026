@@ -33,10 +33,9 @@ damaged_by_sword_edge=""
 
 3d_physics/layer_1="Guy"
 3d_physics/layer_2="SwordBody"
-3d_physics/layer_3="SwordEdge"
+3d_physics/layer_3="GuyBorder"
 3d_physics/layer_4="Bird"
 3d_physics/layer_5="Powerup"
-3d_physics/layer_6="ArrowTip"
 3d_physics/layer_7="ArrowShaft"
 3d_physics/layer_8="Bamboo"
 

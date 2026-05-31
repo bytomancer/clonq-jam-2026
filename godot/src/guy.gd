@@ -33,6 +33,6 @@ func _process(delta: float):
 			$Sprite.animation = "fast"
 
 	if $Sprite.animation == "ow":
-		$Sprite.modulate.a8 = 128
+		$Sprite.modulate = Color(0.5, 0.5, 0.5, 1.0)
 	else:
-		$Sprite.modulate.a8 = 255
+		$Sprite.modulate = Color(1.0, 1.0, 1.0, 1.0)

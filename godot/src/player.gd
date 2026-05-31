@@ -11,8 +11,12 @@ var damage_multiplier = 1.0
 
 var previous_knife_ang_vel = 0.0
 
-func disable_tutorial() -> void:
-	$Tutorial.hide()
+var dmg_display
+var hud
+
+func _enter_tree() -> void:
+	self.dmg_display = get_node("/root/Main/DmgNumDisplay")
+	self.hud = get_node("/root/Main/HUD")
 
 func _process(delta: float) -> void:
 	var diff: Vector2 = get_global_mouse_position() - target.global_position
@@ -23,14 +27,22 @@ func _process(delta: float) -> void:
 	previous_knife_ang_vel = $Knife.angular_velocity
 
 func _on_slicer_body_entered(body: Node2D) -> void:
+	if !body.is_in_group("damaged_by_sword_edge"):
+		pass
 	var knife_speed = abs(previous_knife_ang_vel)
 	var dmg = knife_speed * damage_multiplier
+	if dmg < 1.0:
+		dmg = 1.0
 	print(dmg)
 	body.damage(dmg)
 
+func get_dmg_pt() -> Node2D:
+	return $Knife/DmgNumPt
+
 func powerup() -> void:
 	damage_multiplier += 1.0
-	%HUD.set_damage_multiplier(damage_multiplier)
+	self.hud.set_damage_multiplier(damage_multiplier)
+	dmg_display.add_txt("DMG UP!", Color8(255, 255, 0))
 
 func damage() -> void:
 	if $Guy.invuln_timer >= 0:
@@ -39,6 +51,9 @@ func damage() -> void:
 	reduce_hearts()
 
 func reduce_hearts() -> void:
-	if %HUD.get_heart_count() == 1:
+	if self.hud.get_heart_count() == 1:
 		get_tree().change_scene_to_file("res://scn/lose.tscn")
-	%HUD.reduce_hearts()
+	self.hud.reduce_hearts()
+
+func _on_grab_area_body_entered(body: Node2D) -> void:
+	body.consume()

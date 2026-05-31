@@ -1,0 +1,181 @@
+[gd_scene format=3 uid="uid://drnstb2vpr733"]
+
+[ext_resource type="Script" uid="uid://daaq1gupwyw5q" path="res://src/player.gd" id="1_bifre"]
+[ext_resource type="Texture2D" uid="uid://bo83xwhl0piwa" path="res://ass/knife.png" id="2_v0yqf"]
+[ext_resource type="Script" uid="uid://bxp7sqnft8tfb" path="res://src/guy.gd" id="3_ifrbw"]
+[ext_resource type="Texture2D" uid="uid://d2b21gsxlgijn" path="res://ass/guy.png" id="4_khxis"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_a14j1"]
+friction = 0.0
+bounce = 1.0
+absorbent = true
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4hsr3"]
+radius = 4.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qy7k8"]
+atlas = ExtResource("4_khxis")
+region = Rect2(40, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vwxr4"]
+atlas = ExtResource("4_khxis")
+region = Rect2(48, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6ecc7"]
+atlas = ExtResource("4_khxis")
+region = Rect2(56, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gyckk"]
+atlas = ExtResource("4_khxis")
+region = Rect2(24, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b6phj"]
+atlas = ExtResource("4_khxis")
+region = Rect2(32, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hbcb0"]
+atlas = ExtResource("4_khxis")
+region = Rect2(64, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nq6di"]
+atlas = ExtResource("4_khxis")
+region = Rect2(8, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vnkvy"]
+atlas = ExtResource("4_khxis")
+region = Rect2(16, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_315pe"]
+atlas = ExtResource("4_khxis")
+region = Rect2(0, 0, 8, 8)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_n2tm1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qy7k8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vwxr4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6ecc7")
+}],
+"loop": true,
+"name": &"fast",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gyckk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b6phj")
+}],
+"loop": true,
+"name": &"mid",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hbcb0")
+}],
+"loop": true,
+"name": &"ow",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nq6di")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vnkvy")
+}],
+"loop": true,
+"name": &"slow",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_315pe")
+}],
+"loop": true,
+"name": &"still",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vwxr4"]
+radius = 6.0
+
+[node name="Player" type="Node2D" unique_id=1174102268 node_paths=PackedStringArray("target")]
+script = ExtResource("1_bifre")
+target = NodePath("Guy")
+
+[node name="GuyToKnife" type="PinJoint2D" parent="." unique_id=1418490430]
+node_a = NodePath("../Guy")
+node_b = NodePath("../Knife")
+bias = 0.9
+
+[node name="Knife" type="RigidBody2D" parent="." unique_id=1986076042]
+collision_layer = 2
+collision_mask = 232
+mass = 3.0
+physics_material_override = SubResource("PhysicsMaterial_a14j1")
+gravity_scale = 50.0
+center_of_mass_mode = 1
+center_of_mass = Vector2(0, 8)
+inertia = 50.0
+angular_damp = 20.0
+
+[node name="Sprite2D" type="Sprite2D" parent="Knife" unique_id=293520166]
+position = Vector2(0, 12)
+texture = ExtResource("2_v0yqf")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Knife" unique_id=1446070112]
+position = Vector2(0, 1)
+polygon = PackedVector2Array(-2, -4, 2, -4, 4, 4, 4, 26, -1, 21, -1, 4)
+
+[node name="Slicer" type="Area2D" parent="Knife" unique_id=482185091]
+collision_layer = 0
+collision_mask = 248
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Knife/Slicer" unique_id=671930096]
+polygon = PackedVector2Array(-4, 5, -1, 5, -1, 22, 3, 26, -1, 26, -4, 23)
+
+[node name="DmgNumPt" type="Node2D" parent="Knife" unique_id=264969375]
+position = Vector2(-3, 23)
+
+[node name="Guy" type="CharacterBody2D" parent="." unique_id=217851887]
+collision_mask = 173
+motion_mode = 1
+script = ExtResource("3_ifrbw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Guy" unique_id=284320286]
+shape = SubResource("CircleShape2D_4hsr3")
+
+[node name="Sprite" type="AnimatedSprite2D" parent="Guy" unique_id=275636831]
+sprite_frames = SubResource("SpriteFrames_n2tm1")
+animation = &"slow"
+autoplay = "fast"
+frame_progress = 0.64330417
+
+[node name="HitParticles" type="CPUParticles2D" parent="Guy" unique_id=1390429745]
+emitting = false
+amount = 30
+one_shot = true
+explosiveness = 0.7
+direction = Vector2(-1, 0)
+gravity = Vector2(0, 98)
+initial_velocity_min = 30.0
+initial_velocity_max = 50.0
+color = Color(0.99607843, 0, 0, 1)
+
+[node name="GrabArea" type="Area2D" parent="Guy" unique_id=1106863336]
+collision_layer = 0
+collision_mask = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Guy/GrabArea" unique_id=491345677]
+shape = SubResource("CircleShape2D_vwxr4")
+
+[connection signal="body_entered" from="Knife/Slicer" to="." method="_on_slicer_body_entered"]
+[connection signal="body_entered" from="Guy/GrabArea" to="." method="_on_grab_area_body_entered"]

@@ -67,10 +67,11 @@ animations = [{
 size = Vector2(11, 5)
 
 [node name="Arrow" type="RigidBody2D" unique_id=226876867 groups=["damaged_by_sword_edge", "offscreen_free"]]
-collision_layer = 16
-collision_mask = 11
+collision_layer = 64
+collision_mask = 67
 physics_material_override = SubResource("PhysicsMaterial_wc0fe")
 script = ExtResource("1_0f27e")
+tutorial_speed = 400.0
 
 [node name="TutNode" type="Node2D" parent="." unique_id=905435295]
 script = ExtResource("3_ornea")
@@ -121,7 +122,7 @@ shape = SubResource("RectangleShape2D_qy7k8")
 
 [node name="ArrowTip" type="Area2D" parent="." unique_id=1480899359 groups=["damaged_by_sword_edge"]]
 collision_layer = 0
-collision_mask = 1035
+collision_mask = 3
 script = ExtResource("5_fmpqv")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="ArrowTip" unique_id=1636780865]

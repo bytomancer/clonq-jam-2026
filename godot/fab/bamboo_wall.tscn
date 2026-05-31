@@ -267,8 +267,8 @@ _data = {
 }
 
 [node name="BambooWall" type="StaticBody2D" unique_id=2025182041]
-collision_layer = 260
-collision_mask = 256
+collision_layer = 128
+collision_mask = 0
 script = ExtResource("1_0iyja")
 
 [node name="Tutorial" type="Label" parent="." unique_id=376961292]
