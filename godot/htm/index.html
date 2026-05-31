@@ -6,16 +6,20 @@
 
 <body>
     <form>
-        <label>Difficulty</label>
-        <input type="range" min="0" max="255" value="0" class="slider" id="diff" onchange="updateDiff()">
-        <label id="diffPrev">0</label>
-
-        <button type="button" onclick="beginActualGame()">GO!</button>
+        <div class="diffGroup">
+            <label>Difficulty</label>
+            <input type="range" min="0" max="255" value="0" class="slider" id="diff" onchange="updateDiff()">
+            <label id="diffPrev">0</label>
+        </div>
+        <div class="diffGroup">
+            <button type="button" onclick="beginActualGame()">GO!</button>
+        </div>
+        <div class="diffGroup" id="statusMsg">
+            Status: AWAITING
+        </div>
     </form>
 
-    <h1 id="statusMsg">
-        Status: AWAITING
-    </h1>
+
 
     <section class="canvas-container">
         <canvas id="canvas" width="240" height="160"></canvas>
@@ -27,7 +31,7 @@
 <script src="$GODOT_URL"></script>
 
 <script>
-    window.lcolonqJamStart = -1.0
+    window.lcolonqJamStart = -1.0;
     window.addEventListener("message", (event) => {
         console.log(event);
         var op = event.data.op;
@@ -45,12 +49,12 @@
     engine.startGame();
     function beginActualGame() {
         let diff = document.getElementById("diff").value;
-        window.lcolonqJamStart = diff
+        window.lcolonqJamStart = diff;
     }
     function updateDiff() {
         let diff = document.getElementById("diff").value;
         let field = document.getElementById("diffPrev");
-        field.innerText = diff
+        field.innerText = diff;
     }
 </script>
 
@@ -84,10 +88,6 @@
         font-size: 24px;
     }
 
-    form {
-        display: flex;
-    }
-
     .slider {
         width: auto;
         flex: 1;
@@ -102,6 +102,16 @@
         align-items: center;
 
         overflow: hidden;
+    }
+
+    .diffGroup {
+        min-width: 100vw;
+        display: flex;
+    }
+
+    #statusMsg {
+        font-size: 1.5rem;
+        font-weight: bold;
     }
 
     canvas {

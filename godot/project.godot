@@ -24,6 +24,22 @@ window/stretch/mode="viewport"
 window/stretch/scale_mode="integer"
 mouse_cursor/custom_image="uid://b4p7f1m2bwyqp"
 
+[global_group]
+
+offscreen_free="Objects in this group will be freed when significantly outside of the playable area"
+damaged_by_sword_edge=""
+
+[layer_names]
+
+3d_physics/layer_1="Guy"
+3d_physics/layer_2="SwordBody"
+3d_physics/layer_3="SwordEdge"
+3d_physics/layer_4="Bird"
+3d_physics/layer_5="Powerup"
+3d_physics/layer_6="ArrowTip"
+3d_physics/layer_7="ArrowShaft"
+3d_physics/layer_8="Bamboo"
+
 [physics]
 
 3d/physics_engine="Jolt Physics"
@@ -36,4 +52,4 @@ textures/canvas_textures/default_texture_filter=0
 rendering_device/driver.windows="d3d12"
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
-environment/defaults/default_clear_color=Color(1, 0.6784314, 0.3882353, 1)
+environment/defaults/default_clear_color=Color(0.39607844, 0.6431373, 0.60784316, 1)

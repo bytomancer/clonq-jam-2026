@@ -27,7 +27,7 @@ height = 10.0
 font = ExtResource("3_hlxdn")
 font_size = 12
 
-[node name="Powerup" type="Area2D" unique_id=140198743]
+[node name="Powerup" type="Area2D" unique_id=140198743 groups=["offscreen_free"]]
 collision_layer = 0
 script = ExtResource("1_a1c17")
 speed = 50.0

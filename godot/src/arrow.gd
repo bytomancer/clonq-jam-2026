@@ -20,17 +20,11 @@ var damage_value = 10.0
 var time_alive = 0.0
 
 func disable_tutorial() -> void:
-	$Tutorial.hide()
+	$TutNode.hide()
 	speed = normal_speed
 
 func damage(_dmg: float) -> void:
 	pass
-	# if self.hp <= 0.0:
-	# 	return
-	# %DmgNumDisplay.add_number(dmg, Color(1, 1, 1))
-	# self.hp -= dmg
-	# if self.hp <= 0.0:
-	# 	self.gravity_scale *= 5.0
 
 func _ready() -> void:
 	var flight_vel = Vector2(-1, 0) * speed
@@ -43,39 +37,7 @@ func _process(delta: float) -> void:
 	if self.hp <= 0.0:
 		return
 	
-	# if time_alive > 1.0:
-	# 	var curr_speed = self.linear_velocity.length()
-	# 	if curr_speed < speed / 2.0:
-	# 		self.hp = 0.0
-	# 		self.gravity_scale *= 5.0
-	# 		return
-	# elif time_alive == 0.0:
-	
 	time_alive += delta
-
-	# var curr_speed = self.linear_velocity.length()
-	# if curr_speed <= speed / 10.0:
-	# 	time_stalled += delta
-	# else:
-	# 	time_stalled = 0
-	
-	# if time_stalled >= 1:
-	# 	self.hp = 0.0
-	# 	self.gravity_scale *= 5.0
-	# 	return
-	# var current_speed = self.linear_velocity.length()
-	# var allowed_speed = 2 * speed
-	# var flight_speed = lerpf(self.speed, 0.0, current_speed / allowed_speed)
-	# var flight_vel = Vector2(-1, 0) * flight_speed
-
-	# var pos_after = self.global_position
-	# var pos_diff = pos_after - prev_pos
-	# if pos_diff.length() < 0.1 or pos_diff.length() > 0.1:
-	# 	time_stalled += delta
-	# else:
-	# 	time_stalled = 0
-
-	# prev_pos = self.global_position
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if self.hp <= 0.0:
@@ -84,11 +46,10 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.name == "Knife":
 		kill_self()
 	elif body.name == "Guy":
-		body.get_parent().reduce_hearts()
+		body.get_parent().damage()
 		# body.damage(damage_value)
 	elif body.name == "Bird":
 		pass
-		# body.damage(damage_value)
 
 func kill_self():
 	self.hp = 0.0

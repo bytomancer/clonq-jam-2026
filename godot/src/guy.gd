@@ -12,6 +12,7 @@ var invuln_timer = 0.0
 
 func start_invuln() -> void:
 	invuln_timer = INVULN_TIME
+	$HitParticles.restart()
 
 func _process(delta: float):
 	if invuln_timer >= 0:

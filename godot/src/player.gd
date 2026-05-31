@@ -22,10 +22,6 @@ func _process(delta: float) -> void:
 	target.move_and_slide()
 	previous_knife_ang_vel = $Knife.angular_velocity
 
-func _input(_event: InputEvent) -> void:
-	if Input.is_action_just_released("ui_accept"):
-		reduce_hearts()
-
 func _on_slicer_body_entered(body: Node2D) -> void:
 	var knife_speed = abs(previous_knife_ang_vel)
 	var dmg = knife_speed * damage_multiplier
@@ -36,10 +32,13 @@ func powerup() -> void:
 	damage_multiplier += 1.0
 	%HUD.set_damage_multiplier(damage_multiplier)
 
-func reduce_hearts() -> void:
+func damage() -> void:
 	if $Guy.invuln_timer >= 0:
 		return
 	$Guy.start_invuln()
-	%HUD.reduce_hearts()
-	if %HUD.get_heart_count() == 0:
+	reduce_hearts()
+
+func reduce_hearts() -> void:
+	if %HUD.get_heart_count() == 1:
 		get_tree().change_scene_to_file("res://scn/lose.tscn")
+	%HUD.reduce_hearts()
