@@ -15,6 +15,12 @@ func _enter_tree() -> void:
 
 func disable_tutorial() -> void:
 	$Tutorial.hide()
+	hp *= 2.0
+
+func make_boss() -> void:
+	self.speed *= .75
+	self.hp *= 10.0
+	self.scale *= 2.0
 
 # var hit_rot = 0.1
 func damage(dmg: float) -> void:

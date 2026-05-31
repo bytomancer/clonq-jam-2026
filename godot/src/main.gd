@@ -89,8 +89,7 @@ func spawn_bam(stronger = false):
 	bamboo.disable_tutorial()
 	bamboo.global_position = Vector2(299.0, 160.0)
 	if stronger:
-		bamboo.hp *= 10.0
-		bamboo.scale *= 2.0
+		bamboo.make_boss()
 	# DO NOT CHANGE THE SPEED IT CAUSES CLIPPING
 	#var speed_mod = 1.0 + difficulty
 	#bamboo.speed *= speed_mod
