@@ -1,11 +1,12 @@
 extends CharacterBody2D
+class_name Guy
 
 const SLOW_VEL = 10.0
 const MID_VEL = 40.0
 const FAST_VEL = 80.0
 
 const INVULN_TIME = 2.0
-var invuln_timer = 0.0
+var invuln_timer := 0.0
 
 # func damage(_dmg: float) -> void:
 # 	get_tree().change_scene_to_file("res://scn/lose.tscn")

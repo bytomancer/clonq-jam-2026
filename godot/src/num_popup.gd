@@ -1,4 +1,5 @@
 extends Label
+class_name NumPopup
 
 @export
 var speed = 10.0

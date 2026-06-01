@@ -1,14 +1,15 @@
 extends StaticBody2D
+class_name BambooWall
 
 const KILLZONE = 8.0
 
 @export
-var speed = 30.0
+var speed: float = 30.0
 
 @export
-var hp = 100.0
+var hp: float = 100.0
 
-var dmg_display
+var dmg_display: DmgNumDisplay
 
 func _enter_tree() -> void:
 	self.dmg_display = get_node("/root/Main/DmgNumDisplay")
