@@ -26,11 +26,10 @@ jobs:
 
       - name: Build Game
         run: |
-          mkdir -p build
+          cd godot
 
-          nix develop --command \
-            cd godot && \
-              godot \
+          nix develop .. --command \
+            godot \
               --headless \
               --export-release "Web" \
               output/index.html
