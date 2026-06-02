@@ -33,13 +33,15 @@ func _move_toward_mouse(delta: float) -> void:
 	guy_ref.velocity = dir_to_mouse / delta
 	var _collided := guy_ref.move_and_slide()
 
-func _on_slicer_body_entered(body: DamagedBySwordEdge) -> void:
+func _on_slicer_body_entered(body: Node2D) -> void:
+	if !body.is_in_group("damaged_by_sword_edge"):
+		pass
 	var knife_speed := absf(previous_knife_ang_vel)
 	var dmg := knife_speed * self.damage_multiplier
 	if dmg < 1.0:
 		dmg = 1.0
-	var body_cast := body as DamagedBySwordEdge
-	body_cast.damage(dmg)
+	if body.has_method("damage"):
+		body.damage(dmg)
 
 func get_dmg_pt() -> Node2D:
 	return $Knife/DmgNumPt
