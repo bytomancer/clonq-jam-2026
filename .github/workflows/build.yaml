@@ -26,6 +26,12 @@ jobs:
 
       - name: Build Game
         run: |
+          wget https://github.com/godotengine/godot/releases/download/4.6.3-stable/Godot_v4.6.3-stable_export_templates.tpz
+
+          unzip Godot_v4.6.3-stable_export_templates.tpz
+
+          mv -vn templates $HOME/.local/share/godot/export_templates
+
           cd godot
 
           nix develop .. --command \

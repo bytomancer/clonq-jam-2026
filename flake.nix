@@ -12,11 +12,10 @@
     {
       devShells.${system}.default = pkgs.mkShell {
         packages = with pkgs; [
-          vscodium
           libresprite
           godot_4_6
-          zellij
           zip
+          wget
         ];
       };
     };
