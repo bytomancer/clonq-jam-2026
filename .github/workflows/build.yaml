@@ -39,8 +39,7 @@ jobs:
           nix develop .. --command \
             godot \
               --headless \
-              --export-release "Web Release" \
-              output/index.html
+              --export-release "Web Release"
 
       - name: Create archive
         run: |
