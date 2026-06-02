@@ -30,7 +30,9 @@ jobs:
 
           unzip Godot_v4.6.3-stable_export_templates.tpz
 
-          mv -vn templates $HOME/.local/share/godot/export_templates
+          mkdir -p /home/runner/.local/share/godot/export_templates/4.6.3.stable
+
+          mv -vn templates /home/runner/.local/share/godot/export_templates/4.6.3.stable
 
           cd godot
 
