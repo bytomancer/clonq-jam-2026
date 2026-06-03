@@ -18,7 +18,7 @@ jobs:
       - uses: DeterminateSystems/magic-nix-cache-action@main
       - uses: DeterminateSystems/flake-checker-action@main
 
-      - name: Bump version and push tag
+      - name: Bump Version and Push Tag
         id: tag_version
         uses: mathieudutour/github-tag-action@v6.1
         with:
@@ -38,12 +38,17 @@ jobs:
               --headless \
               --export-release "Web Test"
 
-      - name: Create archive
+      - name: Create Release Archive
         run: |
-          zip -r bytomancer-${{ steps.tag_version.outputs.new_tag }}.zip output/
-          zip -r bytomancer-test-${{ steps.tag_version.outputs.new_tag }}.zip output_test/
+          cd output
+          zip -r ../bytomancer-jam.zip *
 
-      - name: Create GitHub release
+      - name: Create Release Archive
+        run: |
+          cd output_test
+          zip -r ../bytomancer-jam-test.zip *
+
+      - name: Create GitHub Release
         id: create_release
         uses: ncipollo/release-action@v1
         with:
