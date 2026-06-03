@@ -19,6 +19,15 @@
           wget
           tuxguitar
         ];
+        shellHook = ''
+          mkdir -p "$HOME/.local/share/godot"
+
+          if [ ! -e "$HOME/.local/share/godot/export_templates" ]; then
+            ln -s \
+              ${pkgs.godot-export-templates-bin}/share/godot/export_templates \
+              "$HOME/.local/share/godot/export_templates"
+          fi
+        '';
       };
     };
 }

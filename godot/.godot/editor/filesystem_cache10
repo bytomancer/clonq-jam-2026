@@ -1,8 +1,8 @@
 63f7b34db8d8cdea90c76aacccf841ec
-::res://::1780452885
+::res://::1780454925
 export_presets.cfg::TextFile::-1::1780445697::0::1::::<><><>0<>0<><>::
 icon.svg::CompressedTexture2D::6015413870077712922::1779925835::1779925835::1::::<><><>0<>0<>69717e826be359e82321968a3b8c7b03<>res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex::
-::res://ass/::1780453134
+::res://ass/::1780453845
 1heart.png::CompressedTexture2D::6784324858965102541::1779933398::1779933399::1::::<><><>0<>0<>6bab39e4d26986cda8adc78465b5f6a4<>res://.godot/imported/1heart.png-31f84b3dcc770951f8ba0fe18e23cc35.ctex::
 arrow.png::CompressedTexture2D::7685840820698155882::1779930249::1779930250::1::::<><><>0<>0<>e83b01f71843d5ff180115cdee414272<>res://.godot/imported/arrow.png-b598e5faddd41604ef772bdb7d3110d6.ctex::
 bamboo.png::CompressedTexture2D::7223765046977073446::1779925835::1779925835::1::::<><><>0<>0<>a16bb72e17e641d7b5240be3cbfb988f<>res://.godot/imported/bamboo.png-8906b89ff216f22e075f69d5a9850ab3.ctex::
@@ -34,9 +34,9 @@ powerup.tscn::PackedScene::4262022832430452801::1780259426::0::1::::<><><>0<>0<>
 ::res://res/::1780452902
 dead_heart_anim.tres::SpriteFrames::3026337008679904474::1780452902::0::1::::<><><>0<>0<><>::uid://ed27ou2ans37::::res://ass/heart.png
 default_label_setting.tres::LabelSettings::7082764035558341254::1780452902::0::1::::<><><>0<>0<><>::
-::res://scn/::1780453772
+::res://scn/::1780454170
 lose.tscn::PackedScene::5913432572605269387::1780092864::0::1::::<><><>0<>0<><>::uid://gpdvwu1jvc4y::::res://src/lose.gd<>uid://cu5o2a46e1b1h::::res://ext/spleen/spleen-6x12.otf
-main.tscn::PackedScene::7793609903868385464::1780453772::0::1::::<><><>0<>0<><>::uid://5aer6pvcghh5::::res://src/dmg_num_display.gd<>uid://c1i8ysoftnvsq::::res://src/main.gd<>uid://rdjjjrlf0nyh::::res://src/num_popup.gd<>uid://drnstb2vpr733::::res://fab/player.tscn<>uid://c55l0d7js711y::::res://fab/bamboo_wall.tscn<>uid://dfx804jmbalr1::::res://fab/bird.tscn<>uid://dj3k8g3snuggu::::res://fab/arrow.tscn<>uid://bfdpqrr4nfc1t::::res://src/hud.gd<>uid://cu5o2a46e1b1h::::res://ext/spleen/spleen-6x12.otf<>uid://0t5litfbwgio::::res://src/heart.gd<>uid://b1ys5mywg1ejp::::res://fab/powerup.tscn<>uid://bjd8lfuvp151o::::res://res/dead_heart_anim.tres<>uid://c757dayt8j6j7::::res://res/default_label_setting.tres<>uid://ccb71ndpoyfaj::::res://ass/hill.png<>uid://c3wm3se5ovxi0::::res://ass/1heart.png<>uid://bdefsiqbv6px7::::res://src/bg.gd<>uid://cyv6tkosffc0q::::res://src/area_to_keep_objects_loaded.gd<>uid://b58t5uy85n8a7::::res://ass/bg_bamboo.png<>uid://bq7pcsdspwwr3::::res://ass/snow.png<>uid://dw126onhqdat::::res://ass/bgm.wav
+main.tscn::PackedScene::7793609903868385464::1780454170::0::1::::<><><>0<>0<><>::uid://5aer6pvcghh5::::res://src/dmg_num_display.gd<>uid://c1i8ysoftnvsq::::res://src/main.gd<>uid://rdjjjrlf0nyh::::res://src/num_popup.gd<>uid://drnstb2vpr733::::res://fab/player.tscn<>uid://c55l0d7js711y::::res://fab/bamboo_wall.tscn<>uid://dfx804jmbalr1::::res://fab/bird.tscn<>uid://dj3k8g3snuggu::::res://fab/arrow.tscn<>uid://bfdpqrr4nfc1t::::res://src/hud.gd<>uid://cu5o2a46e1b1h::::res://ext/spleen/spleen-6x12.otf<>uid://0t5litfbwgio::::res://src/heart.gd<>uid://b1ys5mywg1ejp::::res://fab/powerup.tscn<>uid://bjd8lfuvp151o::::res://res/dead_heart_anim.tres<>uid://c757dayt8j6j7::::res://res/default_label_setting.tres<>uid://ccb71ndpoyfaj::::res://ass/hill.png<>uid://c3wm3se5ovxi0::::res://ass/1heart.png<>uid://bdefsiqbv6px7::::res://src/bg.gd<>uid://cyv6tkosffc0q::::res://src/area_to_keep_objects_loaded.gd<>uid://b58t5uy85n8a7::::res://ass/bg_bamboo.png<>uid://bq7pcsdspwwr3::::res://ass/snow.png<>uid://dw126onhqdat::::res://ass/bgm.wav
 pre.tscn::PackedScene::2917683073115662003::1780092465::0::1::::<><><>0<>0<><>::uid://gcsh430jw3ei::::res://src/pre.gd<>uid://c757dayt8j6j7::::res://res/default_label_setting.tres
 win.tscn::PackedScene::9114617095920665902::1780094471::0::1::::<><><>0<>0<><>::uid://b7qhrdcs55tnk::::res://src/win.gd<>uid://b31j5cwv85pxv::::res://ext/spleen/spleen-6x12.woff2
 ::res://src/::1780453772
