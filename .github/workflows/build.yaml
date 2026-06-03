@@ -13,10 +13,10 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v4
-
-      - name: Install Nix
-        uses: cachix/install-nix-action@v31
+      - uses: actions/checkout@v6
+      - uses: DeterminateSystems/nix-installer-action@main
+      - uses: DeterminateSystems/magic-nix-cache-action@main
+      - uses: DeterminateSystems/flake-checker-action@main
 
       - name: Bump version and push tag
         id: tag_version
@@ -26,14 +26,6 @@ jobs:
 
       - name: Build Game
         run: |
-          wget -q https://github.com/godotengine/godot/releases/download/4.6.3-stable/Godot_v4.6.3-stable_export_templates.tpz
-
-          unzip Godot_v4.6.3-stable_export_templates.tpz
-
-          mkdir -p /home/runner/.local/share/godot/export_templates/4.6.3.stable
-
-          mv -vn templates/* /home/runner/.local/share/godot/export_templates/4.6.3.stable
-
           cd godot
 
           nix develop .. --command \

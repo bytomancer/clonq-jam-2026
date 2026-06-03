@@ -14,6 +14,7 @@
         packages = with pkgs; [
           libresprite
           godot_4_6
+          godot_4_6-export-templates-bin
           zip
           wget
           tuxguitar
