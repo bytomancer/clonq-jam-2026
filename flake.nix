@@ -16,6 +16,7 @@
           godot_4_6
           zip
           wget
+          tuxguitar
         ];
       };
     };

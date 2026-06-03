@@ -2,7 +2,7 @@ extends Node2D
 
 const MAX_DIFF = 255
 const MIN_DIFF = 0
-const GAME_TIME_SOFT_LIMIT = 45.0
+const GAME_TIME_SOFT_LIMIT = 25.0
 
 var difficulty = 0.0
 
@@ -79,8 +79,8 @@ func reset_bam_timer(perf_spawn = true) -> void:
 		return
 	if perf_spawn:
 		spawn_bam()
-	var rand_bonus = lerpf(2.0, 1.0, difficulty)
-	var rand_base = lerpf(6.0, 3.0, difficulty)
+	var rand_bonus = lerpf(1.5, 0.7, difficulty)
+	var rand_base = lerpf(4.0, 2.0, difficulty)
 	next_bam_timer = randf() * rand_bonus + rand_base
 
 func spawn_bam(stronger = false):
@@ -90,13 +90,17 @@ func spawn_bam(stronger = false):
 	bamboo.global_position = Vector2(299.0, 160.0)
 	if stronger:
 		bamboo.make_boss()
+	else:
+		bamboo.hp *= 1.0 + (difficulty as float / MAX_DIFF as float)
 	# DO NOT CHANGE THE SPEED IT CAUSES CLIPPING
 	#var speed_mod = 1.0 + difficulty
 	#bamboo.speed *= speed_mod
 	%BambooHolder.add_child(bamboo)
 
+const EXTRA_OBJ_TIME = 5.0
+
 func reset_obj_timer(perf_spawn = true) -> void:
-	if total_time_played > GAME_TIME_SOFT_LIMIT:
+	if total_time_played > GAME_TIME_SOFT_LIMIT + EXTRA_OBJ_TIME:
 		return
 	if perf_spawn:
 		spawn_obj()

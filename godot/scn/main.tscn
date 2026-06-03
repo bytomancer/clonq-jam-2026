@@ -19,6 +19,7 @@
 [ext_resource type="Script" uid="uid://cyv6tkosffc0q" path="res://src/area_to_keep_objects_loaded.gd" id="17_vwxr4"]
 [ext_resource type="Texture2D" uid="uid://b58t5uy85n8a7" path="res://ass/bg_bamboo.png" id="18_xs02v"]
 [ext_resource type="Texture2D" uid="uid://bq7pcsdspwwr3" path="res://ass/snow.png" id="19_nhm61"]
+[ext_resource type="AudioStream" uid="uid://dw126onhqdat" path="res://ass/bgm.wav" id="20_6d0je"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_4r6w6"]
 font = ExtResource("12_x8hhd")
@@ -215,5 +216,9 @@ angular_velocity_min = 25.0
 angular_velocity_max = 100.0
 angle_min = -233.3
 angle_max = -100.0
+
+[node name="Bgm" type="AudioStreamPlayer" parent="." unique_id=1496811770]
+stream = ExtResource("20_6d0je")
+volume_db = -8.785
 
 [connection signal="body_exited" from="AreaToKeepObjectsLoaded" to="AreaToKeepObjectsLoaded" method="_on_body_exited"]

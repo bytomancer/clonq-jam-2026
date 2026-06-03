@@ -1,7 +1,7 @@
 extends Control
 
 @export
-var health = 5
+var health = 3
 
 var heart_grid_ref
 
