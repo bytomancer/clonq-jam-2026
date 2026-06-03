@@ -219,6 +219,7 @@ angle_max = -100.0
 
 [node name="Bgm" type="AudioStreamPlayer" parent="." unique_id=1496811770]
 stream = ExtResource("20_6d0je")
-volume_db = -8.785
+volume_db = -10.0
+autoplay = true
 
 [connection signal="body_exited" from="AreaToKeepObjectsLoaded" to="AreaToKeepObjectsLoaded" method="_on_body_exited"]

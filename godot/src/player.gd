@@ -14,6 +14,8 @@ var previous_knife_ang_vel = 0.0
 var dmg_display
 var hud
 
+var godmode = false
+
 func _enter_tree() -> void:
 	self.dmg_display = get_node("/root/Main/DmgNumDisplay")
 	self.hud = get_node("/root/Main/HUD")
@@ -26,6 +28,9 @@ func _process(delta: float) -> void:
 	target.move_and_slide()
 	previous_knife_ang_vel = $Knife.angular_velocity
 
+	if Input.is_action_just_released("ui_accept"):
+		godmode = !godmode
+
 func _on_slicer_body_entered(body: Node2D) -> void:
 	if !body.is_in_group("damaged_by_sword_edge"):
 		pass
@@ -33,6 +38,8 @@ func _on_slicer_body_entered(body: Node2D) -> void:
 	var dmg = knife_speed * damage_multiplier
 	if dmg < 1.0:
 		dmg = 1.0
+	if godmode:
+		dmg = 999.0
 	print(dmg)
 	body.damage(dmg)
 
@@ -51,6 +58,8 @@ func damage() -> void:
 	reduce_hearts()
 
 func reduce_hearts() -> void:
+	if godmode:
+		return
 	if self.hud.get_heart_count() == 1:
 		get_tree().change_scene_to_file("res://scn/lose.tscn")
 	self.hud.reduce_hearts()
