@@ -1,53 +1,243 @@
+let chordprog = cat(
+    // Intro
+    "[d3,g3,a3]",
+    "[d3,g3,a3]",
+    "[d3,g3,a3,d4]",
+    "[d3,g3,a3]",
+
+    // Trail
+    "[d3,g3,a3]",
+    "[c3,e3,g3,d4]",
+    "[g2,a2,d3]",
+    "[d3,g3,a3]",
+
+    "[d3,g3,a3]",
+    "[c3,e3,g3,d4]",
+    "[g2,a2,d3]",
+    "[d3,g3,a3]",
+
+    // Vista
+    "[d3,f3,a3]",
+    "[bb2,d3,f3]",
+    "[g2,bb2,d3]",
+    "[d3,f3,a3]",
+
+    "[d3,f3,a3]",
+    "[eb3,g3,bb3]",
+    "[bb2,d3,f3]",
+    "[d3,f3,a3]",
+
+    // Fall
+    "[d3,f3,a3]",
+    "[eb3,g3,bb3]",
+    "[ab2,c3,eb3]",
+    "[d2,ab2,c3,eb3]"
+)
+    .note()
+    .sound("piano")
+    .gain(2.0)
+
+let chordref = cat(
+    // ===== D ROOT =====
+    "[d3,a3]",             // D5
+    "[d3,e3,a3]",          // Dsus2
+    "[d3,g3,a3]",          // Dsus4
+    "[d3,e3,g3,a3]",       // Dsus2sus4
+    "[d3,f#3,a3]",         // D
+    // contains accidental (F#)
+    "[d3,f#3,a3,e4]",      // Dadd9
+    // contains accidental (F#)
+    "[d3,f#3,a3,c4]",      // D7
+    // contains accidental (F#)
+    "[d3,f3,a3]",          // Dm
+    "[d3,f3,a3,e4]",       // Dm(add9)
+    "[d3,f3,a3,c4]",       // Dm7
+    "[d3,f3,ab3]",         // Ddim
+    // contains accidental (Ab)
+    "[d3,g#3,a3]",         // Daug
+    // contains accidental (G#)
+    "[d3,f3,ab3,c4]",      // Dm7b5
+    // contains accidental (Ab)
+    "[d3,e3,f3,ab3]",      // Cluster
+    // contains accidental (Ab)
+    "[d3,eb3,e3,ab3]",     // Cluster
+    // contains accidental (Eb, Ab)
+    "[d3,c#3,d#3,e3]",     // Cluster
+    // contains accidental (C#, D#)
+    "[d3,c4,e4,g4]",       // C/D
+    "[d3,eb3,g3,bb3]",     // Eb/D
+    // contains accidental (Eb, Bb)
+    "[d3,bb3,d4,f4]",      // Bb/D
+    // contains accidental (Bb)
+    "[d3,ab3,c4,eb4]",     // Ab/D
+    // contains accidental (Ab, Eb)
+    "[d3,eb3,g3,bb3,d4]",  // Ebmaj7/D
+    // contains accidental (Eb, Bb)
+    "[d3,bb3,db4,f4]",     // Bbm/D
+    // contains accidental (Bb, Db)
+    "[d3,ab3,c4,eb4]",     // Ab/D
+    // contains accidental (Ab, Eb)
+
+    // ===== G ROOT =====
+    "[g2,d3]",             // G5
+    "[g2,a2,d3]",          // Gsus2
+    "[g2,c3,d3]",          // Gsus4
+    "[g2,b2,d3]",          // G
+    "[g2,b2,d3,a3]",       // Gadd9
+    "[g2,bb2,d3]",         // Gm
+    // contains accidental (Bb)
+    "[g2,bb2,d3,a3]",      // Gm(add9)
+    // contains accidental (Bb)
+    "[d3,g3,a3,d4]",       // Gsus2/D
+
+    // ===== C ROOT =====
+    "[c3,g3]",             // C5
+    "[c3,d3,g3]",          // Csus2
+    "[c3,f3,g3]",          // Csus4
+    "[c3,e3,g3]",          // C
+    "[c3,e3,g3,d4]",       // Cadd9
+    "[c3,eb3,g3]",         // Cm
+    // contains accidental (Eb)
+    "[c3,eb3,g3,d4]",      // Cm(add9)
+    // contains accidental (Eb)
+
+    // ===== A ROOT =====
+    "[a2,e3]",             // A5
+    "[a2,b2,e3]",          // Asus2
+    "[a2,d3,e3]",          // Asus4
+    "[a2,c#3,e3]",         // A
+    // contains accidental (C#)
+    "[a2,c#3,e3,g3]",      // A7
+    // contains accidental (C#)
+    "[a2,c3,e3]",          // Am
+    "[a2,d3,e3,g3]",       // A7sus4
+
+    // ===== F ROOT =====
+    "[f2,c3]",             // F5
+    "[f2,g2,c3]",          // Fsus2
+    "[f2,a2,c3]",          // F
+    "[f2,a2,c3,g3]",       // Fadd9
+    "[f2,ab2,c3]",         // Fm
+    // contains accidental (Ab)
+    "[f2,ab2,c3,g3]",      // Fm(add9)
+    // contains accidental (Ab)
+
+    // ===== Bb ROOT =====
+    "[bb2,f3]",            // Bb5
+    // contains accidental (Bb)
+    "[bb2,d3,f3]",         // Bb
+    // contains accidental (Bb)
+    "[bb2,d3,f3,c4]",      // Bbadd9
+    // contains accidental (Bb)
+    "[bb2,db3,f3]",        // Bbm
+    // contains accidental (Bb, Db)
+
+    // ===== Eb ROOT =====
+    "[eb3,bb3]",           // Eb5
+    // contains accidental (Eb, Bb)
+    "[eb3,g3,bb3]",        // Eb
+    // contains accidental (Eb, Bb)
+    "[eb3,g3,bb3,d4]",     // Ebmaj7
+    // contains accidental (Eb, Bb)
+    "[eb3,gb3,bb3]",       // Ebm
+    // contains accidental (Eb, Gb, Bb)
+
+    // ===== Ab ROOT =====
+    "[ab2,eb3]",           // Ab5
+    // contains accidental (Ab, Eb)
+    "[ab2,c3,eb3]",        // Ab
+    // contains accidental (Ab, Eb)
+    "[ab2,c3,eb3,g3]",     // Abmaj7
+    // contains accidental (Ab, Eb)
+    "[ab2,b2,eb3]",        // Abm
+    // contains accidental (Ab, B, Eb)
+
+    // ===== Db ROOT =====
+    "[db3,ab3]",           // Db5
+    // contains accidental (Db, Ab)
+    "[db3,f3,ab3]",        // Db
+    // contains accidental (Db, Ab)
+
+
+    // ===== Gb ROOT =====
+    "[gb2,db3]",           // Gb5
+    // contains accidental (Gb, Db)
+    "[gb2,bb2,db3]",       // Gb
+    // contains accidental (Gb, Bb, Db)
+
+    // ===== B ROOT =====
+    "[b2,f#3]",            // B5
+    // contains accidental (F#)
+    "[b2,d#3,f#3]",        // B
+    // contains accidental (D#, F#)
+)
+    .note()
+    .sound("piano")
+    .gain(2.0)
+
+
 // tuning: (C4-D4-Eb4-G4-Ab4)
 let koto = cat(
-    "<g39 ~ >*2",
-).note().sound("gm_koto").gain(0.8)
+    "< ~@8 c4@2 d4@2 eb4@2 g4@2 >*16",
+    "<[d4,a4]>"
+)
+    .note()
+    .sound("gm_koto")
+    .gain(0.8)
 
-// tuning: sawmill (G4-D3-G3-C4-D4) g D G C D
+// tuning: sawmill (G4-D3-G3-C4-D4) drone 1st
 let banjo = cat(
     "<c4 d4 c4 d4 g4 c4 d4 g4>*8",
-    // "<d4 c4 g3 d3 [d3,g3,c4,d4]@2 g4 [d3,g3,c4,d4]@2>*8",
-).note().sound("gm_banjo").gain(0.7)
+)
+    .note()
+    .sound("gm_banjo")
+    .gain(0.7)
 
 // tuning: (G3-D4-A4-E5)
 let fiddle = cat(
     "<g3>"
-).sound("gm_fiddle").gain(0.5)
+)
+    .sound("gm_fiddle")
+    .gain(0.5)
 
 // tuning: (D4-A4)
 let erhu = cat(
-    "c4",
-    "c4",
-    "ab3",
-    "g3",
-).note().sound("gm_cello").gain(0.95)
-    .room(.9).roomsize(1)
+    "<c4>",
+)
+    .note()
+    .sound("gm_cello")
+    .gain(0.95)
+    .room(.9)
+    .roomsize(1)
 
 let woodblock = cat(
-    "c3 ~ c3 ~",
-    "c3 ~ c3 c3",
-    "c3 ~ c3 ~",
-    "c3 ~ c3 c3",
-).note().sound("gm_woodblock").gain(2.5)
+    "c4 ~ c4 ~",
+    "c4 ~ c4 c4",
+)
+    .note()
+    .sound("gm_woodblock")
+    .gain(2.5)
 
 let bottle = cat(
     "c3 ~ c3 ~",
-    "c3 ~ c3 ~",
-    "ab3 ~ ab3 ~",
-    "g3 ~ g3 ~",
-).note().sound("gm_blown_bottle").gain(1.5)
+)
+    .note()
+    .sound("gm_blown_bottle")
+    .gain(1.5)
 
 let section01 = stack(
+    // chordref
     koto,
-    banjo,
-    fiddle,
+    // banjo,
+    // fiddle,
     // erhu,
-    // woodblock,
-    // bottle,
+    woodblock,
+    bottle,
 )
 
-let cpm = 128 / 4
+let cpm = 160 / 4
 
 arrange(
     [8, section01]
-).cpm(cpm)
+)
+    .cpm(cpm)
