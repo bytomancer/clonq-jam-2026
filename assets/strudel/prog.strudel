@@ -1,41 +1,42 @@
 let chordprog = cat(
-    "[d3,f3,a3]",                                          // Dm
-    "[d3,f3,a3]",                                          // Dm
-    "<[d3,f3,a3] [g3,bb3,d4]>*2",                          // Dm -> Gm
-    "<[c3,g3,d4] [a3,e4]>*2",                              // C5 -> A5
+    "~~~~",
 
-    "[d3,f3,a3]",                                          // Dm
-    "[d3,f3,a3]",                                          // Dm
-    "<[d3,f3,a3] [g3,bb3,d4]>*2",                          // Dm -> Gm
-    "<[c3,g3,d4] [a3,e4]>*2",                              // C5 -> A5
+    "[d3,g3,c4,d4,g4]",                                                         // Gsus4
+    "[d3,g3,c4,d4,g4]",                                                         // Gsus4
+    "<[d3,g3,c4,d4,g4] [c3,e3,g3]>*2",                                          // Gsus4->C
+    "<[a3,c4,e4,g4] [e3,g3,b3]>*2",                                             // Am7 -> Em
 
-    "[d3,f3,a3]",                                          // Dm
-    "[d3,f3,a3]",                                          // Dm
-    "<[d3,f3,a3] [g3,bb3,d4]>*2",                          // Dm -> Gm
-    "<[c3,g3,d4] [a3,e4]>*2",                              // C5 -> A5
+    "[d3,g3,c4,d4,g4]",                                                         // Gsus4
+    "[d3,g3,c4,d4,g4]",                                                         // Gsus4
+    "<[d3,g3,c4,d4,g4] [c3,e3,g3]>*2",                                          // Gsus4->C
+    "<[a3,c4,e4,g4] [e3,g3,b3]>*2",                                             // Am7 -> Em
 
-    "[g3,c4,d4]",                                          // Gsus4
-    "<[g3,bb3,d4] [g3,bb3,db4]>*2",                        // Gm -> Gdim
-    "[d3,f3,a3,c4]",                                       // Dm7
-    "[d3,f3,a3,c4]",                                       // Dm7
+    "[d3,g3,c4,d4,g4]",                                                         // Gsus4
+    "[d3,g3,c4,d4,g4]",                                                         // Gsus4
+    "<[d3,g3,c4,d4,g4] [c3,e3,g3]>*2",                                          // Gsus4->C
+    "<[a3,c4,e4,g4] [e3,g3,b3]>*2",                                             // Am7 -> Em
 
-    "[g3,c3,d3,d4]",                                       // Gsus4add9
-    "<[g3,bb3,d4] [g3,bb3,db4]>*2",                        // Gm -> Gdim
-    "[c3,eb3,g3]",                                         // Cm
-    "[c3,eb3,g3]",                                         // Cm
+    "[d3,f3,a3]",                                                               // Dm
+    "<[e3,g3,b3] [e3,g3,b3,d4]>*2",                                             // Em -> Em7
+    "[f3,a3,c4]",                                                               // F
+    "[e3,g3,b3,d4]",                                                            // Em7
 
+    "[d3,f3,a3,c4]",                                                            // Dm7
+    "<[e3,g3,b3] [e3,g3,b3,d4]>*2",                                             // Em -> Em7
+    "[f3,a3,c4]",                                                               // F
+    "[e3,g3,b3,d4]",                                                            // Em7
 
-    "<[eb3,bb3,eb4]>*2",                                   // Eb5
-    "<[f3,c4,f4] [ab3,eb4,ab4]>*2",                        // F5 -> Ab5
+    "<[g3,bb3,d4,f4]>*2",                                                       // Gm7
+    "<[d3,f3,a3,c4] [f3,bb3,c4]>*2",                                            // Dm7->Fsus4
 
-    "[ab3,c4,eb4]",                                        // Ab
-    "[ab3,c4,eb4]",                                        // Ab
-    "[ab3,b3,eb4]",                                        // Abm
-    "[ab3,b3,eb4]",                                        // Abm
+    "[e3,g3,b3,d4]",                                                            // Em7
+    "[e3,g3,b3,d4]",                                                            // Em7
+    "[e3,g3,bb3]",                                                              // Em
+    "[e3,g3,bb3]",                                                              // Em
 )
     .note()
     .sound("piano")
-    .gain(1.0)
+    .gain(0.5)
 
 let cpm = 160 / 4
 arrange(
