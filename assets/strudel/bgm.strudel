@@ -1,7 +1,7 @@
 // banjo tuning: sawmill (g5-D3-G3-C4-D4)
 // koto tuning: (C4-D4-Eb4-G4-Ab4)
 // fiddle tuning: (G3-D4-A4-E5)
-// shamisen tuning: (C3 G3 C4)
+// shamisen tuning: (D3 A3 D4)
 
 let banjo = cat(
     "<~>",

@@ -1,0 +1,43 @@
+let chordprog = cat(
+    "[d3,f3,a3]",                                          // Dm
+    "[d3,f3,a3]",                                          // Dm
+    "<[d3,f3,a3] [g3,bb3,d4]>*2",                          // Dm -> Gm
+    "<[c3,g3,d4] [a3,e4]>*2",                              // C5 -> A5
+
+    "[d3,f3,a3]",                                          // Dm
+    "[d3,f3,a3]",                                          // Dm
+    "<[d3,f3,a3] [g3,bb3,d4]>*2",                          // Dm -> Gm
+    "<[c3,g3,d4] [a3,e4]>*2",                              // C5 -> A5
+
+    "[d3,f3,a3]",                                          // Dm
+    "[d3,f3,a3]",                                          // Dm
+    "<[d3,f3,a3] [g3,bb3,d4]>*2",                          // Dm -> Gm
+    "<[c3,g3,d4] [a3,e4]>*2",                              // C5 -> A5
+
+    "[d3,f3,a3]",                                          // Dm
+    "<[g3,bb3,d4] [g3,bb3,db4]>*2",                        // Gm -> Gdim
+    "[d3,f3,a3,c4]",                                       // Dm7
+    "[d3,f3,a3,c4]",                                       // Dm7
+
+    "[g3,a3,b3,d4]",                                       // Gadd9
+    "<[g3,bb3,d4] [g3,bb3,db4]>*2",                        // Gm -> Gdim
+    "[c3,eb3,g3]",                                         // Cm
+    "[c3,eb3,g3]",                                         // Cm
+
+
+    "<[eb3,bb3,eb4]>*2",                                   // Eb5
+    "<[f3,c4,f4] [ab3,eb4,ab4]>*2",                        // F5 -> Ab5
+
+    "[ab3,c4,eb4]",                                        // Ab
+    "[ab3,c4,eb4]",                                        // Ab
+    "[ab3,b3,eb4]",                                        // Abm
+    "[ab3,b3,eb4]",                                        // Abm
+)
+    .note()
+    .sound("piano")
+    .gain(2.0)
+
+let cpm = 160 / 4
+arrange(
+    [1, chordprog],
+).cpm(cpm)
