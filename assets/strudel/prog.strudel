@@ -31,8 +31,8 @@ let chordprog = cat(
 
     "[e3,g3,b3,d4]",                                                            // Em7
     "[e3,g3,b3,d4]",                                                            // Em7
-    "[e3,g3,bb3]",                                                              // Em
-    "[e3,g3,bb3]",                                                              // Em
+    "[eb3,gb3,a3]",                                                             // Ebm
+    "[eb3,gb3,a3]",                                                             // Ebm
 )
     .note()
     .sound("piano")
