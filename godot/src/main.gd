@@ -2,7 +2,7 @@ extends Node2D
 
 const MAX_DIFF = 255
 const MIN_DIFF = 0
-const GAME_TIME_SOFT_LIMIT = 25.0
+const GAME_TIME_SOFT_LIMIT = 31.0
 
 var difficulty = 0.0
 
