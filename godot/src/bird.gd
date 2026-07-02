@@ -12,6 +12,10 @@ func _enter_tree() -> void:
 	self.dmg_display = get_node("/root/Main/DmgNumDisplay")
 	$TutNode/Tutorial.label_settings.font_color = Color(1, 1, 1)
 
+func _ready():
+	if ! $TutNode.visible:
+		$sfx_spawn.play()
+
 func disable_tutorial() -> void:
 	$TutNode.hide()
 
@@ -23,6 +27,7 @@ func damage(dmg: float) -> void:
 	kill_self()
 
 func kill_self() -> void:
+	$sfx_kill.play()
 	get_node("/root/Main/Player").reduce_hearts()
 	$Sprite.animation = "dead"
 	#$Poof.restart()

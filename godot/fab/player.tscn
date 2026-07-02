@@ -4,6 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://bo83xwhl0piwa" path="res://ass/knife.png" id="2_v0yqf"]
 [ext_resource type="Script" uid="uid://bxp7sqnft8tfb" path="res://src/guy.gd" id="3_ifrbw"]
 [ext_resource type="Texture2D" uid="uid://d2b21gsxlgijn" path="res://ass/guy.png" id="4_khxis"]
+[ext_resource type="AudioStream" uid="uid://c6upunbfw0qnm" path="res://sfx/damaged.wav" id="5_v0yqf"]
+[ext_resource type="AudioStream" uid="uid://bqd7fvopj8trm" path="res://sfx/powerup.wav" id="6_ifrbw"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_a14j1"]
 friction = 0.0
@@ -117,7 +119,7 @@ node_b = NodePath("../Knife")
 bias = 0.9
 
 [node name="Knife" type="RigidBody2D" parent="." unique_id=1986076042]
-collision_layer = 2
+collision_layer = 32770
 collision_mask = 232
 mass = 3.0
 physics_material_override = SubResource("PhysicsMaterial_a14j1")
@@ -146,6 +148,7 @@ polygon = PackedVector2Array(-4, 5, -1, 5, -1, 22, 3, 26, -1, 26, -4, 23)
 position = Vector2(-3, 23)
 
 [node name="Guy" type="CharacterBody2D" parent="." unique_id=217851887]
+collision_layer = 32769
 collision_mask = 173
 motion_mode = 1
 script = ExtResource("3_ifrbw")
@@ -180,6 +183,14 @@ collision_mask = 16
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Guy/GrabArea" unique_id=491345677]
 shape = SubResource("CircleShape2D_vwxr4")
+
+[node name="sfx_hit" type="AudioStreamPlayer2D" parent="." unique_id=321230273]
+stream = ExtResource("5_v0yqf")
+volume_db = -10.0
+
+[node name="sfx_powerup" type="AudioStreamPlayer2D" parent="." unique_id=1594209108]
+stream = ExtResource("6_ifrbw")
+volume_db = -10.0
 
 [connection signal="body_entered" from="Knife/Slicer" to="." method="_on_slicer_body_entered"]
 [connection signal="body_entered" from="Guy/GrabArea" to="." method="_on_grab_area_body_entered"]

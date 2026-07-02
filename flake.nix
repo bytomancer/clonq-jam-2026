@@ -18,6 +18,7 @@
           zip
           wget
           ffmpeg
+          sfxr
         ];
         shellHook = ''
           mkdir -p "$HOME/.local/share/godot"

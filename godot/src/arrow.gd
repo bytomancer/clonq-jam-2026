@@ -29,6 +29,8 @@ func damage(_dmg: float) -> void:
 func _ready() -> void:
 	var flight_vel = Vector2(-1, 0) * speed
 	self.apply_force(flight_vel)
+	if ! $TutNode.visible:
+		$sfx_spawn.play()
 
 func _process(delta: float) -> void:
 	if self.global_position.x < -100 or self.global_position.x > get_viewport_rect().size.x + 500 or self.global_position.y < -100 or self.global_position.y > get_viewport_rect().size.y + 100:
@@ -52,12 +54,16 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 		pass
 
 func kill_self():
+	if self.hp <= 0.0:
+		return
 	self.hp = 0.0
 	self.gravity_scale *= 5.0
 	$Sprite.hide()
 
 	#TODO: actually enable these as physics objects
-	#Right now they just stay stuck, which is okay
+	#Right now they just stay stuck, which is... okay?
+	
+	$sfx_break.play()
 
 	$DeadArrowTip.global_position = self.global_position
 	$DeadArrowTip.show()

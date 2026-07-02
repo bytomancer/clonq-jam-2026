@@ -219,7 +219,8 @@ angle_max = -100.0
 
 [node name="Bgm" type="AudioStreamPlayer" parent="." unique_id=1496811770]
 stream = ExtResource("20_6d0je")
-volume_db = -10.0
 autoplay = true
+
+[node name="DeadBamboo" type="Node2D" parent="." unique_id=571450821]
 
 [connection signal="body_exited" from="AreaToKeepObjectsLoaded" to="AreaToKeepObjectsLoaded" method="_on_body_exited"]

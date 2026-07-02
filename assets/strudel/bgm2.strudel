@@ -43,6 +43,11 @@ let chordprog = cat(
     // a final sustain...
     "[eb3,gb3,a3]",                                                             // Ebm
     "[eb3,gb3,a3]",                                                             // Ebm
+
+    // bringing the song up to 30 measures
+    "~",
+    "~",
+    "~",
 )
     .note()
     .sound("piano")
@@ -131,6 +136,10 @@ let banjo = cat(
     // Bar on 1st, with drone, which is... Eb7sus4add13??
     "<[eb3,ab3,db3,eb4,g4]>*1",
     "<[eb3,ab3,db3,eb4,g4]>*1",
+
+    "~",
+    "~",
+    "~",
 )
     .note()
     .sound("gm_banjo")
@@ -191,6 +200,10 @@ let koto = cat(
     // last chance, add g4
     "eb5 eb4 bb5 g4",
     "eb5 eb4 bb5 g4",
+
+    "~",
+    "~",
+    "~",
 )
     .note()
     .sound("gm_koto")
@@ -237,6 +250,10 @@ let shamisen = cat(
     "gb4 bb4",
     "[d3,eb4]",
     "[d3,eb4]",
+
+    "~",
+    "~",
+    "~",
 )
     .note()
     .sound("gm_shamisen")
@@ -287,6 +304,10 @@ let fiddle = cat(
     "[bb4,gb5]",
     "[bb4,gb5]",
     "[bb4,eb5]",
+
+    "~",
+    "~",
+    "~",
 )
     .note()
     .sound("gm_fiddle")
@@ -327,6 +348,10 @@ let woodblock = cat(
 
     "d4 ~ d4 ~",
     "d4 ~ d4 ~",
+
+    "~",
+    "~",
+    "~",
 )
     .note()
     .sound("gm_woodblock")
@@ -341,7 +366,7 @@ let song = stack(
     shamisen,
     fiddle,
 )
-  // .gain(0.1)
+// .gain(0.1)
 arrange(
     [1, song],
 ).cpm(cpm)

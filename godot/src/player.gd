@@ -47,6 +47,7 @@ func get_dmg_pt() -> Node2D:
 	return $Knife/DmgNumPt
 
 func powerup() -> void:
+	$sfx_powerup.play()
 	damage_multiplier += 1.0
 	self.hud.set_damage_multiplier(damage_multiplier)
 	dmg_display.add_txt("DMG UP!", Color8(255, 255, 0))
@@ -54,6 +55,7 @@ func powerup() -> void:
 func damage() -> void:
 	if $Guy.invuln_timer >= 0:
 		return
+	$sfx_hit.play()
 	$Guy.start_invuln()
 	reduce_hearts()
 

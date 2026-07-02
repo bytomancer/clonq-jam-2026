@@ -4,6 +4,8 @@
 [ext_resource type="Script" uid="uid://cds5d7nljlay3" path="res://src/do_not_rotate.gd" id="2_jf8hm"]
 [ext_resource type="FontFile" uid="uid://cu5o2a46e1b1h" path="res://ext/spleen/spleen-6x12.otf" id="3_1nruv"]
 [ext_resource type="Texture2D" uid="uid://nhewllnihmev" path="res://ass/bird.png" id="4_7yt3d"]
+[ext_resource type="AudioStream" uid="uid://3he7gowjafu7" path="res://sfx/killbird.wav" id="5_1nruv"]
+[ext_resource type="AudioStream" uid="uid://bkttybmeeh4a0" path="res://sfx/birdspawn.wav" id="6_7yt3d"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_k3l4p"]
 
@@ -130,3 +132,11 @@ initial_velocity_max = 50.0
 linear_accel_min = -11.0
 linear_accel_max = -11.0
 color = Color(1, 1, 0.99607843, 1)
+
+[node name="sfx_kill" type="AudioStreamPlayer2D" parent="." unique_id=741650323]
+stream = ExtResource("5_1nruv")
+volume_db = -10.0
+
+[node name="sfx_spawn" type="AudioStreamPlayer2D" parent="." unique_id=1111715327]
+stream = ExtResource("6_7yt3d")
+volume_db = -10.0

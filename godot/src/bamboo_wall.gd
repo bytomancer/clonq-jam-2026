@@ -28,13 +28,19 @@ func make_boss() -> void:
 func damage(dmg: float) -> void:
 	if self.hp <= 0.0:
 		return
-	$Anim.play("new_animation")
 	self.hp -= dmg
 	self.dmg_display.add_number(dmg, Color(1, 1, 1))
 	if self.hp < 0.0:
 		main.bonus_difficulty += 2
 		main.spawn_obj()
+		var dead_bam_fab = load("res://fab/bamboo_falling.tscn")
+		var dead_bam = dead_bam_fab.instantiate()
+		dead_bam.global_position = self.global_position
+		main.get_node("DeadBamboo").add_child(dead_bam)
 		queue_free()
+	else:
+		$sfx_hit.play()
+		$Anim.play("new_animation")
 
 # var rot_speed = 10.0
 

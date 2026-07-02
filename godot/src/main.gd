@@ -38,7 +38,10 @@ var player_ref = get_node("/root/Main/Player")
 @onready
 var dmg_num_display_ref = get_node("/root/Main/DmgNumDisplay")
 
+var volume_db = -5.0
+
 func _ready() -> void:
+	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Master"), volume_db)
 	next_bam_timer = 10.0
 	next_obj_timer = 7.0
 	self.reset_pup_timer(false)

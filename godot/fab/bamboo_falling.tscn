@@ -1,0 +1,298 @@
+[gd_scene format=3 uid="uid://dn1ysm4efevwx"]
+
+[ext_resource type="Script" uid="uid://b61tcd8pcnebx" path="res://src/bamboo_falling.gd" id="1_5mjp5"]
+[ext_resource type="Texture2D" uid="uid://da6imcjyjm71c" path="res://ass/bamboo.png" id="3_wkbeu"]
+[ext_resource type="Texture2D" uid="uid://uaaysr8fuipm" path="res://ass/bamleaf.png" id="4_n5rb4"]
+[ext_resource type="AudioStream" uid="uid://buqb4mfxln04x" path="res://sfx/killbamboo.wav" id="6_3plln"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b6phj"]
+size = Vector2(6, 16)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5mjp5"]
+radius = 8.0
+
+[node name="BambooWall" type="Node2D" unique_id=36192105]
+script = ExtResource("1_5mjp5")
+
+[node name="Stalks" type="Node2D" parent="." unique_id=1102761154]
+
+[node name="Stalk1" type="RigidBody2D" parent="Stalks" unique_id=520863365]
+collision_layer = 32768
+collision_mask = 32768
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Stalks/Stalk1" unique_id=510810304]
+position = Vector2(0, -168)
+shape = SubResource("RectangleShape2D_b6phj")
+
+[node name="Sprite1" type="Sprite2D" parent="Stalks/Stalk1" unique_id=2046307924]
+position = Vector2(0, -168)
+texture = ExtResource("3_wkbeu")
+
+[node name="Stalk2" type="RigidBody2D" parent="Stalks" unique_id=723985196]
+position = Vector2(0, 16)
+collision_layer = 32768
+collision_mask = 32768
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Stalks/Stalk2" unique_id=1958451218]
+position = Vector2(0, -168)
+shape = SubResource("RectangleShape2D_b6phj")
+
+[node name="Sprite1" type="Sprite2D" parent="Stalks/Stalk2" unique_id=1336267697]
+position = Vector2(0, -168)
+texture = ExtResource("3_wkbeu")
+
+[node name="Stalk3" type="RigidBody2D" parent="Stalks" unique_id=166547543]
+position = Vector2(0, 32)
+collision_layer = 32768
+collision_mask = 32768
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Stalks/Stalk3" unique_id=1597276176]
+position = Vector2(0, -168)
+shape = SubResource("RectangleShape2D_b6phj")
+
+[node name="Sprite1" type="Sprite2D" parent="Stalks/Stalk3" unique_id=122303187]
+position = Vector2(0, -168)
+texture = ExtResource("3_wkbeu")
+
+[node name="Stalk4" type="RigidBody2D" parent="Stalks" unique_id=1590381071]
+position = Vector2(0, 48)
+collision_layer = 32768
+collision_mask = 32768
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Stalks/Stalk4" unique_id=181147232]
+position = Vector2(0, -168)
+shape = SubResource("RectangleShape2D_b6phj")
+
+[node name="Sprite1" type="Sprite2D" parent="Stalks/Stalk4" unique_id=895436760]
+position = Vector2(0, -168)
+texture = ExtResource("3_wkbeu")
+
+[node name="Stalk5" type="RigidBody2D" parent="Stalks" unique_id=1074256761]
+position = Vector2(0, 64)
+collision_layer = 32768
+collision_mask = 32768
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Stalks/Stalk5" unique_id=1772854516]
+position = Vector2(0, -168)
+shape = SubResource("RectangleShape2D_b6phj")
+
+[node name="Sprite1" type="Sprite2D" parent="Stalks/Stalk5" unique_id=918817771]
+position = Vector2(0, -168)
+texture = ExtResource("3_wkbeu")
+
+[node name="Stalk6" type="RigidBody2D" parent="Stalks" unique_id=343054219]
+position = Vector2(0, 80)
+collision_layer = 32768
+collision_mask = 32768
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Stalks/Stalk6" unique_id=432378487]
+position = Vector2(0, -168)
+shape = SubResource("RectangleShape2D_b6phj")
+
+[node name="Sprite1" type="Sprite2D" parent="Stalks/Stalk6" unique_id=1813989985]
+position = Vector2(0, -168)
+texture = ExtResource("3_wkbeu")
+
+[node name="Stalk7" type="RigidBody2D" parent="Stalks" unique_id=620055652]
+position = Vector2(0, 96)
+collision_layer = 32768
+collision_mask = 32768
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Stalks/Stalk7" unique_id=1012754174]
+position = Vector2(0, -168)
+shape = SubResource("RectangleShape2D_b6phj")
+
+[node name="Sprite1" type="Sprite2D" parent="Stalks/Stalk7" unique_id=2115938792]
+position = Vector2(0, -168)
+texture = ExtResource("3_wkbeu")
+
+[node name="Stalk8" type="RigidBody2D" parent="Stalks" unique_id=1675180148]
+position = Vector2(0, 112)
+collision_layer = 32768
+collision_mask = 32768
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Stalks/Stalk8" unique_id=1493800885]
+position = Vector2(0, -168)
+shape = SubResource("RectangleShape2D_b6phj")
+
+[node name="Sprite1" type="Sprite2D" parent="Stalks/Stalk8" unique_id=1915402660]
+position = Vector2(0, -168)
+texture = ExtResource("3_wkbeu")
+
+[node name="Stalk9" type="RigidBody2D" parent="Stalks" unique_id=620821928]
+position = Vector2(0, 128)
+collision_layer = 32768
+collision_mask = 32768
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Stalks/Stalk9" unique_id=383627128]
+position = Vector2(0, -168)
+shape = SubResource("RectangleShape2D_b6phj")
+
+[node name="Sprite1" type="Sprite2D" parent="Stalks/Stalk9" unique_id=1442001343]
+position = Vector2(0, -168)
+texture = ExtResource("3_wkbeu")
+
+[node name="Stalk10" type="RigidBody2D" parent="Stalks" unique_id=1418074217]
+position = Vector2(0, 144)
+collision_layer = 32768
+collision_mask = 32768
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Stalks/Stalk10" unique_id=450488465]
+position = Vector2(0, -168)
+shape = SubResource("RectangleShape2D_b6phj")
+
+[node name="Sprite1" type="Sprite2D" parent="Stalks/Stalk10" unique_id=347671137]
+position = Vector2(0, -168)
+texture = ExtResource("3_wkbeu")
+
+[node name="Stalk11" type="RigidBody2D" parent="Stalks" unique_id=701124499]
+position = Vector2(0, 160)
+collision_layer = 32768
+collision_mask = 32768
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Stalks/Stalk11" unique_id=1836906566]
+position = Vector2(0, -168)
+shape = SubResource("RectangleShape2D_b6phj")
+
+[node name="Sprite1" type="Sprite2D" parent="Stalks/Stalk11" unique_id=166537158]
+position = Vector2(0, -168)
+texture = ExtResource("3_wkbeu")
+
+[node name="sfx_break" type="AudioStreamPlayer2D" parent="." unique_id=999713767]
+stream = ExtResource("6_3plln")
+volume_db = -10.0
+
+[node name="Leaves" type="Node2D" parent="." unique_id=1345439454]
+
+[node name="LeafBody1" type="RigidBody2D" parent="Leaves" unique_id=574207235]
+collision_layer = 32768
+collision_mask = 32768
+
+[node name="Leaf1" type="Sprite2D" parent="Leaves/LeafBody1" unique_id=860149782]
+position = Vector2(3, -145)
+texture = ExtResource("4_n5rb4")
+offset = Vector2(8, -8)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Leaves/LeafBody1" unique_id=1702756222]
+position = Vector2(11, -151)
+shape = SubResource("CircleShape2D_5mjp5")
+
+[node name="LeafBody2" type="RigidBody2D" parent="Leaves" unique_id=383205889]
+position = Vector2(0, 30)
+collision_layer = 32768
+collision_mask = 32768
+
+[node name="Leaf1" type="Sprite2D" parent="Leaves/LeafBody2" unique_id=1536233688]
+position = Vector2(3, -145)
+texture = ExtResource("4_n5rb4")
+offset = Vector2(8, -8)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Leaves/LeafBody2" unique_id=1000062623]
+position = Vector2(11, -151)
+shape = SubResource("CircleShape2D_5mjp5")
+
+[node name="LeafBody3" type="RigidBody2D" parent="Leaves" unique_id=140539717]
+position = Vector2(0, 51)
+collision_layer = 32768
+collision_mask = 32768
+
+[node name="Leaf1" type="Sprite2D" parent="Leaves/LeafBody3" unique_id=1381243167]
+position = Vector2(3, -145)
+texture = ExtResource("4_n5rb4")
+offset = Vector2(8, -8)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Leaves/LeafBody3" unique_id=197360811]
+position = Vector2(11, -151)
+shape = SubResource("CircleShape2D_5mjp5")
+
+[node name="LeafBody4" type="RigidBody2D" parent="Leaves" unique_id=1909309312]
+position = Vector2(0, 75)
+collision_layer = 32768
+collision_mask = 32768
+
+[node name="Leaf1" type="Sprite2D" parent="Leaves/LeafBody4" unique_id=1433364023]
+position = Vector2(3, -145)
+texture = ExtResource("4_n5rb4")
+offset = Vector2(8, -8)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Leaves/LeafBody4" unique_id=1611407858]
+position = Vector2(11, -151)
+shape = SubResource("CircleShape2D_5mjp5")
+
+[node name="LeafBody5" type="RigidBody2D" parent="Leaves" unique_id=1316841294]
+position = Vector2(0, 93)
+collision_layer = 32768
+collision_mask = 32768
+
+[node name="Leaf1" type="Sprite2D" parent="Leaves/LeafBody5" unique_id=1422991418]
+position = Vector2(3, -145)
+texture = ExtResource("4_n5rb4")
+offset = Vector2(8, -8)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Leaves/LeafBody5" unique_id=13353729]
+position = Vector2(11, -151)
+shape = SubResource("CircleShape2D_5mjp5")
+
+[node name="LeafBody6" type="RigidBody2D" parent="Leaves" unique_id=1242594034]
+position = Vector2(0, 128)
+collision_layer = 32768
+collision_mask = 32768
+
+[node name="Leaf1" type="Sprite2D" parent="Leaves/LeafBody6" unique_id=296909133]
+position = Vector2(3, -145)
+texture = ExtResource("4_n5rb4")
+offset = Vector2(8, -8)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Leaves/LeafBody6" unique_id=1989775333]
+position = Vector2(11, -151)
+shape = SubResource("CircleShape2D_5mjp5")
+
+[node name="LeafBody7" type="RigidBody2D" parent="Leaves" unique_id=1226066697]
+position = Vector2(-22, 12)
+collision_layer = 32768
+collision_mask = 32768
+
+[node name="Leaf1" type="Sprite2D" parent="Leaves/LeafBody7" unique_id=464702799]
+position = Vector2(19, -144)
+scale = Vector2(-1, 1)
+texture = ExtResource("4_n5rb4")
+offset = Vector2(8, -8)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Leaves/LeafBody7" unique_id=1067414384]
+position = Vector2(11, -150)
+shape = SubResource("CircleShape2D_5mjp5")
+
+[node name="LeafBody8" type="RigidBody2D" parent="Leaves" unique_id=710325762]
+position = Vector2(-22, 46)
+collision_layer = 32768
+collision_mask = 32768
+
+[node name="Leaf1" type="Sprite2D" parent="Leaves/LeafBody8" unique_id=2016396999]
+position = Vector2(19, -144)
+scale = Vector2(-1, 1)
+texture = ExtResource("4_n5rb4")
+offset = Vector2(8, -8)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Leaves/LeafBody8" unique_id=655948254]
+position = Vector2(11, -150)
+shape = SubResource("CircleShape2D_5mjp5")
+
+[node name="LeafBody9" type="RigidBody2D" parent="Leaves" unique_id=792350311]
+position = Vector2(-22, 107)
+collision_layer = 32768
+collision_mask = 32768
+
+[node name="Leaf1" type="Sprite2D" parent="Leaves/LeafBody9" unique_id=322515611]
+position = Vector2(19, -144)
+scale = Vector2(-1, 1)
+texture = ExtResource("4_n5rb4")
+offset = Vector2(8, -8)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Leaves/LeafBody9" unique_id=1229437640]
+position = Vector2(11, -150)
+shape = SubResource("CircleShape2D_5mjp5")
+
+[node name="sfx_break2" type="AudioStreamPlayer2D" parent="." unique_id=642578029]
+stream = ExtResource("6_3plln")
+volume_db = -3.0
+autoplay = true
