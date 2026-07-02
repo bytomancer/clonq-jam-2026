@@ -66,3 +66,10 @@ func kill_self():
 	$DeadArrowShaft.global_position = self.global_position
 	$DeadArrowShaft.show()
 	$DeadArrowShaft.disable_mode = PROCESS_MODE_INHERIT
+
+
+func _on_arrow_dmg_detector_area_entered(area: Area2D) -> void:
+	if self.hp <= 0.0:
+		return
+	if area.name == "Slicer":
+		kill_self()

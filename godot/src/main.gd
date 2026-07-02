@@ -2,9 +2,11 @@ extends Node2D
 
 const MAX_DIFF = 255
 const MIN_DIFF = 0
-const GAME_TIME_SOFT_LIMIT = 25.0
+const GAME_TIME_SOFT_LIMIT = 28.0
 
 var difficulty = 0.0
+
+var bonus_difficulty = 0
 
 #@export
 #var starting_diff = 0
@@ -110,19 +112,21 @@ func reset_obj_timer(perf_spawn = true) -> void:
 
 func spawn_obj():
 	print("OBJ TIME")
-	# 2x arrows vs birds
-	var bird = randi() % 3 == 0
-	var obj
-	if bird:
-		obj = bird_fab.instantiate()
-	else:
-		obj = arrow_fab.instantiate()
-	obj.disable_tutorial()
-	
-	var margin = 8.0
-	var rand_height = randf_range(margin, 160 - margin)
-	obj.global_position = Vector2(299.0, rand_height)
-	%ObjectHolder.add_child(obj)
+	for i in range(0, self.bonus_difficulty):
+		# 2x arrows vs birds
+		var bird = randi() % 3 == 0
+		var obj
+		if bird:
+			obj = bird_fab.instantiate()
+		else:
+			obj = arrow_fab.instantiate()
+		obj.disable_tutorial()
+		var margin = 8.0
+		var rand_height = randf_range(margin, 160 - margin)
+		obj.global_position = Vector2(299.0, rand_height)
+		%ObjectHolder.add_child(obj)
+	if bonus_difficulty > 1:
+		bonus_difficulty -= 1
 
 func reset_pup_timer(perf_spawn = true) -> void:
 	if total_time_played > GAME_TIME_SOFT_LIMIT:

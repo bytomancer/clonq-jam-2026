@@ -1,0 +1,44 @@
+let chordprog = cat(
+    "~~~~",
+
+    "[d3,g3,c4,d4,g4]",                                                         // Gsus4
+    "[d3,g3,c4,d4,g4]",                                                         // Gsus4
+    "<[d3,g3,c4,d4,g4] [c3,e3,g3]>*2",                                          // Gsus4->C
+    "<[a3,c4,e4,g4] [e3,g3,b3]>*2",                                             // Am7 -> Em
+
+    "[d3,g3,c4,d4,g4]",                                                         // Gsus4
+    "[d3,g3,c4,d4,g4]",                                                         // Gsus4
+    "<[d3,g3,c4,d4,g4] [c3,e3,g3]>*2",                                          // Gsus4->C
+    "<[a3,c4,e4,g4] [e3,g3,b3]>*2",                                             // Am7 -> Em
+
+    "[d3,g3,c4,d4,g4]",                                                         // Gsus4
+    "[d3,g3,c4,d4,g4]",                                                         // Gsus4
+    "<[d3,g3,c4,d4,g4] [c3,e3,g3]>*2",                                          // Gsus4->C
+    "<[a3,c4,e4,g4] [e3,g3,b3]>*2",                                             // Am7 -> Em
+
+    "[d3,f3,a3]",                                                               // Dm
+    "<[e3,g3,b3] [e3,g3,b3,d4]>*2",                                             // Em -> Em7
+    "[f3,a3,c4]",                                                               // F
+    "[e3,g3,b3,d4]",                                                            // Em7
+
+    "[d3,f3,a3,c4]",                                                            // Dm7
+    "<[e3,g3,b3] [e3,g3,b3,d4]>*2",                                             // Em -> Em7
+    "[f3,a3,c4]",                                                               // F
+    "[e3,g3,b3,d4]",                                                            // Em7
+
+    "<[g3,bb3,d4,f4]>*2",                                                       // Gm7
+    "<[d3,f3,a3,c4] [f3,bb3,c4]>*2",                                            // Dm7->Fsus4
+
+    "[e3,g3,b3,d4]",                                                            // Em7
+    "[e3,g3,b3,d4]",                                                            // Em7
+    "[eb3,gb3,a3]",                                                             // Ebm
+    "[eb3,gb3,a3]",                                                             // Ebm
+)
+    .note()
+    .sound("piano")
+    .gain(0.5)
+
+let cpm = 160 / 4
+arrange(
+    [1, chordprog],
+).cpm(cpm)

@@ -1,0 +1,106 @@
+
+let chordref = cat(
+    // ===== D ROOT =====
+    "[d3,f#3,a3]",         // D
+    "[d3,a3]",             // D5
+    "[d3,f#3,a3,c4]",      // D7
+    "[d3,e3,a3]",          // Dsus2
+    "[d3,g3,a3]",          // Dsus4
+    "[d3,e3,g3,a3]",       // Dsus2sus4
+    "[d3,e3,f#3,a3]",      // Dadd9
+    "[d3,f3,a3]",          // Dm
+    "[d3,e3,f3,a3]",       // Dm(add2)
+    "[d3,f3,a3,c4]",       // Dm7
+    "[d3,f3,ab3]",         // Ddim
+    "[d3,f#3,a#3]",        // Daug
+    // ===== C ROOT =====
+    "[c3,e3,g3]",          // C
+    "[c3,g3]",             // C5
+    "[c3,e3,g3,bb3]",      // C7
+    "[c3,d3,g3]",          // Csus2
+    "[c3,f3,g3]",          // Csus4
+    "[c3,d3,g3,c4]",       // Cadd9
+    "[c3,eb3,g3]",         // Cm
+    "[c3,eb3,g3,bb3]",     // Cm7
+    "[c3,eb3,gb3]",        // Cdim
+    "[c3,e3,g#3]",         // Caug
+    // ===== G ROOT =====
+    "[g3,b3,d4]",          // G
+    "[g3,d4]",             // G5
+    "[g3,b3,d4,f4]",       // G7
+    "[g3,a3,d4]",          // Gsus2
+    "[g3,c4,d4]",          // Gsus4
+    "[g3,a3,b3,d4]",       // Gadd9
+    "[g3,bb3,d4]",         // Gm
+    "[g3,bb3,d4,f4]",      // Gm7
+    "[g3,bb3,db4]",        // Gdim
+    "[g3,b3,d#4]",         // Gaug
+    // ===== F ROOT =====
+    "[f3,a3,c4]",          // F
+    "[f3,c4]",             // F5
+    "[f3,a3,c4,eb4]",      // F7
+    "[f3,g3,c4]",          // Fsus2
+    "[f3,bb3,c4]",         // Fsus4
+    "[f3,g3,a3,c4]",       // Fadd9
+    "[f3,ab3,c4]",         // Fm
+    "[f3,ab3,c4,eb4]",     // Fm7
+    "[f3,ab3,b3]",         // Fdim
+    "[f3,a3,c#4]",         // Faug
+    // ===== AB ROOT =====
+    "[ab3,c4,eb4]",        // Ab
+    "[ab3,eb4]",           // Ab5
+    "[ab3,c4,eb4,gb4]",    // Ab7
+    "[ab3,bb3,eb4]",       // Absus2
+    "[ab3,db4,eb4]",       // Absus4
+    "[ab3,bb3,c4,eb4]",    // Abadd9
+    "[ab3,b3,eb4]",        // Abm
+    "[ab3,b3,eb4,gb4]",    // Abm7
+    "[ab3,b3,d4]",         // Abdim
+    "[ab3,c4,e4]",         // Abaug
+    // ===== BB ROOT =====
+    "[bb3,d4,f4]",         // Bb
+    "[bb3,f4]",            // Bb5
+    "[bb3,d4,f4,ab4]",     // Bb7
+    "[bb3,c4,f4]",         // Bbsus2
+    "[bb3,eb4,f4]",        // Bbsus4
+    "[bb3,c4,d4,f4]",      // Bbadd9
+    "[bb3,db4,f4]",        // Bbm
+    "[bb3,db4,f4,ab4]",    // Bbm7
+    "[bb3,db4,e4]",        // Bbdim
+    "[bb3,d4,f#4]",        // Bbaug
+    // ===== A ROOT =====
+    "[a3,c#4,e4]",         // A
+    "[a3,e4]",             // A5
+    "[a3,c#4,e4,g4]",      // A7
+    "[a3,b3,e4]",          // Asus2
+    "[a3,d4,e4]",          // Asus4
+    "[a3,b3,c#4,e4]",      // Aadd9
+    "[a3,c4,e4]",          // Am
+    "[a3,c4,e4,g4]",       // Am7
+    "[a3,c4,d#4]",         // Adim
+    "[a3,c#4,f4]",         // Aaug
+    // ===== E ROOT =====
+    "[e3,g#3,b3]",         // E
+    "[e3,b3]",             // E5
+    "[e3,g#3,b3,d4]",      // E7
+    "[e3,f#3,b3]",         // Esus2
+    "[e3,a3,b3]",          // Esus4
+    "[e3,f#3,g#3,b3]",     // Eadd9
+    "[e3,g3,b3]",          // Em
+    "[e3,g3,b3,d4]",       // Em7
+    "[e3,g3,bb3]",         // Edim
+    "[e3,g#3,c4]",         // Eaug
+)
+    .note()
+    .sound("piano")
+    .gain(2.0)
+
+
+let section01 = stack(
+    chordref,
+)
+
+let cpm = 160 / 4
+arrange(
+    [1, section01],
+).cpm(cpm)

@@ -1,0 +1,347 @@
+let chordprog = cat(
+    "~",
+
+    "[d3,g3,c4,d4,g4]",                                                         // Gsus4
+    "[d3,g3,c4,d4,g4]",                                                         // Gsus4
+    "<[d3,g3,c4,d4,g4] [c3,e3,g3]>*2",                                          // Gsus4->C
+    "<[a3,c4,e4,g4] [e3,g3,b3]>*2",                                             // Am7 -> Em
+
+    // stealing back time here??
+    // "[d3,g3,c4,d4,g4]",                                                         // Gsus4
+    // "[d3,g3,c4,d4,g4]",                                                         // Gsus4
+    // "<[d3,g3,c4,d4,g4] [c3,e3,g3]>*2",                                          // Gsus4->C
+    // "<[a3,c4,e4,g4] [e3,g3,b3]>*2",                                             // Am7 -> Em
+
+    "[d3,g3,c4,d4,g4]",                                                         // Gsus4
+    "[d3,g3,c4,d4,g4]",                                                         // Gsus4
+    "<[d3,g3,c4,d4,g4] [c3,e3,g3]>*2",                                          // Gsus4->C
+    "<[a3,c4,e4,g4] [e3,g3,b3]>*2",                                             // Am7 -> Em
+
+    "[d3,f3,a3]",                                                               // Dm
+    "<[e3,g3,b3] [e3,g3,b3,d4]>*2",                                             // Em -> Em7
+    "[f3,a3,c4]",                                                               // F
+    "[e3,g3,b3,d4]",                                                            // Em7
+
+    "[d3,f3,a3,c4]",                                                            // Dm7
+    "<[e3,g3,b3] [e3,g3,b3,d4]>*2",                                             // Em -> Em7
+    "[f3,a3,c4]",                                                               // F
+    "[e3,g3,b3,d4]",                                                            // Em7
+
+    "<[g3,bb3,d4,f4]>*2",                                                       // Gm7
+    "<[d3,f3,a3,c4] [f3,bb3,c4]>*2",                                            // Dm7->Fsus4
+
+    // I'm really enjoying just repeating this phrase...
+    "<[g3,bb3,d4,f4]>*2",                                                       // Gm7
+    "<[d3,f3,a3,c4] [f3,bb3,c4]>*2",                                            // Dm7->Fsus4
+
+    // but this cuts the finale time down...
+    "[e3,g3,b3,d4]",                                                            // Em7
+    "[e3,g3,b3,d4]",                                                            // Em7
+    "[eb3,gb3,a3]",                                                             // Ebm
+    "[eb3,gb3,a3]",                                                             // Ebm
+
+    // a final sustain...
+    "[eb3,gb3,a3]",                                                             // Ebm
+    "[eb3,gb3,a3]",                                                             // Ebm
+)
+    .note()
+    .sound("piano")
+    .gain(0.15)
+
+let banjo = cat(
+    "~",
+    // Gsus4 (open)
+    "<g3@2 [d3,g3,c4,d4] g4>*8",
+    // Gsus4 (open)
+    "<g3@2 [d3,g3,c4,d4] g4>*8",
+    // Gsus4->C
+    // C is C E G
+    // The low inverted C is (0) 2 0 0 2, which is (g4) e3 g3 c4 e4
+    // Instead play C up the neck @ (0) x 5 4 5, which is (g4) X c4 e4 g4
+    "<g3@2 [d3,g3,c4,d4] g4    c4@2 [c4,e4,g4] g4>*8",
+    // Am7 -> Em
+
+    // Am7 is ACEG
+    // The low inverted Am7 is (0) 2 2 0 2, which is (g4) e3 a3 c4 e4
+    // A true Am7 is (0) X 2 0 2
+    // Another Am7 would be (0) 7 5 7 5, which is (g4) a3 e4 g4 c5
+
+    // Em is EGB
+    // To play an Em7 (7th is D) you can do (0) 2 4 2 2, which is (g4) e3 b3 *d4 e4
+    "<a3@2 [a3,e4] g4    e3@2 [e3,b3,d4,e4] g4>*8",
+
+    // stolen time...
+    // "<g3@2 [d3,g3,c4,d4] g4>*8",
+    // "<g3@2 [d3,g3,c4,d4] g4>*8",
+    // "<g3@2 [d3,g3,c4,d4] g4    c4@2 [c4,e4,g4] g4>*8",
+    // "<a3@2 [a3,e4] g4    e3@2 [e3,b3,d4,e4] g4>*8",
+
+    "<g3@2 [d3,g3,c4,d4] g4>*8",
+    "<g3@2 [d3,g3,c4,d4] g4>*8",
+    "<g3@2 [d3,g3,c4,d4] g4    c4@2 [c4,e4,g4] g4>*8",
+    "<a3@2 [a3,e4] g4    e3@2 [e3,b3,d4,e4] g4>*8",
+
+    // Dm7: DFA (C would be the 7th)
+    // Obvious choice is something like (x)3223: f3 a3 d4 f4
+    "<f3 [f3,a3,d4,f4]@2 f3 [f3,a3,d4,f4]@2 f3@2>*8",
+    // Em -> Em7, we need to introduce the D
+    // So something like... (0) 2 4 *2 2
+    // (g4) e3 b3 d4 e4
+    // string names I'll use because higher is smaller: gDGCd
+    // classic "lick" roll:
+    // G d g G d G D d
+    // b3 e4 g4 b3 e4 b3 e3 e4
+    // move to 7th by swapping d to C
+    // G C g G C G D C
+    // b3 d4 g4 b3 d4 b3 e3 d4
+    "<b3 e4 g4 b3 e4 b3 e3 e4 b3 d4 g4 b3 d4 b3 e3 d4>*16",
+    // rest w/ the F(7) via: (0) 3 2 0 X
+    "<f3 [f3,a3,c4]@2 f3 [f3,a3,c4]@2 c4@2>*8",
+    "<b3 e4 g4 b3 e4 b3 e3 e4 b3 d4 g4 b3 d4 b3 e3 d4>*16",
+
+    "<f3 [f3,a3,d4,f4]@2 f3 [f3,a3,d4,f4]@2 f3@2>*8",
+    "<b3 e4 g4 b3 e4 b3 e3 e4 b3 d4 g4 b3 d4 b3 e3 d4>*16",
+    "<f3 [f3,a3,c4]@2 f3 [f3,a3,c4]@2 c4@2>*8",
+    // chill for the transition
+    "<e4@2 [e3,b3] e3    d4@2 [e3,b3,d4,e4] e3>*8",
+
+    // Gm7: G Bb D F
+    // Try: (0) 0 4 5 0, which is (g4) d3 bb3 f4 d4
+    // double thumbing is hard...
+    "d4 d3 [d3,bb3,f4,d4] g4 f4 d3 [d3,bb3,f4,d4] g4",
+    // Dm7->Fsus4
+    // Stealing previous Dm7
+    // Fsus4 is F Bb C
+    // You can play this true chord with (x) 3 3 0, f3 bb3 c4
+    "<f4@2 [f3,a3,d4,f4] f3    c4@2 [f3,bb3,c4] f3>*8",
+
+    // MUCH less thumb
+    "d4@2 [d3,bb3,f4,d4]@2 d3@2 [d3,bb3,f4,d4]@2",
+    "<f4@2 [f3,a3,d4,f4]@2    c4@2 [f3,bb3,c4]@2>*8",
+
+    // Finally ending it...
+    // A good Em7 is (0) 2 4 2 2, (g4) e3 b3 d4 e4
+    "<e4 e3 [e3,b3,d4,e4] g4>*8",
+    // stop double thumbing
+    "<e4@2 [e3,b3,d4,e4] g4>*8",
+    // slide it down to (0!) 1 3 1? 1 to close out (? is for 7th...)
+    // That's (g4!) eb3 bb3 db3 eb4
+    "<eb4@2 [eb3,bb3,db3,eb4] g4>*8",
+    "<eb4@2 [eb3,bb3,db3,eb4] g4>*8",
+    // I'm playing an Ebsus4 now instead!
+    "<[eb3,ab3,db3,eb4,g4]>*1",
+    "<[eb3,ab3,db3,eb4,g4]>*1",
+)
+    .note()
+    .sound("gm_banjo")
+    .gain(0.18)
+
+// Koto tuning: Kokin-choshi
+// D4 G4 A3 C4 D4 Eb4 G4 A4 C5 D5 Eb5 G5 A5
+let koto = cat(
+    "<g4@4 c4 d4 eb4 g4 g5@2 a5@2 d4@4>*16",
+
+    "g4 c5 g5 c5",
+    "g4 c5 g5 c5",
+    // This accidental eb4 sounds AMAZING, not sure why
+    "g4 c5 eb4 g5",
+    "a3 c5 g4 d4",
+
+    // stolen time...
+    // "g4 c5 g5 c5",
+    // "g4 c5 g5 c5",
+    // "g4 c5 eb4 g5",
+    // "a3 c5 g4 d4",
+
+    "g4 c5 g5 c5",
+    "g4 c5 g5 c5",
+    "g4 c5 eb4 g5",
+    // Am7 -> Em
+    // ACEG EGB
+    "<a3@2 c5@2 g4 eb4 d4 a3>*8",
+
+    // Dm7: D F A, bend the eb4 to f4, bend the C4 into a Db4
+    "<d5@4 c5 a4 g4@2 f4@4 [d4,db4]@4> * 16",
+    "a3 c5 g5 d4",
+    "f4 a4 c4 eb4",
+    "a3 c5 g5 d4",
+    // clean up on the 2nd rep
+    "<d5@4 c5 a4 g4@2 a4@4 d4@4> * 16",
+    "a3 c5 g5 d4",
+    "f4 a4 c4 eb4",
+    "a3 c5 g5 d4",
+
+    "[g4,d4]",
+    // Bend eb4 to f4...
+    "g4 f4",
+
+    "[g4,d4]",
+    // Bend still...
+    "g4 f4",
+
+    // Em7: EGBD
+    "d5 g4 d4 g4",
+    "d5 g4 d4 g4",
+
+    // Ebm: Eb Gb Bb
+    // We have an Eb!
+    // Can't even bend to a Gb, but Bb is A bent...
+    "eb5 bb5 eb4 bb5",
+    "eb5 bb5 eb4 bb5",
+
+    // last chance, add g4
+    "eb5 eb4 bb5 g4",
+    "eb5 eb4 bb5 g4",
+)
+    .note()
+    .sound("gm_koto")
+    .gain(0.25)
+
+// shamisen tuning: Niagari (D3 A3 D4)
+let shamisen = cat(
+    "<~>",
+
+    "<~>",
+    "<~>",
+    "<~>",
+    "<~>",
+
+    "d4 d3 d4 a3",
+    "d4 d3 d4 a3",
+    "[d3,d4]@4 d4 e4 g4 e4",
+    "<a3@2 d4@2 e4 g4 d4@2    e4@2 g4@2 b4 d4 e4@2>*16",
+
+    "~",
+    "<e4@2 g4@2 d4@2 e4@2> * 8",
+    "~",
+    "<e4@2 g4 b4 g4 d4 e4@2> * 8",
+
+    "~",
+    "<e4@2 g4@2 d4@2 e4@2> * 8",
+    "~",
+    "<e4@2 g4 b4 g4 d4 e4@2> * 8",
+
+    // Gm7
+    "<d3@2 a3 d4> * 4",
+    // Dm7->Fsus4
+    "d4 a3 d3 a3    f4 g4 a4 g4",
+
+    "<d3@2 a3 d4> * 4",
+    "d4 a3 d3 a3    f4 g4 a4 g4",
+
+    // Em7
+    "<d4 e4 d3 e4>*8",
+    "<d4 e4 d3 e4>*8",
+
+    // Ebm
+    "gb4 bb4 gb4 bb4",
+    "gb4 bb4",
+    "[d3,eb4]",
+    "[d3,eb4]",
+)
+    .note()
+    .sound("gm_shamisen")
+    .pattack("<.02>")
+    .pdecay("<.01>")
+    .gain(0.25)
+
+// Standard Fiddle Open Strings: G3 D4 A4 E5
+let fiddle = cat(
+    "~",
+
+    "~",
+    "<d4@2 d4@2 g3 c5 d4 c5>*8",
+    "<c5@4 c5@4    g4 g4 g3@2 g3@2 c5@2>*16",
+    "<e5@4     d4 f4 g4@2>*8",
+
+    "<d4@2 d4@2 g3 c5 d4 c5>*8",
+    "<c5@2 g4@2 g3 c5 d4 c5>*8",
+    "<c5@4 c5@4    g4 g4 g3@2 g3@2 c5@2>*16",
+    "<e5@4     d4 f4 g4 d5/2 e5/2>*8",
+
+    "<d4@2 ~ f4@2 ~ d4 d4>*8",
+    "~",
+    "<d4@2 ~ f4@2 ~ d4 d4>*8",
+    "~",
+
+    "<d4 e4 g4 f4@2 ~ d4 d4>*8",
+    "~",
+    "<d4 f4 e4 g4 ~ d4 d4 d4>*8",
+    "~",
+
+    // Gm7
+    "<g3@4 d4@4>*8",
+    // Dm7->Fsus4
+    "<d4@8 f4@8     c5 b4 bb4@6 [f4,bb5]@8>*32",
+
+    // Gm7
+    "<g4 bb4@2 d4 f4@2 d5 bb4>*8",
+    // Dm7->Fsus4
+    "<d4 f4 a4 c5     f4 c5 b4 bb4>*8",
+
+    // Em7
+    "<b4@2 d4@2 e5@4>*8",
+    "g3",
+
+    // Ebm
+    "[bb4,gb5]",
+    "[bb4,gb5]",
+    "[bb4,gb5]",
+    "[bb4,eb5]",
+)
+    .note()
+    .sound("gm_fiddle")
+    .vibrato("1:.01")
+    .gain(.13)
+
+let woodblock = cat(
+    "~",
+    "d4 ~ d4 ~",
+    "d4 ~ d4 d4",
+    "d4 ~ d4 ~",
+    "d4 ~ d4 d4",
+
+    "d4 ~ d4 ~",
+    "d4 ~ d4 d4",
+    "d4 ~ d4 ~",
+    "d4 ~ d4 d4",
+
+    "d4 d4 d4 d4",
+    "~ ~ ~ ~",
+    "d4 d4 d4 d4",
+    "~ ~ ~ ~",
+
+    "d4 d4 d4 d4",
+    "~ ~ ~ ~",
+    "d4 d4 d4 d4",
+    "~ ~ ~ ~",
+
+    "d4 ~ d4 ~",
+    "d4 ~ d4 d4",
+    "d4 ~ d4 ~",
+    "d4 ~ d4 d4",
+
+    "d4 ~ d4 ~",
+    "d4 ~ d4 ~",
+    "d4 d4 d4 d4",
+    "d4 d4 d4 d4",
+
+    "d4 ~ d4 ~",
+    "d4 ~ d4 ~",
+)
+    .note()
+    .sound("gm_woodblock")
+    .gain(.5)
+
+let cpm = 150 / 4
+let song = stack(
+    // chordprog,
+    banjo,
+    koto,
+    woodblock,
+    shamisen,
+    fiddle,
+)
+arrange(
+    [1, song],
+).cpm(cpm)

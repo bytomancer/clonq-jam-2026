@@ -1,4 +1,6 @@
 AudioStreamPlayer
+CollisionShape2D
+Area2D
 CPUParticles2D
 Sprite2D
 ParallaxLayer
@@ -8,8 +10,5 @@ Node2D
 Container
 TextureRect
 Control
-CollisionShape2D
-Area2D
 StaticBody2D
 AnimationPlayer
-PinJoint2D
