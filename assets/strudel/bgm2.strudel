@@ -134,7 +134,7 @@ let banjo = cat(
 )
     .note()
     .sound("gm_banjo")
-    .gain(0.20)
+    .gain(0.18)
 
 // Koto tuning: Kokin-choshi
 // D4 G4 A3 C4 D4 Eb4 G4 A4 C5 D5 Eb5 G5 A5
@@ -197,6 +197,110 @@ let koto = cat(
     .sound("gm_koto")
     .gain(0.25)
 
+// shamisen tuning: (D3 A3 D4)
+let shamisen = cat(
+    "<~>",
+
+    "<~>",
+    "<~>",
+    "<~>",
+    "<~>",
+
+    // GCD
+    "d4 c3 d3 c3",
+    "d4 c3 d3 c3",
+    // GCD CEG
+    "[c3,d3]@4 c3 e3 g3 e3",
+    // ACEG EGB(D)
+    "<a3@2 c3@2 e3 g3 c3@2    e3@2 g3@2 b3 d4 e3@2>*16",
+
+    "<~>",
+    // EGB(D)
+    "<e3@2 g3 b3 g3 d4 e3@2> * 8",
+    "~",
+    "<e3@2 g3 b3 g3 d4 e3@2> * 8",
+
+    "<~>",
+    // EGB(D)
+    "<e3@2 g3 b3 g3 d4 e3@2> * 8",
+    "~",
+    "<e3@2 g3@2 d4@2 e3@2> * 8",
+
+    // Gm7 G Bb D F
+    "<a3@2 d3 d4> * 4",
+    // Dm7->Fsus4    DFAC -> F Bb C
+    "d4 a3 d3 a3    f4 bb4 c4 bb4",
+
+    // Gm7 G Bb D F
+    "<a3@2 d3 d4> * 4",
+    // Dm7->Fsus4    DFAC -> F Bb C
+    "d4 a3 d3 a3    f4 bb4 c4 bb4",
+
+    //Em7 EGBD
+    "<d4 e4 d3 e3>*8",
+    "<d4 e4 d3 e3>*8",
+
+    //Ebm Eb Gb Bb Db
+    "gb3 bb3 gb3 bb3",
+    "gb3 bb3",
+
+    "[eb3,gb3,eb4]",
+    "[eb3,gb3,eb4]",
+)
+    .note()
+    .sound("gm_shamisen")
+    .pattack("<.02>")
+    .pdecay("<.01>")
+    .gain(0.25)
+
+// G3 D4 A4 E5
+let fiddle = cat(
+    "~",
+
+    "~",
+    "<d4@2 d4@2 g3 c4 d4 c4>*8",
+    "<c4@4 c4@4    g4 g4 g3@2 g3@2 c4@2>*16",
+    "<e5@4     d4 f4 g4@2>*8",
+
+    "<d4@2 d4@2 g3 c4 d4 c4>*8",
+    "<c4@2 g4@2 g3 c4 d4 c4>*8",
+    "<c4@4 c4@4    g4 g4 g3@2 g3@2 c4@2>*16",
+    "<e5@4     d4 f4 g4 d5/2 e5/2>*8",
+
+    "<d4@2 ~ f4@2 ~ d4 d4>*8",
+    "~",
+    "<d4@2 ~ f4@2 ~ d4 d4>*8",
+    "~",
+
+    "<d4 e4 g4 f4@2 ~ d4 d4>*8",
+    "~",
+    "<d4 f4 e4 g4 ~ d4 d4 d4>*8",
+    "~",
+
+    // Gm7 G Bb D F
+    "<g3@4 d4@4>*8",
+    // Dm7->Fsus4    DFAC -> F Bb C
+    "<d4@8 f4@8     c4 b4 bb4@6 [f4,bb5]@8>*32",
+
+    // Gm7
+    "<g4 bb4@2 d4 f4@2 d5 bb4>*8",
+    // Dm7->Fsus4
+    "<d4 f4 a4 c4     f4 c4 b4 bb4>*8",
+
+    // EGBD
+    "<b4@2 d4@2 e5@4>*8",
+    "g3",
+    //Ebm Eb Gb Bb Db
+    "[bb4,gb5]",
+    "[bb4,gb5]",
+    "[bb4,gb5]",
+    "[bb4,gb5]",
+)
+    .note()
+    .sound("gm_fiddle")
+    .vibrato("1:.01")
+    .gain(.13)
+
 let woodblock = cat(
     "~",
     "d4 ~ d4 ~",
@@ -234,7 +338,7 @@ let woodblock = cat(
 )
     .note()
     .sound("gm_woodblock")
-    .gain(.3)
+    .gain(.5)
 
 let cpm = 150 / 4
 let song = stack(
@@ -242,6 +346,8 @@ let song = stack(
     banjo,
     koto,
     woodblock,
+    shamisen,
+    fiddle,
 )
 arrange(
     [1, song],

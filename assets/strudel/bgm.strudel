@@ -246,7 +246,7 @@ let bottle = cat(
 let intro = stack(
     banjo_intro,
     // koto_intro,
-    // fiddle_intro,
+    fiddle_intro,
     // shamisen_intro,
     // woodblock,
     // bottle
@@ -255,7 +255,7 @@ let intro = stack(
 let core = stack(
     banjo_core,
     // koto_core,
-    // fiddle_core,
+    fiddle_core,
     // shamisen_core,
     // woodblock,
     // bottle
@@ -380,10 +380,10 @@ let finale = stack(
 
 let cpm = 160 / 4
 arrange(
-    // [16, intro],
-    // [16 * 2, core],
+    [16, intro],
+    [16 * 2, core],
     // [8, dev_1],
     // [8, dev_2],
     // [4, turn],
-    [8, finale],
+    // [8, finale],
 ).cpm(cpm)
