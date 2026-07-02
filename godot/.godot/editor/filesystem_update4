@@ -1,7 +1,5 @@
-res://fab/arrow.tscn
+res://scn/main.tscn
 res://res/dead_heart_anim.tres
 res://res/default_label_setting.tres
-res://fab/player.tscn
-res://src/arrow.gd
-res://scn/main.tscn
 res://src/main.gd
+res://src/bamboo_wall.gd

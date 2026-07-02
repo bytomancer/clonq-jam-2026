@@ -17,7 +17,7 @@
           godot_4_6-export-templates-bin
           zip
           wget
-          tuxguitar
+          ffmpeg
         ];
         shellHook = ''
           mkdir -p "$HOME/.local/share/godot"

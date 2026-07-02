@@ -8,9 +8,11 @@ var speed = 30.0
 @export
 var hp = 100.0
 
+var main
 var dmg_display
 
 func _enter_tree() -> void:
+	self.main = get_node("/root/Main")
 	self.dmg_display = get_node("/root/Main/DmgNumDisplay")
 
 func disable_tutorial() -> void:
@@ -24,11 +26,14 @@ func make_boss() -> void:
 
 # var hit_rot = 0.1
 func damage(dmg: float) -> void:
-	# $Sprites.rotate(hit_rot)
+	if self.hp <= 0.0:
+		return
 	$Anim.play("new_animation")
 	self.hp -= dmg
 	self.dmg_display.add_number(dmg, Color(1, 1, 1))
 	if self.hp < 0.0:
+		main.bonus_difficulty += 2
+		main.spawn_obj()
 		queue_free()
 
 # var rot_speed = 10.0
