@@ -161,13 +161,17 @@ frame_progress = 0.64330417
 
 [node name="HitParticles" type="CPUParticles2D" parent="Guy" unique_id=1390429745]
 emitting = false
-amount = 30
+amount = 50
+lifetime = 2.0
 one_shot = true
-explosiveness = 0.7
+explosiveness = 0.95
 direction = Vector2(-1, 0)
+spread = 120.0
 gravity = Vector2(0, 98)
 initial_velocity_min = 30.0
 initial_velocity_max = 50.0
+linear_accel_min = -11.0
+linear_accel_max = -11.0
 color = Color(0.99607843, 0, 0, 1)
 
 [node name="GrabArea" type="Area2D" parent="Guy" unique_id=1106863336]
