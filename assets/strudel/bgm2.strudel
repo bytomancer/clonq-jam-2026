@@ -128,7 +128,7 @@ let banjo = cat(
     // That's (g4!) eb3 bb3 db3 eb4
     "<eb4@2 [eb3,bb3,db3,eb4] g4>*8",
     "<eb4@2 [eb3,bb3,db3,eb4] g4>*8",
-    // I'm playing an Ebsus4 now instead!
+    // Bar on 1st, with drone, which is... Eb7sus4add13??
     "<[eb3,ab3,db3,eb4,g4]>*1",
     "<[eb3,ab3,db3,eb4,g4]>*1",
 )
@@ -176,7 +176,6 @@ let koto = cat(
     "g4 f4",
 
     "[g4,d4]",
-    // Bend still...
     "g4 f4",
 
     // Em7: EGBD
@@ -217,14 +216,14 @@ let shamisen = cat(
     "<e4@2 g4 b4 g4 d4 e4@2> * 8",
 
     "~",
-    "<e4@2 g4@2 d4@2 e4@2> * 8",
+    "~",//"<e4@2 g4@2 d4@2 e4@2> * 8",
     "~",
-    "<e4@2 g4 b4 g4 d4 e4@2> * 8",
+    "~",//"<e4@2 g4 b4 g4 d4 e4@2> * 8",
 
     // Gm7
-    "<d3@2 a3 d4> * 4",
+    "~",//"<d3@2 a3 d4> * 4",
     // Dm7->Fsus4
-    "d4 a3 d3 a3    f4 g4 a4 g4",
+    "~",//"d4 a3 d3 a3    f4 g4 a4 g4",
 
     "<d3@2 a3 d4> * 4",
     "d4 a3 d3 a3    f4 g4 a4 g4",
@@ -254,14 +253,14 @@ let fiddle = cat(
     "<c5@4 c5@4    g4 g4 g3@2 g3@2 c5@2>*16",
     "<e5@4     d4 f4 g4@2>*8",
 
-    "<d4@2 d4@2 g3 c5 d4 c5>*8",
-    "<c5@2 g4@2 g3 c5 d4 c5>*8",
-    "<c5@4 c5@4    g4 g4 g3@2 g3@2 c5@2>*16",
-    "<e5@4     d4 f4 g4 d5/2 e5/2>*8",
+    "~",//"<d4@2 d4@2 g3 c5 d4 c5>*8",
+    "~",//"<c5@2 g4@2 g3 c5 d4 c5>*8",
+    "~",//"<c5@4 c5@4    g4 g4 g3@2 g3@2 c5@2>*16",
+    "~",//"<e5@4     d4 f4 g4 d5/2 e5/2>*8",
 
-    "<d4@2 ~ f4@2 ~ d4 d4>*8",
+    "~",//"<d4@2 ~ f4@2 ~ d4 d4>*8",
     "~",
-    "<d4@2 ~ f4@2 ~ d4 d4>*8",
+    "~",//"<d4@2 ~ f4@2 ~ d4 d4>*8",
     "~",
 
     "<d4 e4 g4 f4@2 ~ d4 d4>*8",
@@ -270,14 +269,14 @@ let fiddle = cat(
     "~",
 
     // Gm7
-    "<g3@4 d4@4>*8",
+    "~",//"<g3@4 d4@4>*8",
     // Dm7->Fsus4
     "<d4@8 f4@8     c5 b4 bb4@6 [f4,bb5]@8>*32",
 
     // Gm7
     "<g4 bb4@2 d4 f4@2 d5 bb4>*8",
     // Dm7->Fsus4
-    "<d4 f4 a4 c5     f4 c5 b4 bb4>*8",
+    "~",//"<d4 f4 a4 c5     f4 c5 b4 bb4>*8",
 
     // Em7
     "<b4@2 d4@2 e5@4>*8",
@@ -292,7 +291,7 @@ let fiddle = cat(
     .note()
     .sound("gm_fiddle")
     .vibrato("1:.01")
-    .gain(.13)
+    .gain(.12)
 
 let woodblock = cat(
     "~",
@@ -342,6 +341,7 @@ let song = stack(
     shamisen,
     fiddle,
 )
+  // .gain(0.1)
 arrange(
     [1, song],
 ).cpm(cpm)

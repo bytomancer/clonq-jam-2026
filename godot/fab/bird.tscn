@@ -50,7 +50,6 @@ radius = 4.0
 height = 16.0
 
 [sub_resource type="Gradient" id="Gradient_k3l4p"]
-offsets = PackedFloat32Array(0.5049261, 1)
 colors = PackedColorArray(1, 0, 0, 1, 1, 0, 0, 0)
 
 [node name="Bird" type="RigidBody2D" unique_id=66656583 groups=["damaged_by_sword_edge", "offscreen_free"]]
@@ -86,16 +85,48 @@ animation = &"dead"
 autoplay = "alive"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=573834975]
+visible = false
 rotation = 1.5707964
 shape = SubResource("CapsuleShape2D_rqnb2")
 
 [node name="Poof" type="CPUParticles2D" parent="." unique_id=47926320]
 emitting = false
 amount = 30
-lifetime = 0.5
+lifetime = 2.0
 one_shot = true
+explosiveness = 1.0
 spread = 180.0
-gravity = Vector2(0, 9)
-initial_velocity_min = 80.0
-initial_velocity_max = 150.0
+gravity = Vector2(0, 100)
+initial_velocity_min = 50.0
+initial_velocity_max = 100.0
 color_ramp = SubResource("Gradient_k3l4p")
+
+[node name="Poof3" type="CPUParticles2D" parent="." unique_id=1612570270]
+emitting = false
+amount = 30
+lifetime = 2.0
+one_shot = true
+explosiveness = 0.5
+direction = Vector2(0, -1)
+spread = 90.0
+gravity = Vector2(0, 9)
+initial_velocity_min = 30.0
+initial_velocity_max = 50.0
+linear_accel_min = -11.0
+linear_accel_max = -11.0
+color = Color(0, 0, 0.99607843, 1)
+
+[node name="Poof2" type="CPUParticles2D" parent="." unique_id=1565225203]
+emitting = false
+amount = 30
+lifetime = 2.0
+one_shot = true
+explosiveness = 0.5
+direction = Vector2(0, -1)
+spread = 90.0
+gravity = Vector2(0, 9)
+initial_velocity_min = 30.0
+initial_velocity_max = 50.0
+linear_accel_min = -11.0
+linear_accel_max = -11.0
+color = Color(1, 1, 0.99607843, 1)

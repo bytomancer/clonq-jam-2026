@@ -10,6 +10,7 @@ var dmg_display
 
 func _enter_tree() -> void:
 	self.dmg_display = get_node("/root/Main/DmgNumDisplay")
+	$TutNode/Tutorial.label_settings.font_color = Color(1, 1, 1)
 
 func disable_tutorial() -> void:
 	$TutNode.hide()
@@ -24,7 +25,9 @@ func damage(dmg: float) -> void:
 func kill_self() -> void:
 	get_node("/root/Main/Player").reduce_hearts()
 	$Sprite.animation = "dead"
-	$Poof.restart()
+	#$Poof.restart()
+	$Poof2.restart()
+	$Poof3.restart()
 	self.gravity_scale *= 5.0
 	$TutNode/Tutorial.text = "=("
 	$TutNode/Tutorial.label_settings.font_color = Color(1, 0, 0)
