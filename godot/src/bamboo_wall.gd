@@ -46,7 +46,7 @@ func damage(dmg: float) -> void:
 
 func _process(delta: float) -> void:
 	# $Sprites.rotate(($Sprites.global_rotation / -2.0) * delta * rot_speed)
-	var velocity = Vector2(1, 0) * speed * delta
+	var velocity = Vector2(1, -.1) * speed * delta
 	self.position -= velocity
 	if self.global_position.x <= KILLZONE:
 		get_tree().change_scene_to_file("res://scn/lose.tscn")

@@ -11,3 +11,4 @@ res://fab/bamboo_wall.tscn
 res://fab/bamboo_falling.tscn
 res://src/bamboo_falling.gd
 res://src/main.gd
+res://src/bg.gd
