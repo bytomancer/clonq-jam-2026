@@ -21,9 +21,14 @@ func _enter_tree() -> void:
 	self.hud = get_node("/root/Main/HUD")
 
 func _process(delta: float) -> void:
+	var curr_speed = player_speed
+	if $Guy.squished:
+		curr_speed /= 4
+	elif $Guy.invuln_timer > 0:
+		curr_speed /= 2
 	var diff: Vector2 = get_global_mouse_position() - target.global_position
-	if diff.length() > player_speed * delta:
-		diff = diff.normalized() * player_speed * delta
+	if diff.length() > curr_speed * delta:
+		diff = diff.normalized() * curr_speed * delta
 	target.velocity = diff / delta
 	target.move_and_slide()
 	previous_knife_ang_vel = $Knife.angular_velocity
@@ -58,6 +63,13 @@ func damage() -> void:
 	$sfx_hit.play()
 	$Guy.start_invuln()
 	reduce_hearts()
+
+func squash() -> void:
+	if $Guy.invuln_timer >= 0:
+		return
+	$Guy.squished = true
+	damage()
+
 
 func reduce_hearts() -> void:
 	if godmode:

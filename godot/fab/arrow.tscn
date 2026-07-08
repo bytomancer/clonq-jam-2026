@@ -1,24 +1,24 @@
-[gd_scene format=3 uid="uid://dj3k8g3snuggu"]
+[gd_scene format=3 uid="uid://dynyilyc5frqt"]
 
-[ext_resource type="Script" uid="uid://yfbybpnqo1c6" path="res://src/arrow.gd" id="1_0f27e"]
-[ext_resource type="FontFile" uid="uid://cu5o2a46e1b1h" path="res://ext/spleen/spleen-6x12.otf" id="2_ornea"]
-[ext_resource type="Texture2D" uid="uid://dhrcw708lt8q5" path="res://ass/arrow.png" id="3_fmpqv"]
-[ext_resource type="Script" uid="uid://cds5d7nljlay3" path="res://src/do_not_rotate.gd" id="3_ornea"]
-[ext_resource type="Script" uid="uid://dguaajhvcedxs" path="res://src/arrow_tip.gd" id="5_fmpqv"]
-[ext_resource type="AudioStream" uid="uid://b0ydnwywkmnru" path="res://sfx/bowshoot.wav" id="6_gfmll"]
-[ext_resource type="AudioStream" uid="uid://d16wfgp0l0a1y" path="res://sfx/killarrow.wav" id="7_p04ku"]
+[ext_resource type="Script" uid="uid://yfbybpnqo1c6" path="res://src/arrow.gd" id="1_233n8"]
+[ext_resource type="Script" uid="uid://cds5d7nljlay3" path="res://src/do_not_rotate.gd" id="2_uvtcg"]
+[ext_resource type="FontFile" uid="uid://cu5o2a46e1b1h" path="res://ext/spleen/spleen-6x12.otf" id="3_65a06"]
+[ext_resource type="Texture2D" uid="uid://dhrcw708lt8q5" path="res://ass/arrow.png" id="4_s5uc2"]
+[ext_resource type="Script" uid="uid://dguaajhvcedxs" path="res://src/arrow_tip.gd" id="5_ox02c"]
+[ext_resource type="AudioStream" uid="uid://b0ydnwywkmnru" path="res://sfx/bowshoot.wav" id="6_63tb6"]
+[ext_resource type="AudioStream" uid="uid://d16wfgp0l0a1y" path="res://sfx/killarrow.wav" id="7_mwylc"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_wc0fe"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_wc0fe"]
-font = ExtResource("2_ornea")
+font = ExtResource("3_65a06")
 font_size = 12
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wc0fe"]
 size = Vector2(12, 3)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vwxr4"]
-atlas = ExtResource("3_fmpqv")
+atlas = ExtResource("4_s5uc2")
 region = Rect2(0, 0, 16, 8)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_nhm61"]
@@ -33,7 +33,7 @@ animations = [{
 }]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qy7k8"]
-atlas = ExtResource("3_fmpqv")
+atlas = ExtResource("4_s5uc2")
 region = Rect2(16, 0, 16, 8)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_xs02v"]
@@ -51,7 +51,7 @@ animations = [{
 radius = 4.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wc0fe"]
-atlas = ExtResource("3_fmpqv")
+atlas = ExtResource("4_s5uc2")
 region = Rect2(32, 0, 16, 8)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_vwxr4"]
@@ -75,20 +75,20 @@ size = Vector2(13, 7)
 collision_layer = 64
 collision_mask = 67
 physics_material_override = SubResource("PhysicsMaterial_wc0fe")
-script = ExtResource("1_0f27e")
-tutorial_speed = 400.0
+script = ExtResource("1_233n8")
+tutorial_speed = 600.0
 
 [node name="TutNode" type="Node2D" parent="." unique_id=905435295]
-script = ExtResource("3_ornea")
+script = ExtResource("2_uvtcg")
 
 [node name="Tutorial" type="Label" parent="TutNode" unique_id=818923203]
-offset_left = -62.0
-offset_top = -5.0
-offset_right = -8.0
-offset_bottom = 157.0
+offset_left = -87.0
+offset_top = -6.0
+offset_right = -9.0
+offset_bottom = 156.0
 pivot_offset = Vector2(45, 4)
 pivot_offset_ratio = Vector2(6, 0)
-text = "DODGE!->"
+text = "danger->"
 label_settings = SubResource("LabelSettings_wc0fe")
 horizontal_alignment = 2
 
@@ -128,7 +128,7 @@ shape = SubResource("RectangleShape2D_qy7k8")
 [node name="ArrowTip" type="Area2D" parent="." unique_id=1480899359 groups=["damaged_by_sword_edge"]]
 collision_layer = 0
 collision_mask = 3
-script = ExtResource("5_fmpqv")
+script = ExtResource("5_ox02c")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="ArrowTip" unique_id=1636780865]
 position = Vector2(-8, -1)
@@ -143,12 +143,12 @@ position = Vector2(2.5, -0.5)
 shape = SubResource("RectangleShape2D_fmpqv")
 
 [node name="sfx_spawn" type="AudioStreamPlayer2D" parent="." unique_id=769240137]
-stream = ExtResource("6_gfmll")
+stream = ExtResource("6_63tb6")
 volume_db = -15.0
 max_polyphony = 100
 
 [node name="sfx_break" type="AudioStreamPlayer2D" parent="." unique_id=1216763272]
-stream = ExtResource("7_p04ku")
+stream = ExtResource("7_mwylc")
 volume_db = -10.0
 
 [connection signal="body_entered" from="ArrowTip" to="." method="_on_area_2d_body_entered"]

@@ -1,0 +1,65 @@
+[gd_scene format=3 uid="uid://dj3k8g3snuggu"]
+
+[ext_resource type="Script" uid="uid://dlm6fnhyinb44" path="res://src/rock.gd" id="1_2beku"]
+[ext_resource type="Script" uid="uid://cds5d7nljlay3" path="res://src/do_not_rotate.gd" id="2_uvtcg"]
+[ext_resource type="FontFile" uid="uid://cu5o2a46e1b1h" path="res://ext/spleen/spleen-6x12.otf" id="3_65a06"]
+[ext_resource type="AudioStream" uid="uid://d2vfjutheb508" path="res://sfx/rockbounce.wav" id="4_mtgjc"]
+[ext_resource type="Texture2D" uid="uid://cpghfkw17x2hs" path="res://ass/rock.png" id="6_233n8"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_wc0fe"]
+bounce = 1.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_wc0fe"]
+font = ExtResource("3_65a06")
+font_size = 12
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1u2c6"]
+radius = 13.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_2beku"]
+radius = 13.0
+
+[node name="Rock" type="StaticBody2D" unique_id=933664217 groups=["damaged_by_sword_edge", "offscreen_free"]]
+position = Vector2(236, 8)
+collision_layer = 16384
+collision_mask = 16384
+physics_material_override = SubResource("PhysicsMaterial_wc0fe")
+constant_linear_velocity = Vector2(-100, 0)
+constant_angular_velocity = -1.7453293
+script = ExtResource("1_2beku")
+
+[node name="TutNode" type="Node2D" parent="." unique_id=905435295]
+script = ExtResource("2_uvtcg")
+
+[node name="Tutorial" type="Label" parent="TutNode" unique_id=818923203]
+offset_left = -94.0
+offset_top = -6.0
+offset_right = -16.0
+offset_bottom = 156.0
+pivot_offset = Vector2(45, 4)
+pivot_offset_ratio = Vector2(6, 0)
+text = "avoid->"
+label_settings = SubResource("LabelSettings_wc0fe")
+horizontal_alignment = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1853729423]
+position = Vector2(-1, 0)
+shape = SubResource("CircleShape2D_1u2c6")
+
+[node name="sfx_bounce" type="AudioStreamPlayer2D" parent="." unique_id=1216763272]
+stream = ExtResource("4_mtgjc")
+volume_db = -10.0
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1154700352]
+texture = ExtResource("6_233n8")
+
+[node name="HitBox" type="Area2D" parent="." unique_id=1085172259]
+collision_layer = 8192
+collision_mask = 8192
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox" unique_id=1845337145]
+position = Vector2(-1, 0)
+shape = SubResource("CircleShape2D_2beku")
+
+[connection signal="area_entered" from="HitBox" to="." method="_on_hit_box_area_entered"]
+[connection signal="body_entered" from="HitBox" to="." method="_on_hit_box_body_entered"]

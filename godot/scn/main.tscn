@@ -6,7 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://drnstb2vpr733" path="res://fab/player.tscn" id="5_altm0"]
 [ext_resource type="PackedScene" uid="uid://c55l0d7js711y" path="res://fab/bamboo_wall.tscn" id="9_x8hhd"]
 [ext_resource type="PackedScene" uid="uid://dfx804jmbalr1" path="res://fab/bird.tscn" id="10_altm0"]
-[ext_resource type="PackedScene" uid="uid://dj3k8g3snuggu" path="res://fab/arrow.tscn" id="11_wc0fe"]
+[ext_resource type="PackedScene" uid="uid://dynyilyc5frqt" path="res://fab/arrow.tscn" id="10_sywa5"]
+[ext_resource type="PackedScene" uid="uid://dj3k8g3snuggu" path="res://fab/rock.tscn" id="11_wc0fe"]
 [ext_resource type="Script" uid="uid://bfdpqrr4nfc1t" path="res://src/hud.gd" id="12_wc0fe"]
 [ext_resource type="FontFile" uid="uid://cu5o2a46e1b1h" path="res://ext/spleen/spleen-6x12.otf" id="12_x8hhd"]
 [ext_resource type="Script" uid="uid://0t5litfbwgio" path="res://src/heart.gd" id="13_wc0fe"]
@@ -42,6 +43,9 @@ distance = 4.0
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_nq6di"]
 normal = Vector2(1, 0)
 distance = 4.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rgggd"]
+size = Vector2(2000, 20)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qy7k8"]
 size = Vector2(900, 360)
@@ -437,8 +441,19 @@ position = Vector2(390, 35)
 [node name="Powerup" parent="." unique_id=140198743 instance=ExtResource("14_altm0")]
 position = Vector2(443, 80)
 
-[node name="Arrow" parent="." unique_id=226876867 instance=ExtResource("11_wc0fe")]
+[node name="Rock" parent="." unique_id=226876867 instance=ExtResource("11_wc0fe")]
+position = Vector2(440, 0)
+
+[node name="Arrow" parent="." unique_id=266562850 instance=ExtResource("10_sywa5")]
 position = Vector2(298, 5)
+
+[node name="RockBounceFloor" type="Area2D" parent="." unique_id=931253786]
+position = Vector2(1000, 180)
+collision_layer = 24576
+collision_mask = 24576
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RockBounceFloor" unique_id=1659802089]
+shape = SubResource("RectangleShape2D_rgggd")
 
 [node name="HUD" type="Control" parent="." unique_id=1037340713]
 unique_name_in_owner = true
@@ -662,7 +677,7 @@ texture = ExtResource("21_m1xow")
 
 [node name="Snow" type="CPUParticles2D" parent="Bg" unique_id=1860444021]
 position = Vector2(259, -100)
-amount = 150
+amount = 200
 texture = ExtResource("19_nhm61")
 lifetime = 5.0
 preprocess = 5.0
@@ -677,6 +692,7 @@ angular_velocity_min = 25.0
 angular_velocity_max = 100.0
 angle_min = -233.3
 angle_max = -100.0
+scale_amount_min = 0.1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Bg" unique_id=423328982]
 libraries/ = SubResource("AnimationLibrary_m1xow")

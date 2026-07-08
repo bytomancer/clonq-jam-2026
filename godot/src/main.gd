@@ -29,6 +29,7 @@ var bam_fab = preload("res://fab/bamboo_wall.tscn")
 var bird_fab = preload("res://fab/bird.tscn")
 var arrow_fab = preload("res://fab/arrow.tscn")
 var pup_fab = preload("res://fab/powerup.tscn")
+var rock_fab = preload("res://fab/rock.tscn")
 
 var final_bam = false
 
@@ -85,16 +86,19 @@ func reset_bam_timer(perf_spawn = true) -> void:
 	if perf_spawn:
 		spawn_bam()
 	var rand_bonus = lerpf(1.5, 0.7, difficulty)
-	var rand_base = lerpf(4.0, 2.0, difficulty)
+	var rand_base = lerpf(4.0, 1.0, difficulty)
 	next_bam_timer = randf() * rand_bonus + rand_base
 
 func spawn_bam(stronger = false):
-	print("BAM TIME")
 	var bamboo = bam_fab.instantiate()
 	bamboo.disable_tutorial()
 	bamboo.global_position = Vector2(299.0, 160.0)
 	if stronger:
 		bamboo.make_boss()
+		# Have 2 powerups!
+		# 6X is now the max
+		spawn_pup()
+		spawn_pup()
 	else:
 		bamboo.hp *= 1.0 + (difficulty as float / MAX_DIFF as float)
 	# DO NOT CHANGE THE SPEED IT CAUSES CLIPPING
@@ -102,31 +106,42 @@ func spawn_bam(stronger = false):
 	#bamboo.speed *= speed_mod
 	%BambooHolder.add_child(bamboo)
 
-const EXTRA_OBJ_TIME = 5.0
+# const EXTRA_OBJ_TIME = 5.0
 
 func reset_obj_timer(perf_spawn = true) -> void:
-	if total_time_played > GAME_TIME_SOFT_LIMIT + EXTRA_OBJ_TIME:
+	if total_time_played > GAME_TIME_SOFT_LIMIT: # + EXTRA_OBJ_TIME:
 		return
 	if perf_spawn:
 		spawn_obj()
 	var rand_bonus = lerpf(0.2, 0.1, difficulty)
-	var rand_base = lerpf(0.8, 0.4, difficulty)
+	var rand_base = lerpf(0.8, 0.2, difficulty)
 	next_obj_timer = randf() * rand_bonus + rand_base
 
 func spawn_obj():
-	print("OBJ TIME")
-	for i in range(0, self.bonus_difficulty):
-		# 2x arrows vs birds
-		var bird = randi() % 3 == 0
+	var curr_rocks = 0
+	for obj in %ObjectHolder.get_children():
+		if obj.has_method('is_rock') && obj.is_rock():
+			curr_rocks += 1
+	for i in range(0, self.bonus_difficulty - 1):
+		var roll = randi() % 100
+		var bird = roll <= 30
+		var rock = roll <= 50 && curr_rocks < 2
 		var obj
 		if bird:
 			obj = bird_fab.instantiate()
+		elif rock:
+			curr_rocks += 1
+			obj = rock_fab.instantiate()
 		else:
 			obj = arrow_fab.instantiate()
 		obj.disable_tutorial()
-		var margin = 8.0
-		var rand_height = randf_range(margin, 160 - margin)
-		obj.global_position = Vector2(299.0, rand_height)
+		if rock:
+			var rand_x = randf_range(400, 500)
+			obj.global_position = Vector2(rand_x, 0)
+		else:
+			var margin = 8.0
+			var rand_y = randf_range(margin, 160 - margin)
+			obj.global_position = Vector2(299.0, rand_y)
 		%ObjectHolder.add_child(obj)
 	if bonus_difficulty > 1:
 		bonus_difficulty -= 1
@@ -136,12 +151,12 @@ func reset_pup_timer(perf_spawn = true) -> void:
 		return
 	if perf_spawn:
 		spawn_pup()
-	var rand_bonus = lerpf(5.0, 6.0, difficulty)
-	var rand_base = lerpf(8.0, 12.0, difficulty)
-	next_pup_timer = randf() * rand_bonus + rand_base
+	#var rand_bonus = lerpf(5.0, 6.0, difficulty)
+	#var rand_base = lerpf(8.0, 12.0, difficulty)
+	#next_pup_timer = randf() * rand_bonus + rand_base
+	next_pup_timer = 12.0 # Tired of feeling cheated without enough dmgup on boss
 
 func spawn_pup():
-	print("PUP TIME")
 	var pup = pup_fab.instantiate()
 	pup.disable_tutorial()
 	

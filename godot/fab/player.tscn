@@ -27,6 +27,10 @@ region = Rect2(48, 0, 8, 8)
 atlas = ExtResource("4_khxis")
 region = Rect2(56, 0, 8, 8)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_ifrbw"]
+atlas = ExtResource("4_khxis")
+region = Rect2(72, 0, 8, 8)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_gyckk"]
 atlas = ExtResource("4_khxis")
 region = Rect2(24, 0, 8, 8)
@@ -66,6 +70,14 @@ animations = [{
 "loop": true,
 "name": &"fast",
 "speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ifrbw")
+}],
+"loop": true,
+"name": &"flat",
+"speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -119,8 +131,8 @@ node_b = NodePath("../Knife")
 bias = 0.9
 
 [node name="Knife" type="RigidBody2D" parent="." unique_id=1986076042]
-collision_layer = 32770
-collision_mask = 232
+collision_layer = 49154
+collision_mask = 16616
 mass = 3.0
 physics_material_override = SubResource("PhysicsMaterial_a14j1")
 gravity_scale = 50.0
@@ -148,8 +160,8 @@ polygon = PackedVector2Array(-4, 5, -1, 5, -1, 22, 3, 26, -1, 26, -4, 23)
 position = Vector2(-3, 23)
 
 [node name="Guy" type="CharacterBody2D" parent="." unique_id=217851887]
-collision_layer = 32769
-collision_mask = 173
+collision_layer = 40961
+collision_mask = 16557
 motion_mode = 1
 script = ExtResource("3_ifrbw")
 
@@ -158,9 +170,8 @@ shape = SubResource("CircleShape2D_4hsr3")
 
 [node name="Sprite" type="AnimatedSprite2D" parent="Guy" unique_id=275636831]
 sprite_frames = SubResource("SpriteFrames_n2tm1")
-animation = &"slow"
-autoplay = "fast"
-frame_progress = 0.64330417
+animation = &"still"
+autoplay = "still"
 
 [node name="HitParticles" type="CPUParticles2D" parent="Guy" unique_id=1390429745]
 emitting = false

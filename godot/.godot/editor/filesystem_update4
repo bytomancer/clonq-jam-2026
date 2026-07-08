@@ -12,3 +12,8 @@ res://fab/bamboo_falling.tscn
 res://src/bamboo_falling.gd
 res://src/main.gd
 res://src/bg.gd
+res://src/rock.gd
+res://fab/rock.tscn
+res://src/guy.gd
+res://src/arrow.gd
+res://fab/bird.tscn

@@ -6,6 +6,7 @@ const FAST_VEL = 80.0
 
 const INVULN_TIME = 2.0
 var invuln_timer = 0.0
+var squished = false
 
 # func damage(_dmg: float) -> void:
 # 	get_tree().change_scene_to_file("res://scn/lose.tscn")
@@ -15,10 +16,17 @@ func start_invuln() -> void:
 	$HitParticles.restart()
 
 func _process(delta: float):
+	if invuln_timer <= 0:
+		squished = false
+
 	if invuln_timer >= 0:
-		if $Sprite.animation != "ow":
-			$Sprite.animation = "ow"
 		invuln_timer -= delta
+		if squished:
+			if $Sprite.animation != "flat":
+				$Sprite.animation = "flat"
+		else:
+			if $Sprite.animation != "ow":
+				$Sprite.animation = "ow"
 	elif self.get_real_velocity().length() < SLOW_VEL:
 		if $Sprite.animation != "still":
 			$Sprite.animation = "still"
@@ -33,6 +41,8 @@ func _process(delta: float):
 			$Sprite.animation = "fast"
 
 	if $Sprite.animation == "ow":
+		$Sprite.modulate = Color(0.5, 0.5, 0.5, 1.0)
+	elif $Sprite.animation == "flat":
 		$Sprite.modulate = Color(0.5, 0.5, 0.5, 1.0)
 	else:
 		$Sprite.modulate = Color(1.0, 1.0, 1.0, 1.0)
