@@ -54,7 +54,7 @@ func _process(_delta: float) -> void:
 	self.apply_force(flight_vel)
 
 func set_difficulty(diff: float) -> void:
-	self.speed *= 1.0 + diff
+	self.speed *= 1.0 + (diff / 4.0)
 
 func is_bird() -> bool:
 	return true

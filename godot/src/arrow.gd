@@ -82,4 +82,4 @@ func _on_arrow_dmg_detector_area_entered(area: Area2D) -> void:
 		kill_self()
 
 func set_difficulty(diff: float) -> void:
-	self.normal_speed *= 1.0 * diff
+	self.normal_speed *= 1.0 + diff

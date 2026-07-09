@@ -11,6 +11,8 @@ var hp = 100.0
 var main
 var dmg_display
 
+var boss = false
+
 func _enter_tree() -> void:
 	self.main = get_node("/root/Main")
 	self.dmg_display = get_node("/root/Main/DmgNumDisplay")
@@ -23,6 +25,7 @@ func make_boss() -> void:
 	self.speed *= .75
 	self.hp *= 10.0
 	self.scale *= 2.0
+	boss = true
 
 # var hit_rot = 0.1
 func damage(dmg: float) -> void:
@@ -32,11 +35,14 @@ func damage(dmg: float) -> void:
 	self.dmg_display.add_number(dmg, Color(1, 1, 1))
 	if self.hp < 0.0:
 		main.bonus_difficulty += 2
-		main.spawn_obj()
+		if !boss:
+			main.spawn_obj()
 		var dead_bam_fab = load("res://fab/bamboo_falling.tscn")
 		var dead_bam = dead_bam_fab.instantiate()
 		dead_bam.global_position = self.global_position
 		main.get_node("DeadBamboo").add_child(dead_bam)
+		if boss:
+			dead_bam.make_boss()
 		queue_free()
 	else:
 		$sfx_hit.play()
@@ -49,4 +55,5 @@ func _process(delta: float) -> void:
 	var velocity = Vector2(1, -.1) * speed * delta
 	self.position -= velocity
 	if self.global_position.x <= KILLZONE:
-		get_tree().change_scene_to_file("res://scn/lose.tscn")
+		main.get_node("Player").fail_game_bamboo()
+		# get_tree().change_scene_to_file("res://scn/lose.tscn")

@@ -16,6 +16,8 @@ func start_invuln() -> void:
 	$HitParticles.restart()
 
 func _process(delta: float):
+	if !get_parent().alive:
+		return
 	if invuln_timer <= 0:
 		squished = false
 
@@ -27,6 +29,9 @@ func _process(delta: float):
 		else:
 			if $Sprite.animation != "ow":
 				$Sprite.animation = "ow"
+	elif get_parent().gamewon:
+		if $Sprite.animation != "fast":
+			$Sprite.animation = "fast"
 	elif self.get_real_velocity().length() < SLOW_VEL:
 		if $Sprite.animation != "still":
 			$Sprite.animation = "still"

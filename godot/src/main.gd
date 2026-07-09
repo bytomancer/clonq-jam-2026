@@ -3,6 +3,10 @@ extends Node2D
 const MAX_DIFF = 320 # 20 * sqrt(256)
 const MIN_DIFF = 0
 const GAME_TIME_SOFT_LIMIT = 30.5
+const GAME_END = 43.5
+#const GAME_TIME_SOFT_LIMIT = 1.0 #debugging
+
+var gamewon = false
 
 var difficulty = 0.0
 
@@ -60,6 +64,11 @@ func set_difficulty(diff) -> void:
 func _process(delta: float) -> void:
 	total_time_played += delta
 
+	if gamewon:
+		if total_time_played >= GAME_END:
+			get_tree().change_scene_to_file("res://scn/win.tscn")
+		return
+
 	next_bam_timer -= delta
 	if next_bam_timer <= 0.0:
 		reset_bam_timer()
@@ -75,7 +84,10 @@ func _process(delta: float) -> void:
 	if total_time_played > GAME_TIME_SOFT_LIMIT:
 		if final_bam:
 			if %BambooHolder.get_child_count() == 0:
-				get_tree().change_scene_to_file("res://scn/win.tscn")
+				# get_tree().change_scene_to_file("res://scn/win.tscn")
+				gamewon = true
+				player_ref.win_game()
+				$Bg/Snow.speed_scale = 0.25
 		else:
 			spawn_bam(true)
 			final_bam = true
@@ -91,6 +103,8 @@ func reset_bam_timer(perf_spawn = true) -> void:
 	next_bam_timer = randf() * rand_bonus + rand_base
 
 func spawn_bam(stronger = false):
+	if gamewon:
+		return
 	var bamboo = bam_fab.instantiate()
 	bamboo.disable_tutorial()
 	bamboo.global_position = Vector2(299.0, 160.0)
@@ -119,6 +133,8 @@ func reset_obj_timer(perf_spawn = true) -> void:
 	next_obj_timer = randf() * rand_bonus + rand_base
 
 func spawn_obj():
+	if gamewon:
+		return
 	var curr_rocks = 0
 	var curr_birds = 0
 	for obj in %ObjectHolder.get_children():
@@ -163,6 +179,8 @@ func reset_pup_timer(perf_spawn = true) -> void:
 	next_pup_timer = 12.0 # Tired of feeling cheated without enough dmgup on boss
 
 func spawn_pup():
+	if gamewon:
+		return
 	var pup = pup_fab.instantiate()
 	pup.disable_tutorial()
 	

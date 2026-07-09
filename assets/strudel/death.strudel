@@ -1,0 +1,44 @@
+let banjo = cat(
+    // C Major
+    // Play C up the neck @ (0) x 5 4 5, which is (g4) X c4 e4 g4
+    "<c4@2 [c4,e4,g4] g4>*8",
+
+    // Am7 is ACEG
+    // The low inverted Am7 is (0) 2 2 0 2, which is (g4) e3 a3 c4 e4
+    // A true Am7 is (0) X 2 0 2
+    // Another Am7 would be (0) 7 5 7 5, which is (g4) a3 c4 g4 g4
+    // Or (0) 7 5 4 5 is (g4) a3 c4 e4 g4
+
+    // We go into it though lifting everything up a half step, then drop into Am7
+    // "<g4@2 [a#3,c#4,e#4] g4    g4@2 [a3,c4,e4] g4>*8",
+    // Nah, that sounds bad
+    // A crazy one is (0) 7 9 7 9, (g4) A3 E4 G4 C5
+    "c5@2 [a3,e4,g4] g4     c5 g4 e4 a4",
+
+    // Back to C, go for a Cm7 though: C Eb G Bb
+    // Fret: (0) 2 3 0 2, which is (g4) Eb3 Bb4 C4 Eb4
+    "[eb3,bb3,c4,eb4]"
+)
+    .note()
+    .sound("gm_banjo")
+    .gain(0.15)
+
+// Koto tuning: Kokin-choshi
+// D4 G4 A3 C4 D4 Eb4 G4 A4 C5 D5 Eb5 G5 A5
+let koto = cat(
+    "c5@4 eb5 e5 eb4 e4",
+    "bb3 bb3 a3 a3 c5@2 c5@2",
+    "[bb3]"
+)
+    .note()
+    .sound("gm_koto")
+    .gain(0.25)
+
+let cpm = 180 / 4
+let song = stack(
+    banjo,
+    koto,
+)
+arrange(
+    [1, song],
+).cpm(cpm)

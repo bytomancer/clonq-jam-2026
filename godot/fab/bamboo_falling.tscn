@@ -24,7 +24,7 @@ collision_mask = 32768
 position = Vector2(0, -168)
 shape = SubResource("RectangleShape2D_b6phj")
 
-[node name="Sprite1" type="Sprite2D" parent="Stalks/Stalk1" unique_id=2046307924]
+[node name="Sprite" type="Sprite2D" parent="Stalks/Stalk1" unique_id=2046307924]
 position = Vector2(0, -168)
 texture = ExtResource("3_wkbeu")
 
@@ -37,7 +37,7 @@ collision_mask = 32768
 position = Vector2(0, -168)
 shape = SubResource("RectangleShape2D_b6phj")
 
-[node name="Sprite1" type="Sprite2D" parent="Stalks/Stalk2" unique_id=1336267697]
+[node name="Sprite" type="Sprite2D" parent="Stalks/Stalk2" unique_id=1336267697]
 position = Vector2(0, -168)
 texture = ExtResource("3_wkbeu")
 
@@ -50,7 +50,7 @@ collision_mask = 32768
 position = Vector2(0, -168)
 shape = SubResource("RectangleShape2D_b6phj")
 
-[node name="Sprite1" type="Sprite2D" parent="Stalks/Stalk3" unique_id=122303187]
+[node name="Sprite" type="Sprite2D" parent="Stalks/Stalk3" unique_id=122303187]
 position = Vector2(0, -168)
 texture = ExtResource("3_wkbeu")
 
@@ -63,7 +63,7 @@ collision_mask = 32768
 position = Vector2(0, -168)
 shape = SubResource("RectangleShape2D_b6phj")
 
-[node name="Sprite1" type="Sprite2D" parent="Stalks/Stalk4" unique_id=895436760]
+[node name="Sprite" type="Sprite2D" parent="Stalks/Stalk4" unique_id=895436760]
 position = Vector2(0, -168)
 texture = ExtResource("3_wkbeu")
 
@@ -76,7 +76,7 @@ collision_mask = 32768
 position = Vector2(0, -168)
 shape = SubResource("RectangleShape2D_b6phj")
 
-[node name="Sprite1" type="Sprite2D" parent="Stalks/Stalk5" unique_id=918817771]
+[node name="Sprite" type="Sprite2D" parent="Stalks/Stalk5" unique_id=918817771]
 position = Vector2(0, -168)
 texture = ExtResource("3_wkbeu")
 
@@ -89,7 +89,7 @@ collision_mask = 32768
 position = Vector2(0, -168)
 shape = SubResource("RectangleShape2D_b6phj")
 
-[node name="Sprite1" type="Sprite2D" parent="Stalks/Stalk6" unique_id=1813989985]
+[node name="Sprite" type="Sprite2D" parent="Stalks/Stalk6" unique_id=1813989985]
 position = Vector2(0, -168)
 texture = ExtResource("3_wkbeu")
 
@@ -102,12 +102,12 @@ collision_mask = 32768
 position = Vector2(0, -168)
 shape = SubResource("RectangleShape2D_b6phj")
 
-[node name="Sprite1" type="Sprite2D" parent="Stalks/Stalk7" unique_id=2115938792]
+[node name="Sprite" type="Sprite2D" parent="Stalks/Stalk7" unique_id=2115938792]
 position = Vector2(0, -168)
 texture = ExtResource("3_wkbeu")
 
 [node name="Stalk8" type="RigidBody2D" parent="Stalks" unique_id=1675180148]
-position = Vector2(0, 112)
+position = Vector2(0, 115)
 collision_layer = 32768
 collision_mask = 32768
 
@@ -115,7 +115,7 @@ collision_mask = 32768
 position = Vector2(0, -168)
 shape = SubResource("RectangleShape2D_b6phj")
 
-[node name="Sprite1" type="Sprite2D" parent="Stalks/Stalk8" unique_id=1915402660]
+[node name="Sprite" type="Sprite2D" parent="Stalks/Stalk8" unique_id=1915402660]
 position = Vector2(0, -168)
 texture = ExtResource("3_wkbeu")
 
@@ -128,7 +128,7 @@ collision_mask = 32768
 position = Vector2(0, -168)
 shape = SubResource("RectangleShape2D_b6phj")
 
-[node name="Sprite1" type="Sprite2D" parent="Stalks/Stalk9" unique_id=1442001343]
+[node name="Sprite" type="Sprite2D" parent="Stalks/Stalk9" unique_id=1442001343]
 position = Vector2(0, -168)
 texture = ExtResource("3_wkbeu")
 
@@ -141,7 +141,7 @@ collision_mask = 32768
 position = Vector2(0, -168)
 shape = SubResource("RectangleShape2D_b6phj")
 
-[node name="Sprite1" type="Sprite2D" parent="Stalks/Stalk10" unique_id=347671137]
+[node name="Sprite" type="Sprite2D" parent="Stalks/Stalk10" unique_id=347671137]
 position = Vector2(0, -168)
 texture = ExtResource("3_wkbeu")
 
@@ -154,13 +154,9 @@ collision_mask = 32768
 position = Vector2(0, -168)
 shape = SubResource("RectangleShape2D_b6phj")
 
-[node name="Sprite1" type="Sprite2D" parent="Stalks/Stalk11" unique_id=166537158]
+[node name="Sprite" type="Sprite2D" parent="Stalks/Stalk11" unique_id=166537158]
 position = Vector2(0, -168)
 texture = ExtResource("3_wkbeu")
-
-[node name="sfx_break" type="AudioStreamPlayer2D" parent="." unique_id=999713767]
-stream = ExtResource("6_3plln")
-volume_db = -10.0
 
 [node name="Leaves" type="Node2D" parent="." unique_id=1345439454]
 
@@ -168,7 +164,7 @@ volume_db = -10.0
 collision_layer = 32768
 collision_mask = 32768
 
-[node name="Leaf1" type="Sprite2D" parent="Leaves/LeafBody1" unique_id=860149782]
+[node name="Sprite" type="Sprite2D" parent="Leaves/LeafBody1" unique_id=860149782]
 position = Vector2(3, -145)
 texture = ExtResource("4_n5rb4")
 offset = Vector2(8, -8)
@@ -182,7 +178,7 @@ position = Vector2(0, 30)
 collision_layer = 32768
 collision_mask = 32768
 
-[node name="Leaf1" type="Sprite2D" parent="Leaves/LeafBody2" unique_id=1536233688]
+[node name="Sprite" type="Sprite2D" parent="Leaves/LeafBody2" unique_id=1536233688]
 position = Vector2(3, -145)
 texture = ExtResource("4_n5rb4")
 offset = Vector2(8, -8)
@@ -196,7 +192,7 @@ position = Vector2(0, 51)
 collision_layer = 32768
 collision_mask = 32768
 
-[node name="Leaf1" type="Sprite2D" parent="Leaves/LeafBody3" unique_id=1381243167]
+[node name="Sprite" type="Sprite2D" parent="Leaves/LeafBody3" unique_id=1381243167]
 position = Vector2(3, -145)
 texture = ExtResource("4_n5rb4")
 offset = Vector2(8, -8)
@@ -210,7 +206,7 @@ position = Vector2(0, 75)
 collision_layer = 32768
 collision_mask = 32768
 
-[node name="Leaf1" type="Sprite2D" parent="Leaves/LeafBody4" unique_id=1433364023]
+[node name="Sprite" type="Sprite2D" parent="Leaves/LeafBody4" unique_id=1433364023]
 position = Vector2(3, -145)
 texture = ExtResource("4_n5rb4")
 offset = Vector2(8, -8)
@@ -224,7 +220,7 @@ position = Vector2(0, 93)
 collision_layer = 32768
 collision_mask = 32768
 
-[node name="Leaf1" type="Sprite2D" parent="Leaves/LeafBody5" unique_id=1422991418]
+[node name="Sprite" type="Sprite2D" parent="Leaves/LeafBody5" unique_id=1422991418]
 position = Vector2(3, -145)
 texture = ExtResource("4_n5rb4")
 offset = Vector2(8, -8)
@@ -238,7 +234,7 @@ position = Vector2(0, 128)
 collision_layer = 32768
 collision_mask = 32768
 
-[node name="Leaf1" type="Sprite2D" parent="Leaves/LeafBody6" unique_id=296909133]
+[node name="Sprite" type="Sprite2D" parent="Leaves/LeafBody6" unique_id=296909133]
 position = Vector2(3, -145)
 texture = ExtResource("4_n5rb4")
 offset = Vector2(8, -8)
@@ -252,7 +248,7 @@ position = Vector2(-22, 12)
 collision_layer = 32768
 collision_mask = 32768
 
-[node name="Leaf1" type="Sprite2D" parent="Leaves/LeafBody7" unique_id=464702799]
+[node name="Sprite" type="Sprite2D" parent="Leaves/LeafBody7" unique_id=464702799]
 position = Vector2(19, -144)
 scale = Vector2(-1, 1)
 texture = ExtResource("4_n5rb4")
@@ -267,7 +263,7 @@ position = Vector2(-22, 46)
 collision_layer = 32768
 collision_mask = 32768
 
-[node name="Leaf1" type="Sprite2D" parent="Leaves/LeafBody8" unique_id=2016396999]
+[node name="Sprite" type="Sprite2D" parent="Leaves/LeafBody8" unique_id=2016396999]
 position = Vector2(19, -144)
 scale = Vector2(-1, 1)
 texture = ExtResource("4_n5rb4")
@@ -282,7 +278,7 @@ position = Vector2(-22, 107)
 collision_layer = 32768
 collision_mask = 32768
 
-[node name="Leaf1" type="Sprite2D" parent="Leaves/LeafBody9" unique_id=322515611]
+[node name="Sprite" type="Sprite2D" parent="Leaves/LeafBody9" unique_id=322515611]
 position = Vector2(19, -144)
 scale = Vector2(-1, 1)
 texture = ExtResource("4_n5rb4")
@@ -292,7 +288,6 @@ offset = Vector2(8, -8)
 position = Vector2(11, -150)
 shape = SubResource("CircleShape2D_5mjp5")
 
-[node name="sfx_break2" type="AudioStreamPlayer2D" parent="." unique_id=642578029]
+[node name="sfx_break" type="AudioStreamPlayer2D" parent="." unique_id=999713767]
 stream = ExtResource("6_3plln")
-volume_db = -3.0
-autoplay = true
+volume_db = -10.0

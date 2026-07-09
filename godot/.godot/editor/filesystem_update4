@@ -10,3 +10,7 @@ res://src/area_to_keep_objects_loaded.gd
 res://src/player.gd
 res://src/hud.gd
 res://fab/player.tscn
+res://src/bamboo_wall.gd
+res://src/guy.gd
+res://src/bamboo_falling.gd
+res://fab/bamboo_falling.tscn
