@@ -85,8 +85,8 @@ func reset_bam_timer(perf_spawn = true) -> void:
 		return
 	if perf_spawn:
 		spawn_bam()
-	var rand_bonus = lerpf(1.5, 0.7, difficulty)
-	var rand_base = lerpf(4.0, 1.0, difficulty)
+	var rand_bonus = lerpf(1.5, .1, difficulty)
+	var rand_base = lerpf(4.0, 2.0, difficulty)
 	next_bam_timer = randf() * rand_bonus + rand_base
 
 func spawn_bam(stronger = false):
@@ -114,7 +114,7 @@ func reset_obj_timer(perf_spawn = true) -> void:
 	if perf_spawn:
 		spawn_obj()
 	var rand_bonus = lerpf(0.2, 0.1, difficulty)
-	var rand_base = lerpf(0.8, 0.2, difficulty)
+	var rand_base = lerpf(0.8, 0.4, difficulty)
 	next_obj_timer = randf() * rand_bonus + rand_base
 
 func spawn_obj():
@@ -143,7 +143,7 @@ func spawn_obj():
 			var rand_y = randf_range(margin, 160 - margin)
 			obj.global_position = Vector2(299.0, rand_y)
 		%ObjectHolder.add_child(obj)
-	if bonus_difficulty > 1:
+	if bonus_difficulty > 2:
 		bonus_difficulty -= 1
 
 func reset_pup_timer(perf_spawn = true) -> void:
