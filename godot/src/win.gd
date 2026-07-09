@@ -4,6 +4,7 @@ extends Node2D
 var timer = 2.0
 
 func _ready() -> void:
+	get_tree().paused = false
 	JavaScriptBridge.eval("window.parent.postMessage({op: \"done\", win: true});")
 
 func _process(delta: float) -> void:
