@@ -57,7 +57,7 @@ killarrow.wav::AudioStreamWAV::9049512738318120804::1783029702::1783029745::1:::
 killbamboo.wav::AudioStreamWAV::3823340744599192717::1783029543::1783029745::1::::<><><>0<>0<>fd5d46a4e1d86e85f6967322d373db11<>res://.godot/imported/killbamboo.wav-a7aba2f10ceea10ca22a29de2c5e2b53.sample::
 killbird.wav::AudioStreamWAV::1980038617298323244::1783029430::1783029745::1::::<><><>0<>0<>bc6cfdf192733478eaed63992520bb09<>res://.godot/imported/killbird.wav-8e39a0e202cf9ef6ff313d8f3656e6e6.sample::
 powerup.wav::AudioStreamWAV::3517588313214342674::1783029364::1783029745::1::::<><><>0<>0<>86b03b67e0152114e796bd8ff4db7b82<>res://.godot/imported/powerup.wav-692b0679cd593fab535d64426fcd90c4.sample::
-rockbounce.wav::AudioStreamWAV::9098033499392164179::1783552543::1783552548::1::::<><><>0<>0<>1be17e64d7b6aecb4927598f60e30065<>res://.godot/imported/rockbounce.wav-f9cbdc3546a7b2a9cca8b1855256c618.sample::
+rockbounce.wav::AudioStreamWAV::9098033499392164179::1783609838::1783609845::1::::<><><>0<>0<>1be17e64d7b6aecb4927598f60e30065<>res://.godot/imported/rockbounce.wav-f9cbdc3546a7b2a9cca8b1855256c618.sample::
 ::res://src/::1783606788
 area_to_keep_objects_loaded.gd::GDScript::6502642252079670306::1780319605::0::1::::<>Area2D<><>0<>0<><>::
 arrow.gd::GDScript::1694957788437598747::1783606788::0::1::::<>RigidBody2D<><>0<>0<><>::
@@ -73,11 +73,11 @@ do_not_rotate.gd::GDScript::5022395266379995732::1779916775::0::1::::<>Node2D<><
 guy.gd::GDScript::4033705702447503887::1783606788::0::1::::<>CharacterBody2D<><>0<>0<><>::
 heart.gd::GDScript::1795785871561363542::1780319605::0::1::::<>Container<><>0<>0<><>::
 hud.gd::GDScript::2744498283233244519::1783606788::0::1::::<>Control<><>0<>0<><>::
-lose.gd::GDScript::452319568393361394::1780319605::0::1::::<>Node2D<><>0<>0<><>::
+lose.gd::GDScript::452319568393361394::1783609731::0::1::::<>Node2D<><>0<>0<><>::
 main.gd::GDScript::6616313811123200896::1783606788::0::1::::<>Node2D<><>0<>0<><>::
 num_popup.gd::GDScript::1199966499668068259::1780432687::0::1::::<>Label<><>0<>0<><>::
 player.gd::GDScript::7160280300353183588::1783606788::0::1::::<>Node2D<><>0<>0<><>::
 powerup.gd::GDScript::3444418433961241786::1780319605::0::1::::<>StaticBody2D<><>0<>0<><>::
 pre.gd::GDScript::426368791343932128::1780319605::0::1::::<>Node2D<><>0<>0<><>::
 rock.gd::GDScript::7958003714610498339::1783606788::0::1::::<>StaticBody2D<><>0<>0<><>::
-win.gd::GDScript::4665949263139630752::1780319605::0::1::::<>Node2D<><>0<>0<><>::
+win.gd::GDScript::4665949263139630752::1783609737::0::1::::<>Node2D<><>0<>0<><>::
