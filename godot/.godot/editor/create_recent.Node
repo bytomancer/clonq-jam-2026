@@ -1,10 +1,10 @@
+Node2D
+Sprite2D
 TextureRect
 CollisionShape2D
 Area2D
 StaticBody2D
-Sprite2D
 AnimationPlayer
-Node2D
 RigidBody2D
 AudioStreamPlayer2D
 AudioStreamPlayer
@@ -12,4 +12,3 @@ CPUParticles2D
 ParallaxLayer
 ParallaxBackground
 Parallax2D
-Container
