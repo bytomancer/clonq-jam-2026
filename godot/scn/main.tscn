@@ -226,10 +226,10 @@ tracks/13/path = NodePath("PxBg/Sunset:modulate")
 tracks/13/interp = 1
 tracks/13/loop_wrap = true
 tracks/13/keys = {
-"times": PackedFloat32Array(),
-"transitions": PackedFloat32Array(),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 0,
-"values": []
+"values": [Color(0, 0, 0, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_hn8gl"]
@@ -474,10 +474,10 @@ position = Vector2(492, 160)
 position = Vector2(390, 35)
 
 [node name="Powerup" parent="." unique_id=140198743 instance=ExtResource("14_altm0")]
-position = Vector2(443, 80)
+position = Vector2(492, 80)
 
 [node name="Rock" parent="." unique_id=226876867 instance=ExtResource("11_wc0fe")]
-position = Vector2(440, 0)
+position = Vector2(808, 0)
 
 [node name="Arrow" parent="." unique_id=266562850 instance=ExtResource("10_sywa5")]
 position = Vector2(298, 5)
@@ -536,6 +536,7 @@ unique_name_in_owner = true
 unique_name_in_owner = true
 
 [node name="AreaToKeepObjectsLoaded" type="Area2D" parent="." unique_id=1135938531]
+visible = false
 position = Vector2(120, 80)
 collision_layer = 0
 collision_mask = 255
@@ -736,7 +737,7 @@ position = Vector2(183, 125)
 texture = ExtResource("21_m1xow")
 
 [node name="Sunset" type="TextureRect" parent="Bg/PxBg" unique_id=161798285]
-modulate = Color(1, 1, 1, 0.479002)
+modulate = Color(0, 0, 0, 1)
 z_index = -1000
 z_as_relative = false
 offset_right = 240.0

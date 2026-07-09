@@ -13,7 +13,7 @@ func _enter_tree() -> void:
 	$TutNode/Tutorial.label_settings.font_color = Color(1, 1, 1)
 
 func _ready():
-	if ! $TutNode.visible:
+	if !$TutNode.visible:
 		$sfx_spawn.play()
 
 func disable_tutorial() -> void:
@@ -52,3 +52,9 @@ func _process(_delta: float) -> void:
 	var flight_speed = lerpf(self.speed, 0.0, current_speed / allowed_speed)
 	var flight_vel = Vector2(-1, 0).rotated(self.rotation) * flight_speed
 	self.apply_force(flight_vel)
+
+func set_difficulty(diff: float) -> void:
+	self.speed *= 1.0 + diff
+
+func is_bird() -> bool:
+	return true

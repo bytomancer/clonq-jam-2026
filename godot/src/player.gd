@@ -45,8 +45,8 @@ func _on_slicer_body_entered(body: Node2D) -> void:
 		dmg = 1.0
 	if godmode:
 		dmg = 999.0
-	print(dmg)
-	body.damage(dmg)
+	# body.damage(dmg)
+	body.call_deferred('damage', dmg)
 
 func get_dmg_pt() -> Node2D:
 	return $Knife/DmgNumPt

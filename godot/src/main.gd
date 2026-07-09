@@ -101,7 +101,7 @@ func spawn_bam(stronger = false):
 		spawn_pup()
 		spawn_pup()
 	else:
-		bamboo.hp *= 1.0 + (difficulty as float / MAX_DIFF as float)
+		bamboo.hp *= lerpf(1.0, 2.0, difficulty)
 	# DO NOT CHANGE THE SPEED IT CAUSES CLIPPING
 	#var speed_mod = 1.0 + difficulty
 	#bamboo.speed *= speed_mod
@@ -120,15 +120,19 @@ func reset_obj_timer(perf_spawn = true) -> void:
 
 func spawn_obj():
 	var curr_rocks = 0
+	var curr_birds = 0
 	for obj in %ObjectHolder.get_children():
 		if obj.has_method('is_rock') && obj.is_rock():
 			curr_rocks += 1
+		elif obj.has_method('is_bird') && obj.is_bird():
+			curr_birds += 1
 	for i in range(0, self.bonus_difficulty - 1):
 		var roll = randi() % 100
-		var bird = roll <= 30
+		var bird = roll <= 30 && curr_birds < 3
 		var rock = roll <= 50 && curr_rocks < 2
 		var obj
 		if bird:
+			curr_birds += 1
 			obj = bird_fab.instantiate()
 		elif rock:
 			curr_rocks += 1
@@ -137,12 +141,13 @@ func spawn_obj():
 			obj = arrow_fab.instantiate()
 		obj.disable_tutorial()
 		if rock:
-			var rand_x = randf_range(400, 500)
+			var rand_x = randf_range(400, 650)
 			obj.global_position = Vector2(rand_x, 0)
 		else:
 			var margin = 8.0
 			var rand_y = randf_range(margin, 160 - margin)
 			obj.global_position = Vector2(299.0, rand_y)
+		obj.set_difficulty(difficulty)
 		%ObjectHolder.add_child(obj)
 	if bonus_difficulty > 2:
 		bonus_difficulty -= 1

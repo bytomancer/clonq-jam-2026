@@ -21,7 +21,7 @@ func _ready() -> void:
 	set_damage_multiplier(1.0)
 
 func get_rightmost_alive_heart() -> Container:
-	for i in range(health, 0, -1):
+	for i in range(health - 1, 0, -1):
 		var h = heart_grid_ref.get_child(i)
 		if h and !h.is_destroyed():
 			return h

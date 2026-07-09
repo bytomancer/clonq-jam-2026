@@ -46,9 +46,10 @@ horizontal_alignment = 2
 position = Vector2(-1, 0)
 shape = SubResource("CircleShape2D_1u2c6")
 
-[node name="sfx_bounce" type="AudioStreamPlayer2D" parent="." unique_id=1216763272]
+[node name="sfx_bounce" type="AudioStreamPlayer2D" parent="." unique_id=1216763272 groups=["offscreen_free"]]
 stream = ExtResource("4_mtgjc")
 volume_db = -10.0
+max_distance = 500.0
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1154700352]
 texture = ExtResource("6_233n8")
