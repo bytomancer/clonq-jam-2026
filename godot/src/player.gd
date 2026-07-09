@@ -88,9 +88,10 @@ func _process(delta: float) -> void:
 	target.move_and_slide()
 	previous_knife_ang_vel = $Knife.angular_velocity
 
-	if Input.is_action_just_released("ui_accept"):
-		fail_game()
-		# godmode = !godmode
+    # debug: spacebar to force some activation
+	# if Input.is_action_just_released("ui_accept"):
+	# 	fail_game()
+    #   godmode = !godmode
 
 func _on_slicer_body_entered(body: Node2D) -> void:
 	if !alive:
