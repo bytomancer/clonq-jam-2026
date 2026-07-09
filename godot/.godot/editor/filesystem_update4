@@ -1,12 +1,6 @@
-res://src/lose.gd
-res://src/win.gd
-res://scn/main.tscn
+res://fab/player.tscn
 res://res/dead_heart_anim.tres
 res://res/default_label_setting.tres
-res://fab/rock.tscn
-res://fab/bamboo_wall.tscn
-res://fab/bird.tscn
-res://fab/powerup.tscn
-res://fab/player.tscn
-res://fab/bamboo_falling.tscn
-res://fab/arrow.tscn
+res://scn/main.tscn
+res://src/player.gd
+res://src/hud.gd

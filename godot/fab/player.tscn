@@ -5,6 +5,7 @@
 [ext_resource type="Script" uid="uid://bxp7sqnft8tfb" path="res://src/guy.gd" id="3_ifrbw"]
 [ext_resource type="Texture2D" uid="uid://d2b21gsxlgijn" path="res://spr/guy.png" id="4_khxis"]
 [ext_resource type="AudioStream" uid="uid://c6upunbfw0qnm" path="res://sfx/damaged.wav" id="5_v0yqf"]
+[ext_resource type="AudioStream" uid="uid://cy4o13r5yrans" path="res://sfx/flatten.wav" id="6_amil5"]
 [ext_resource type="AudioStream" uid="uid://bqd7fvopj8trm" path="res://sfx/powerup.wav" id="6_ifrbw"]
 [ext_resource type="AudioStream" uid="uid://dsi3ee6wry6ai" path="res://bgm/death.ogg" id="7_khxis"]
 
@@ -220,6 +221,10 @@ shape = SubResource("CircleShape2D_vwxr4")
 
 [node name="sfx_hit" type="AudioStreamPlayer2D" parent="." unique_id=321230273]
 stream = ExtResource("5_v0yqf")
+volume_db = -10.0
+
+[node name="sfx_squish" type="AudioStreamPlayer2D" parent="." unique_id=616656867]
+stream = ExtResource("6_amil5")
 volume_db = -10.0
 
 [node name="sfx_powerup" type="AudioStreamPlayer2D" parent="." unique_id=1594209108]

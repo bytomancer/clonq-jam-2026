@@ -122,7 +122,10 @@ func damage() -> void:
 		return
 	if $Guy.invuln_timer >= 0:
 		return
-	$sfx_hit.play()
+	if $Guy.squished:
+		$sfx_squish.play()
+	else:
+		$sfx_hit.play()
 	$Guy.start_invuln()
 	reduce_hearts()
 
