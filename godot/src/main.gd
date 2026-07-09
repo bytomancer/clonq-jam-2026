@@ -1,6 +1,6 @@
 extends Node2D
 
-const MAX_DIFF = 255
+const MAX_DIFF = 320 # 20 * sqrt(256)
 const MIN_DIFF = 0
 const GAME_TIME_SOFT_LIMIT = 30.5
 
@@ -49,11 +49,12 @@ func _ready() -> void:
 	total_time_played = 0.0
 
 func set_difficulty(diff) -> void:
-	var diff_i = clamp(diff, MIN_DIFF, MAX_DIFF)
+	var diff_flat = 20 * sqrt(diff)
+	var diff_i = clampf(diff_flat, MIN_DIFF, MAX_DIFF)
 	var diff_f = diff_i / MAX_DIFF
-	print("Incoming difficulty is %d" % diff)
-	print("Setting difficulty to %d" % diff_i)
-	print("Difficulty scale at %d" % diff_f)
+	# print("Incoming difficulty is %d" % diff)
+	# print("Setting difficulty to %d" % diff_i)
+	# print("Difficulty scale at %d" % diff_f)
 	self.difficulty = diff_f
 
 func _process(delta: float) -> void:
@@ -85,8 +86,8 @@ func reset_bam_timer(perf_spawn = true) -> void:
 		return
 	if perf_spawn:
 		spawn_bam()
-	var rand_bonus = lerpf(1.5, .1, difficulty)
-	var rand_base = lerpf(4.0, 2.0, difficulty)
+	var rand_bonus = lerpf(1.5, 1.0, difficulty)
+	var rand_base = lerpf(4.0, 1.0, difficulty)
 	next_bam_timer = randf() * rand_bonus + rand_base
 
 func spawn_bam(stronger = false):
