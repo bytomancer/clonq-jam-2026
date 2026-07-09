@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://yfbybpnqo1c6" path="res://src/arrow.gd" id="1_233n8"]
 [ext_resource type="Script" uid="uid://cds5d7nljlay3" path="res://src/do_not_rotate.gd" id="2_uvtcg"]
 [ext_resource type="FontFile" uid="uid://cu5o2a46e1b1h" path="res://ext/spleen/spleen-6x12.otf" id="3_65a06"]
-[ext_resource type="Texture2D" uid="uid://dhrcw708lt8q5" path="res://ass/arrow.png" id="4_s5uc2"]
+[ext_resource type="Texture2D" uid="uid://dhrcw708lt8q5" path="res://spr/arrow.png" id="4_s5uc2"]
 [ext_resource type="Script" uid="uid://dguaajhvcedxs" path="res://src/arrow_tip.gd" id="5_ox02c"]
 [ext_resource type="AudioStream" uid="uid://b0ydnwywkmnru" path="res://sfx/bowshoot.wav" id="6_63tb6"]
 [ext_resource type="AudioStream" uid="uid://d16wfgp0l0a1y" path="res://sfx/killarrow.wav" id="7_mwylc"]

@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://dn1ysm4efevwx"]
 
 [ext_resource type="Script" uid="uid://b61tcd8pcnebx" path="res://src/bamboo_falling.gd" id="1_5mjp5"]
-[ext_resource type="Texture2D" uid="uid://da6imcjyjm71c" path="res://ass/bamboo.png" id="3_wkbeu"]
-[ext_resource type="Texture2D" uid="uid://uaaysr8fuipm" path="res://ass/bamleaf.png" id="4_n5rb4"]
+[ext_resource type="Texture2D" uid="uid://da6imcjyjm71c" path="res://spr/bamboo.png" id="3_wkbeu"]
+[ext_resource type="Texture2D" uid="uid://uaaysr8fuipm" path="res://spr/bamleaf.png" id="4_n5rb4"]
 [ext_resource type="AudioStream" uid="uid://buqb4mfxln04x" path="res://sfx/killbamboo.wav" id="6_3plln"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b6phj"]

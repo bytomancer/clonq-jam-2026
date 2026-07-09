@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://cds5d7nljlay3" path="res://src/do_not_rotate.gd" id="2_uvtcg"]
 [ext_resource type="FontFile" uid="uid://cu5o2a46e1b1h" path="res://ext/spleen/spleen-6x12.otf" id="3_65a06"]
 [ext_resource type="AudioStream" uid="uid://d2vfjutheb508" path="res://sfx/rockbounce.wav" id="4_mtgjc"]
-[ext_resource type="Texture2D" uid="uid://cpghfkw17x2hs" path="res://ass/rock.png" id="6_233n8"]
+[ext_resource type="Texture2D" uid="uid://cpghfkw17x2hs" path="res://spr/rock.png" id="6_233n8"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_wc0fe"]
 bounce = 1.0

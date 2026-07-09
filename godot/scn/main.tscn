@@ -14,17 +14,16 @@
 [ext_resource type="PackedScene" uid="uid://b1ys5mywg1ejp" path="res://fab/powerup.tscn" id="14_altm0"]
 [ext_resource type="SpriteFrames" uid="uid://bjd8lfuvp151o" path="res://res/dead_heart_anim.tres" id="14_qy7k8"]
 [ext_resource type="LabelSettings" uid="uid://c757dayt8j6j7" path="res://res/default_label_setting.tres" id="15_qy7k8"]
-[ext_resource type="Texture2D" uid="uid://ccb71ndpoyfaj" path="res://ass/hill.png" id="16_qy7k8"]
-[ext_resource type="Texture2D" uid="uid://c3wm3se5ovxi0" path="res://ass/1heart.png" id="16_vwxr4"]
+[ext_resource type="Texture2D" uid="uid://ccb71ndpoyfaj" path="res://spr/hill.png" id="16_qy7k8"]
+[ext_resource type="Texture2D" uid="uid://c3wm3se5ovxi0" path="res://spr/1heart.png" id="16_vwxr4"]
 [ext_resource type="Script" uid="uid://bdefsiqbv6px7" path="res://src/bg.gd" id="16_xs02v"]
 [ext_resource type="Script" uid="uid://cyv6tkosffc0q" path="res://src/area_to_keep_objects_loaded.gd" id="17_vwxr4"]
-[ext_resource type="Texture2D" uid="uid://b58t5uy85n8a7" path="res://ass/bg_bamboo.png" id="18_xs02v"]
-[ext_resource type="Texture2D" uid="uid://bl15xkjt7kvj7" path="res://ass/cloud.png" id="19_hn8gl"]
-[ext_resource type="Texture2D" uid="uid://dvu1qla2hy2xe" path="res://ass/trees.png" id="19_inono"]
-[ext_resource type="Texture2D" uid="uid://bq7pcsdspwwr3" path="res://ass/snow.png" id="19_nhm61"]
+[ext_resource type="Texture2D" uid="uid://b58t5uy85n8a7" path="res://spr/bg_bamboo.png" id="18_xs02v"]
+[ext_resource type="Texture2D" uid="uid://dvu1qla2hy2xe" path="res://spr/trees.png" id="19_inono"]
+[ext_resource type="Texture2D" uid="uid://bq7pcsdspwwr3" path="res://spr/snow.png" id="19_nhm61"]
 [ext_resource type="AudioStream" uid="uid://c8ub6r8mhnev0" path="res://bgm/bgm.ogg" id="20_6d0je"]
-[ext_resource type="Texture2D" uid="uid://b7huwm03ey6vi" path="res://ass/clouds2.png" id="20_rgggd"]
-[ext_resource type="Texture2D" uid="uid://bpvxqy4ndwhuv" path="res://ass/mount.png" id="21_m1xow"]
+[ext_resource type="Texture2D" uid="uid://b7huwm03ey6vi" path="res://spr/clouds2.png" id="20_rgggd"]
+[ext_resource type="Texture2D" uid="uid://bpvxqy4ndwhuv" path="res://spr/mount.png" id="21_m1xow"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_4r6w6"]
 font = ExtResource("12_x8hhd")
@@ -588,83 +587,6 @@ texture = ExtResource("20_rgggd")
 [node name="Clouds2" type="Sprite2D" parent="Bg/PxBg/Clouds" unique_id=2105682500]
 position = Vector2(128, 185)
 texture = ExtResource("20_rgggd")
-
-[node name="Node2D" type="Node2D" parent="Bg/PxBg/Clouds" unique_id=1815847299]
-
-[node name="Cloud10" type="Sprite2D" parent="Bg/PxBg/Clouds/Node2D" unique_id=1156747278]
-visible = false
-position = Vector2(-8, 136)
-texture = ExtResource("19_hn8gl")
-
-[node name="Cloud1" type="Sprite2D" parent="Bg/PxBg/Clouds/Node2D" unique_id=1697837199]
-visible = false
-position = Vector2(64, 128)
-texture = ExtResource("19_hn8gl")
-
-[node name="Cloud2" type="Sprite2D" parent="Bg/PxBg/Clouds/Node2D" unique_id=569032410]
-visible = false
-position = Vector2(131, 112)
-texture = ExtResource("19_hn8gl")
-
-[node name="Cloud3" type="Sprite2D" parent="Bg/PxBg/Clouds/Node2D" unique_id=428120314]
-visible = false
-position = Vector2(205, 128)
-texture = ExtResource("19_hn8gl")
-
-[node name="Cloud4" type="Sprite2D" parent="Bg/PxBg/Clouds/Node2D" unique_id=1142429311]
-visible = false
-position = Vector2(21, 100)
-texture = ExtResource("19_hn8gl")
-
-[node name="Cloud5" type="Sprite2D" parent="Bg/PxBg/Clouds/Node2D" unique_id=527062836]
-visible = false
-position = Vector2(88, 77)
-texture = ExtResource("19_hn8gl")
-
-[node name="Cloud6" type="Sprite2D" parent="Bg/PxBg/Clouds/Node2D" unique_id=2101380209]
-visible = false
-position = Vector2(154, 63)
-texture = ExtResource("19_hn8gl")
-
-[node name="Cloud7" type="Sprite2D" parent="Bg/PxBg/Clouds/Node2D" unique_id=862377482]
-visible = false
-position = Vector2(-19, 61)
-texture = ExtResource("19_hn8gl")
-
-[node name="Cloud8" type="Sprite2D" parent="Bg/PxBg/Clouds/Node2D" unique_id=189152882]
-visible = false
-position = Vector2(57, 28)
-texture = ExtResource("19_hn8gl")
-
-[node name="Cloud9" type="Sprite2D" parent="Bg/PxBg/Clouds/Node2D" unique_id=975804965]
-visible = false
-position = Vector2(158, 13)
-texture = ExtResource("19_hn8gl")
-
-[node name="Cloud11" type="Sprite2D" parent="Bg/PxBg/Clouds/Node2D" unique_id=322979839]
-visible = false
-position = Vector2(-23, -4)
-texture = ExtResource("19_hn8gl")
-
-[node name="Cloud12" type="Sprite2D" parent="Bg/PxBg/Clouds/Node2D" unique_id=201230702]
-visible = false
-position = Vector2(63, -33)
-texture = ExtResource("19_hn8gl")
-
-[node name="Cloud13" type="Sprite2D" parent="Bg/PxBg/Clouds/Node2D" unique_id=1655407962]
-visible = false
-position = Vector2(172, -54)
-texture = ExtResource("19_hn8gl")
-
-[node name="Cloud14" type="Sprite2D" parent="Bg/PxBg/Clouds/Node2D" unique_id=1962332102]
-visible = false
-position = Vector2(-50, -78)
-texture = ExtResource("19_hn8gl")
-
-[node name="Cloud15" type="Sprite2D" parent="Bg/PxBg/Clouds/Node2D" unique_id=1511675996]
-visible = false
-position = Vector2(73, -86)
-texture = ExtResource("19_hn8gl")
 
 [node name="Trees" type="ParallaxLayer" parent="Bg/PxBg" unique_id=679727901]
 modulate = Color(0.7529412, 0.7529412, 0.7529412, 1)

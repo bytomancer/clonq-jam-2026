@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://mv8rhrvfoh31" path="res://src/bird.gd" id="1_3tika"]
 [ext_resource type="Script" uid="uid://cds5d7nljlay3" path="res://src/do_not_rotate.gd" id="2_jf8hm"]
 [ext_resource type="FontFile" uid="uid://cu5o2a46e1b1h" path="res://ext/spleen/spleen-6x12.otf" id="3_1nruv"]
-[ext_resource type="Texture2D" uid="uid://nhewllnihmev" path="res://ass/bird.png" id="4_7yt3d"]
+[ext_resource type="Texture2D" uid="uid://nhewllnihmev" path="res://spr/bird.png" id="4_7yt3d"]
 [ext_resource type="AudioStream" uid="uid://3he7gowjafu7" path="res://sfx/killbird.wav" id="5_1nruv"]
 [ext_resource type="AudioStream" uid="uid://bkttybmeeh4a0" path="res://sfx/birdspawn.wav" id="6_7yt3d"]
 

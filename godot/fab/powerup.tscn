@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://b1ys5mywg1ejp"]
 
 [ext_resource type="Script" uid="uid://bpcrclbjktjli" path="res://src/powerup.gd" id="1_a1c17"]
-[ext_resource type="Texture2D" uid="uid://d31r8n6vmwxwo" path="res://ass/powerup.png" id="2_y4uq4"]
+[ext_resource type="Texture2D" uid="uid://d31r8n6vmwxwo" path="res://spr/powerup.png" id="2_y4uq4"]
 [ext_resource type="FontFile" uid="uid://cu5o2a46e1b1h" path="res://ext/spleen/spleen-6x12.otf" id="3_hlxdn"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wc0fe"]

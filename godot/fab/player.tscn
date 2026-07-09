@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://drnstb2vpr733"]
 
 [ext_resource type="Script" uid="uid://daaq1gupwyw5q" path="res://src/player.gd" id="1_bifre"]
-[ext_resource type="Texture2D" uid="uid://bo83xwhl0piwa" path="res://ass/knife.png" id="2_v0yqf"]
+[ext_resource type="Texture2D" uid="uid://bo83xwhl0piwa" path="res://spr/knife.png" id="2_v0yqf"]
 [ext_resource type="Script" uid="uid://bxp7sqnft8tfb" path="res://src/guy.gd" id="3_ifrbw"]
-[ext_resource type="Texture2D" uid="uid://d2b21gsxlgijn" path="res://ass/guy.png" id="4_khxis"]
+[ext_resource type="Texture2D" uid="uid://d2b21gsxlgijn" path="res://spr/guy.png" id="4_khxis"]
 [ext_resource type="AudioStream" uid="uid://c6upunbfw0qnm" path="res://sfx/damaged.wav" id="5_v0yqf"]
 [ext_resource type="AudioStream" uid="uid://bqd7fvopj8trm" path="res://sfx/powerup.wav" id="6_ifrbw"]
 [ext_resource type="AudioStream" uid="uid://dsi3ee6wry6ai" path="res://bgm/death.ogg" id="7_khxis"]
