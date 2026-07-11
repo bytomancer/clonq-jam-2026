@@ -49,3 +49,12 @@ offset_bottom = 18.0
 text = "grab->"
 label_settings = SubResource("LabelSettings_altm0")
 horizontal_alignment = 2
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=991240456]
+position = Vector2(1, 0)
+amount = 10
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 15.0
+initial_velocity_max = 20.0
+color = Color(1, 0, 0.99607843, 1)

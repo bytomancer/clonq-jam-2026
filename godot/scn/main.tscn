@@ -518,7 +518,7 @@ position = Vector2(492, 80)
 position = Vector2(808, 0)
 
 [node name="Arrow" parent="." unique_id=266562850 instance=ExtResource("10_sywa5")]
-position = Vector2(257, 58)
+position = Vector2(346, 59)
 tutorial_speed = 8000.0
 
 [node name="RockBounceFloor" type="Area2D" parent="." unique_id=931253786]

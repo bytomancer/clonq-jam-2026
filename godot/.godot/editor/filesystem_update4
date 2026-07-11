@@ -8,3 +8,5 @@ res://src/arrow.gd
 res://src/spin_tut.gd
 res://src/main.gd
 res://fab/bird.tscn
+res://fab/powerup.tscn
+res://fab/player.tscn

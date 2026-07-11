@@ -1,3 +1,4 @@
+CPUParticles2D
 Label
 Sprite2D
 Node2D
@@ -10,6 +11,4 @@ StaticBody2D
 RigidBody2D
 AudioStreamPlayer2D
 AudioStreamPlayer
-CPUParticles2D
 ParallaxLayer
-ParallaxBackground
