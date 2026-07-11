@@ -1,7 +1,7 @@
 extends RigidBody2D
 
 @export
-var tutorial_speed = 4000.0
+var tutorial_speed = 8000.0
 
 @export
 var normal_speed = 12000.0

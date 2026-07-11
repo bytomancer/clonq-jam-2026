@@ -29,6 +29,7 @@ constant_angular_velocity = -1.7453293
 script = ExtResource("1_2beku")
 
 [node name="TutNode" type="Node2D" parent="." unique_id=905435295]
+visible = false
 script = ExtResource("2_uvtcg")
 
 [node name="Tutorial" type="Label" parent="TutNode" unique_id=818923203]

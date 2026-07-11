@@ -41,6 +41,9 @@ var final_bam = false
 var player_ref = get_node("/root/Main/Player")
 
 @onready
+var tut_bamboo_ref = get_node("/root/Main/BambooWall")
+
+@onready
 var dmg_num_display_ref = get_node("/root/Main/DmgNumDisplay")
 
 var volume_db = -5.0
@@ -61,8 +64,14 @@ func set_difficulty(diff) -> void:
 	# print("Difficulty scale at %d" % diff_f)
 	self.difficulty = diff_f
 
+const SPIN_TUT_START = 8.0
+# const SPIN_TUT_END = SPIN_TUT_START + 2.0
+
 func _process(delta: float) -> void:
 	total_time_played += delta
+
+	%SpinTut.visible = total_time_played >= SPIN_TUT_START && tut_bamboo_ref != null
+	# %SpinTut.visible = total_time_played >= SPIN_TUT_START && total_time_played <= SPIN_TUT_END
 
 	if gamewon:
 		if total_time_played >= GAME_END:

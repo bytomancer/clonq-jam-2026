@@ -1,6 +1,10 @@
-res://fab/player.tscn
+res://scn/main.tscn
 res://res/dead_heart_anim.tres
 res://res/default_label_setting.tres
-res://scn/main.tscn
-res://src/player.gd
 res://src/hud.gd
+res://fab/arrow.tscn
+res://fab/rock.tscn
+res://src/arrow.gd
+res://src/spin_tut.gd
+res://src/main.gd
+res://fab/bird.tscn

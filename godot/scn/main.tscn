@@ -24,6 +24,9 @@
 [ext_resource type="AudioStream" uid="uid://c8ub6r8mhnev0" path="res://bgm/bgm.ogg" id="20_6d0je"]
 [ext_resource type="Texture2D" uid="uid://b7huwm03ey6vi" path="res://spr/clouds2.png" id="20_rgggd"]
 [ext_resource type="Texture2D" uid="uid://bpvxqy4ndwhuv" path="res://spr/mount.png" id="21_m1xow"]
+[ext_resource type="Texture2D" uid="uid://dikwhuquc7nhy" path="res://spr/spin.png" id="25_6ecc7"]
+[ext_resource type="Script" uid="uid://dshs1qsfk2nd1" path="res://src/spin_tut.gd" id="25_hbcb0"]
+[ext_resource type="FontFile" uid="uid://b31j5cwv85pxv" path="res://ext/spleen/spleen-6x12.woff2" id="26_hbcb0"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_4r6w6"]
 font = ExtResource("12_x8hhd")
@@ -409,6 +412,42 @@ _data = {
 &"default": SubResource("Animation_hn8gl")
 }
 
+[sub_resource type="Animation" id="Animation_sywa5"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_rgggd"]
+resource_name = "shake"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.03333334, 0.06666668, 0.099999994, 0.13333336, 0.16666669, 0.19999999, 0.23333335, 0.2666667, 0.3, 0.33333337),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(-3, -3), Vector2(-2, 3), Vector2(2, -1), Vector2(-1, 2), Vector2(-1, -3), Vector2(0, 0), Vector2(2, -2), Vector2(-1, 2), Vector2(2, 3), Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6ecc7"]
+_data = {
+&"RESET": SubResource("Animation_sywa5"),
+&"shake": SubResource("Animation_rgggd")
+}
+
 [node name="Main" type="Node2D" unique_id=970221214]
 script = ExtResource("1_xs02v")
 metadata/_edit_horizontal_guides_ = [80.0, 260.0, -100.0]
@@ -470,7 +509,7 @@ shape = SubResource("WorldBoundaryShape2D_nq6di")
 position = Vector2(492, 160)
 
 [node name="Bird" parent="." unique_id=66656583 instance=ExtResource("10_altm0")]
-position = Vector2(390, 35)
+position = Vector2(429, 21)
 
 [node name="Powerup" parent="." unique_id=140198743 instance=ExtResource("14_altm0")]
 position = Vector2(492, 80)
@@ -479,7 +518,8 @@ position = Vector2(492, 80)
 position = Vector2(808, 0)
 
 [node name="Arrow" parent="." unique_id=266562850 instance=ExtResource("10_sywa5")]
-position = Vector2(298, 5)
+position = Vector2(257, 58)
+tutorial_speed = 8000.0
 
 [node name="RockBounceFloor" type="Area2D" parent="." unique_id=931253786]
 position = Vector2(1000, 180)
@@ -695,5 +735,31 @@ stream = ExtResource("20_6d0je")
 autoplay = true
 
 [node name="DeadBamboo" type="Node2D" parent="." unique_id=571450821]
+
+[node name="Camera" type="Camera2D" parent="." unique_id=1412599228]
+unique_name_in_owner = true
+position = Vector2(120, 80)
+
+[node name="Anim" type="AnimationPlayer" parent="Camera" unique_id=1434147708]
+libraries/ = SubResource("AnimationLibrary_6ecc7")
+
+[node name="SpinTut" type="Node2D" parent="." unique_id=1773603781]
+unique_name_in_owner = true
+visible = false
+z_index = -1
+position = Vector2(120, 80)
+script = ExtResource("25_hbcb0")
+
+[node name="Sprite2D" type="Sprite2D" parent="SpinTut" unique_id=1221114131]
+texture = ExtResource("25_6ecc7")
+
+[node name="Label" type="Label" parent="SpinTut" unique_id=2011290175]
+offset_left = -14.0
+offset_top = -5.0
+offset_right = 26.0
+offset_bottom = 18.0
+theme_override_fonts/font = ExtResource("26_hbcb0")
+theme_override_font_sizes/font_size = 12
+text = "SPIN!"
 
 [connection signal="body_exited" from="AreaToKeepObjectsLoaded" to="AreaToKeepObjectsLoaded" method="_on_body_exited"]

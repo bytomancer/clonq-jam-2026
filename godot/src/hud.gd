@@ -16,6 +16,7 @@ func reduce_hearts():
 	var h = get_rightmost_alive_heart()
 	if h != null:
 		h.destroy()
+	%Camera/Anim.play("shake")
 
 func _ready() -> void:
 	set_damage_multiplier(1.0)

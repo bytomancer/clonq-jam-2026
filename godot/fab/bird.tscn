@@ -67,13 +67,13 @@ script = ExtResource("1_3tika")
 script = ExtResource("2_jf8hm")
 
 [node name="Tutorial" type="Label" parent="TutNode" unique_id=1475377033]
-offset_left = -62.0
+offset_left = -146.0
 offset_top = -5.0
 offset_right = -8.0
 offset_bottom = 157.0
 pivot_offset = Vector2(45, 4)
 pivot_offset_ratio = Vector2(6, 0)
-text = "protect->"
+text = "DON'T KILL->"
 label_settings = SubResource("LabelSettings_altm0")
 horizontal_alignment = 2
 

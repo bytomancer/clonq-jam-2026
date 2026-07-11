@@ -76,9 +76,10 @@ collision_layer = 64
 collision_mask = 67
 physics_material_override = SubResource("PhysicsMaterial_wc0fe")
 script = ExtResource("1_233n8")
-tutorial_speed = 600.0
+tutorial_speed = 12000.0
 
 [node name="TutNode" type="Node2D" parent="." unique_id=905435295]
+visible = false
 script = ExtResource("2_uvtcg")
 
 [node name="Tutorial" type="Label" parent="TutNode" unique_id=818923203]
