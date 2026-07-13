@@ -8,6 +8,8 @@ var normal_speed = 12000.0
 
 var speed = tutorial_speed
 
+var is_tutorial = true
+
 @export
 var hp = 10.0
 
@@ -22,15 +24,29 @@ var time_alive = 0.0
 func disable_tutorial() -> void:
 	$TutNode.hide()
 	speed = normal_speed
+	self.is_tutorial = false
 
 func damage(_dmg: float) -> void:
 	pass
 
+const MID_SCREEN_HEIGHT = 80
+
 func _ready() -> void:
-	var flight_vel = Vector2(-1, 0) * speed
-	self.apply_force(flight_vel)
-	if !$TutNode.visible:
+	var rand_angle = 0
+	if !is_tutorial:
 		$sfx_spawn.play()
+		var rand_angle_range = PI / 8.0
+		rand_angle = randf_range(-1 * rand_angle_range, rand_angle_range)
+		# rotate toward midscreen
+		var percent_down_screen = global_position.y / (MID_SCREEN_HEIGHT * 2)
+		rand_angle += lerp(-PI / 8.0, PI / 8.0, percent_down_screen)
+	var flight_vel = Vector2(-1, 0).rotated(rand_angle) * speed
+	self.apply_force(flight_vel)
+
+func rotate_arrow_by_flightpath() -> void:
+	var new_angle = PI + self.linear_velocity.angle()
+	$CollisionShape2D.rotation = new_angle
+	$Sprite.rotation = new_angle
 
 func _process(delta: float) -> void:
 	if self.global_position.x < -100 or self.global_position.x > get_viewport_rect().size.x + 500 or self.global_position.y < -100 or self.global_position.y > get_viewport_rect().size.y + 100:
@@ -40,6 +56,7 @@ func _process(delta: float) -> void:
 		return
 	
 	time_alive += delta
+	rotate_arrow_by_flightpath()
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if self.hp <= 0.0:
