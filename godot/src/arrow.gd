@@ -9,15 +9,10 @@ var normal_speed = 12000.0
 var speed = tutorial_speed
 
 @export
-var hp = 10.0
+var hp = 0.1
 
 @export
 var damage_value = 10.0
-
-# var prev_pos = Vector2(0, 0)
-# var time_stalled = 0.0
-
-var time_alive = 0.0
 
 func disable_tutorial() -> void:
 	$TutNode.hide()
@@ -33,13 +28,8 @@ func _ready() -> void:
 		$sfx_spawn.play()
 
 func _process(delta: float) -> void:
-	if self.global_position.x < -100 or self.global_position.x > get_viewport_rect().size.x + 500 or self.global_position.y < -100 or self.global_position.y > get_viewport_rect().size.y + 100:
-		queue_free()
-		return
 	if self.hp <= 0.0:
 		return
-	
-	time_alive += delta
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if self.hp <= 0.0:
