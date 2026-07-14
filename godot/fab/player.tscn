@@ -221,7 +221,7 @@ shape = SubResource("CircleShape2D_vwxr4")
 
 [node name="sfx_hit" type="AudioStreamPlayer2D" parent="." unique_id=321230273]
 stream = ExtResource("5_v0yqf")
-volume_db = -10.0
+volume_db = -3.0
 
 [node name="sfx_squish" type="AudioStreamPlayer2D" parent="." unique_id=616656867]
 stream = ExtResource("6_amil5")

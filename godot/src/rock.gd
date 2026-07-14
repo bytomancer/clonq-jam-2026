@@ -14,9 +14,6 @@ func is_rock() -> bool:
 	return true
 
 func _process(delta: float) -> void:
-	# if self.global_position.x < -100 or self.global_position.x > get_viewport_rect().size.x + 500 or self.global_position.y < -100 or self.global_position.y > get_viewport_rect().size.y + 100:
-	# 	queue_free()
-	# 	return
 	velocity.x = x_speed;
 	velocity.y += grav;
 	

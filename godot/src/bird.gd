@@ -4,7 +4,9 @@ extends RigidBody2D
 var speed = 80.0
 
 @export
-var hp = 0.0001
+var hp = 0.1
+
+var is_tutorial = true
 
 var dmg_display
 
@@ -18,6 +20,7 @@ func _ready():
 
 func disable_tutorial() -> void:
 	$TutNode.hide()
+	is_tutorial = false
 
 func damage(dmg: float) -> void:
 	if self.hp <= 0.0:
@@ -37,12 +40,15 @@ func kill_self() -> void:
 	$TutNode/Tutorial.text = "=("
 	$TutNode/Tutorial.label_settings.font_color = Color(1, 0, 0)
 
+var has_cawed = false
+
 func _process(_delta: float) -> void:
-	if self.global_position.x < -100 or self.global_position.x > get_viewport_rect().size.x + 500 or self.global_position.y < -100 or self.global_position.y > get_viewport_rect().size.y + 100:
-		queue_free()
-		return
 	if self.hp <= 0.0:
 		return
+	if self.is_tutorial && self.has_cawed == false:
+		if self.global_position.x <= 299.0:
+			self.has_cawed = true
+			$sfx_spawn.play()
 	if self.global_rotation_degrees < -5:
 		self.apply_torque(5)
 	elif self.global_rotation_degrees > 5:
