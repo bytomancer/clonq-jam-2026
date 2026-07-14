@@ -22,14 +22,20 @@ func damage(_dmg: float) -> void:
 	pass
 
 func _ready() -> void:
-	var flight_vel = Vector2(-1, 0) * speed
+	var flight_vel = Vector2(-1, -.05) * speed
 	self.apply_force(flight_vel)
 	if !$TutNode.visible:
 		$sfx_spawn.play()
 
+func rotate_arrow_by_flightpath() -> void:
+	var new_angle = PI + self.linear_velocity.angle()
+	$CollisionShape2D.rotation = new_angle
+	$Sprite.rotation = new_angle
+
 func _process(delta: float) -> void:
 	if self.hp <= 0.0:
 		return
+	rotate_arrow_by_flightpath()
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if self.hp <= 0.0:
