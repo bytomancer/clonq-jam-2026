@@ -1,12 +1,4 @@
-res://src/arrow.gd
-res://src/bamboo_wall.gd
-res://scn/main.tscn
+res://fab/rock.tscn
 res://res/dead_heart_anim.tres
 res://res/default_label_setting.tres
-res://src/player.gd
-res://fab/arrow.tscn
-res://src/main.gd
-res://src/bird.gd
-res://src/rock.gd
-res://fab/player.tscn
-res://fab/rock.tscn
+res://scn/main.tscn
