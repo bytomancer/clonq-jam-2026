@@ -9,3 +9,4 @@ res://src/main.gd
 res://src/bird.gd
 res://src/rock.gd
 res://fab/player.tscn
+res://fab/rock.tscn

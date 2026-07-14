@@ -141,6 +141,32 @@ func reset_obj_timer(perf_spawn = true) -> void:
 	var rand_base = lerpf(0.8, 0.4, difficulty)
 	next_obj_timer = randf() * rand_bonus + rand_base
 
+func spawn_bird() -> void:
+	var obj = bird_fab.instantiate()
+	obj.disable_tutorial()
+	var margin = 8.0
+	var rand_y = randf_range(margin, 160 - margin)
+	obj.global_position = Vector2(299.0, rand_y)
+	obj.set_difficulty(difficulty)
+	%ObjectHolder.add_child(obj)
+
+func spawn_arrow() -> void:
+	var obj = arrow_fab.instantiate()
+	obj.disable_tutorial()
+	var margin = 8.0
+	var rand_y = randf_range(margin, 160 - margin)
+	obj.global_position = Vector2(299.0, rand_y)
+	obj.set_difficulty(difficulty)
+	%ObjectHolder.add_child(obj)
+
+func spawn_rock() -> void:
+	var obj = rock_fab.instantiate()
+	obj.disable_tutorial()
+	var rand_x = randf_range(400, 650)
+	obj.global_position = Vector2(rand_x, 0)
+	obj.set_difficulty(difficulty)
+	%ObjectHolder.add_child(obj)
+
 func spawn_obj():
 	if gamewon:
 		return
@@ -155,25 +181,14 @@ func spawn_obj():
 		var roll = randi() % 100
 		var bird = roll <= 30 && curr_birds < 3
 		var rock = roll <= 50 && curr_rocks < 2
-		var obj
 		if bird:
 			curr_birds += 1
-			obj = bird_fab.instantiate()
+			spawn_bird()
 		elif rock:
 			curr_rocks += 1
-			obj = rock_fab.instantiate()
+			spawn_rock()
 		else:
-			obj = arrow_fab.instantiate()
-		obj.disable_tutorial()
-		if rock:
-			var rand_x = randf_range(400, 650)
-			obj.global_position = Vector2(rand_x, 0)
-		else:
-			var margin = 8.0
-			var rand_y = randf_range(margin, 160 - margin)
-			obj.global_position = Vector2(299.0, rand_y)
-		obj.set_difficulty(difficulty)
-		%ObjectHolder.add_child(obj)
+			spawn_arrow()
 	if bonus_difficulty > 2:
 		bonus_difficulty -= 1
 
