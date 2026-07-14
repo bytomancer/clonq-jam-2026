@@ -620,10 +620,18 @@ position = Vector2(192, 128)
 texture = ExtResource("16_qy7k8")
 
 [node name="Clouds" type="ParallaxLayer" parent="Bg/PxBg" unique_id=187641133]
-motion_mirroring = Vector2(256, 256)
+motion_mirroring = Vector2(512, 256)
 
 [node name="Clouds1" type="Sprite2D" parent="Bg/PxBg/Clouds" unique_id=1894740499]
 position = Vector2(99, 57)
+texture = ExtResource("20_rgggd")
+
+[node name="Clouds3" type="Sprite2D" parent="Bg/PxBg/Clouds" unique_id=941521124]
+position = Vector2(355, 57)
+texture = ExtResource("20_rgggd")
+
+[node name="Clouds4" type="Sprite2D" parent="Bg/PxBg/Clouds" unique_id=1488317850]
+position = Vector2(384, 185)
 texture = ExtResource("20_rgggd")
 
 [node name="Clouds2" type="Sprite2D" parent="Bg/PxBg/Clouds" unique_id=2105682500]

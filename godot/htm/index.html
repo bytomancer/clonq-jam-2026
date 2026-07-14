@@ -93,6 +93,16 @@
         flex: 1;
     }
 
+    .diffGroup {
+        min-width: 100vw;
+        display: flex;
+    }
+
+    #statusMsg {
+        font-size: 1.5rem;
+        font-weight: bold;
+    }
+
     .canvas-container {
         flex: 1;
         min-height: 0;
@@ -104,26 +114,26 @@
         overflow: hidden;
     }
 
-    .diffGroup {
-        min-width: 100vw;
-        display: flex;
-    }
-
-    #statusMsg {
-        font-size: 1.5rem;
-        font-weight: bold;
-    }
-
     canvas {
         display: block;
-
-        aspect-ratio: 240 / 160;
-
-        width: min(100vw, calc(100vh * 240 / 160));
-        height: auto;
-
-        max-height: 100vh;
-
         image-rendering: pixelated;
     }
 </style>
+
+<script>
+    function resizeCanvas() {
+        const container = document.querySelector(".canvas-container");
+        const canvas = document.getElementById("canvas");
+
+        const w = container.clientWidth;
+        const h = container.clientHeight;
+
+        const scale = Math.min(w / 240, h / 160);
+
+        canvas.style.width = `${240 * scale}px`;
+        canvas.style.height = `${160 * scale}px`;
+    }
+
+    window.addEventListener("resize", resizeCanvas);
+    resizeCanvas();
+</script>

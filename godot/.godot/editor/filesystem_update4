@@ -1,4 +1,5 @@
-res://fab/rock.tscn
+res://fab/bamboo_wall.tscn
 res://res/dead_heart_anim.tres
 res://res/default_label_setting.tres
 res://scn/main.tscn
+res://fab/player.tscn

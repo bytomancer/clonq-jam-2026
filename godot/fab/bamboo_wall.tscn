@@ -10,8 +10,9 @@
 font = ExtResource("2_nj1a1")
 font_size = 12
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_b6phj"]
-size = Vector2(6, 176)
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_tb4re"]
+normal = Vector2(-1, 0)
+distance = 88.5
 
 [sub_resource type="Animation" id="Animation_nj1a1"]
 length = 0.001
@@ -296,8 +297,8 @@ label_settings = SubResource("LabelSettings_x8hhd")
 horizontal_alignment = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=510810304]
-position = Vector2(0, -88)
-shape = SubResource("RectangleShape2D_b6phj")
+position = Vector2(87.5, -116)
+shape = SubResource("WorldBoundaryShape2D_tb4re")
 
 [node name="Stalks" type="Node2D" parent="." unique_id=1102761154]
 
