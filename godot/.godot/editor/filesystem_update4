@@ -4,3 +4,6 @@ res://res/default_label_setting.tres
 res://scn/main.tscn
 res://fab/player.tscn
 res://src/pre.gd
+res://src/main.gd
+res://src/bamboo_wall.gd
+res://src/hud.gd

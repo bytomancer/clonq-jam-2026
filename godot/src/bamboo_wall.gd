@@ -34,7 +34,9 @@ func damage(dmg: float) -> void:
 	self.hp -= dmg
 	self.dmg_display.add_number(dmg, Color(1, 1, 1))
 	if self.hp < 0.0:
-		main.bonus_difficulty += 2
+		if main.bonus_difficulty <= 0:
+			main.bonus_difficulty = 1
+		main.bonus_difficulty += 1
 		if !boss:
 			main.spawn_obj()
 		var dead_bam_fab = load("res://fab/bamboo_falling.tscn")

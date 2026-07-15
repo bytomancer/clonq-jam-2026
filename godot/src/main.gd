@@ -138,7 +138,7 @@ func reset_obj_timer(perf_spawn = true) -> void:
 	if perf_spawn:
 		spawn_obj()
 	var rand_bonus = lerpf(0.2, 0.1, difficulty)
-	var rand_base = lerpf(0.8, 0.4, difficulty)
+	var rand_base = lerpf(1.5, 0.4, difficulty)
 	next_obj_timer = randf() * rand_bonus + rand_base
 
 func spawn_bird() -> void:
@@ -179,8 +179,8 @@ func spawn_obj():
 			curr_birds += 1
 	for i in range(0, self.bonus_difficulty - 1):
 		var roll = randi() % 100
-		var bird = roll <= 30 && curr_birds < 3
-		var rock = roll <= 50 && curr_rocks < 2
+		var bird = roll <= 20 && curr_birds < 3
+		var rock = roll <= 40 && curr_rocks < 2
 		if bird:
 			curr_birds += 1
 			spawn_bird()
