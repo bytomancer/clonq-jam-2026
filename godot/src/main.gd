@@ -46,7 +46,7 @@ var tut_bamboo_ref = get_node("/root/Main/BambooWall")
 @onready
 var dmg_num_display_ref = get_node("/root/Main/DmgNumDisplay")
 
-var volume_db = -5.0
+var volume_db = 0.0 # -5.0
 
 func _ready() -> void:
 	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Master"), volume_db)
